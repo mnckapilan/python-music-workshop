@@ -1,105 +1,131 @@
 # Exercise 0 — Getting Set Up
 
-Before you write any Python, you need two things on your laptop:
-
-- **Python** — the language we'll use
-- **VS Code** — the program we'll write code in
-
-The setup script checks both for you and opens VS Code when everything is ready.
+This guide walks you through everything before you write your first line of Python. Take it one step at a time — your volunteers are here to help!
 
 ---
 
-## Step 1 — Open the workshop folder
+## Step 1 — Unzip the workshop folder
 
-Your volunteer will give you a **.zip file**. Before you do anything else, unzip it:
+Your volunteer will give you a **.zip file** (it might be on a USB stick, or a download link).
 
-- **Mac** — double-click the .zip file. A folder appears next to it.
-- **Windows** — right-click the .zip file and choose **Extract All**, then click **Extract**.
+**Mac**
+1. Double-click the `.zip` file
+2. A folder appears next to it — that's your workshop folder
 
-The folder will be called something like **`python-music-workshop-main`**. Open it.
+**Windows**
+1. Right-click the `.zip` file
+2. Choose **Extract All…**, then click **Extract**
+3. A folder appears — that's your workshop folder
+
+The folder will be called something like **`python-music-workshop`**. Put it somewhere easy to find, like your Desktop.
 
 ---
 
 ## Step 2 — Run the setup script
 
-Open the **`setup`** folder inside the workshop folder.
+The setup script checks that everything is working. Here's how to run it:
 
 ### On a Mac
 
-1. Find the file called **`setup.command`**
-2. **Right-click** it and choose **Open**, then click **Open** again in the security prompt
-3. A terminal window opens and runs the checks automatically
+1. **Open Terminal**
+   Press `Cmd + Space` to open Spotlight, type **Terminal**, and press Enter.
+   A window with a text prompt appears — that's the terminal.
 
-> If macOS still blocks it, let your volunteer know — they have a fix.
+2. **Type `bash ` followed by a space** (don't press Enter yet)
+
+3. **Drag the setup file into the Terminal window**
+   Open your workshop folder → open the `setup` folder → find `setup.command`.
+   Drag that file into the Terminal window. The file path appears automatically.
+
+4. **Press Enter**
+   The script runs and prints its results.
 
 ### On a Windows PC
 
-1. Find the file called **`setup.bat`**
-2. Double-click it
-3. If Windows shows a blue "Windows protected your PC" screen, click **More info** then **Run anyway**
-4. A command prompt window opens and runs the checks automatically
+1. **Open the `setup` folder**
+   Go into your workshop folder, then open the `setup` folder.
+
+2. **Open a Command Prompt here**
+   Click once in the **address bar** at the top of the window (it shows the folder path).
+   Type `cmd` and press Enter. A black Command Prompt window opens in the right place.
+
+3. **Type `setup.bat` and press Enter**
+   The script runs and prints its results.
 
 ---
 
 ## Step 3 — Read the output
 
-The script prints a result for each check:
+You should see something like this:
 
 ```
-[ OK ] Python 3.11.4
-[ OK ] VS Code 1.89.0
+[ OK ] Python 3.12.3 (bundled)
 [ OK ] Loaded 9237 songs.
 
 *** ALL DONE — YOU'RE GOOD TO GO! ***
 ```
 
-VS Code opens automatically when all three pass — skip to Step 4.
+Both lines should say `[ OK ]`. If you see that — great, move on to Step 4!
 
-If something shows `[FAIL]`, you'll see exactly what to do:
-
-```
-[FAIL] Python — not found
-
-  ISSUE 1: Python 3 is not installed.
-  FIX 1:   Go to https://www.python.org/downloads/ and install Python 3.11.
-```
-
-Follow the **FIX** for each issue, then re-run the setup script. If you're stuck, show the window to your volunteer.
+If anything shows `[FAIL]`, the script will tell you what to do next. Read the **FIX** instructions, or show the window to your volunteer — they'll help you sort it out.
 
 ---
 
-## Step 4 — Open your first exercise
+## Step 4 — Open VS Code
 
-Once VS Code is open:
+VS Code is the program you'll write your Python code in.
 
-1. In the left panel, click the **`exercises`** folder to expand it
-2. Click **`exercise_01_variables_and_strings.py`**
-3. Read through it — then start coding in the **YOUR TASK** section
+1. Open **VS Code** (it may already be in your taskbar or Applications folder)
+2. Go to **File → Open Folder…**
+3. Find your workshop folder (e.g. on the Desktop), click it once to select it, then click **Open**
+4. You should see the `exercises` folder appear in the left panel
 
-To **run** the file, open a terminal in VS Code with `` Ctrl+` ``, then type:
+> **First time on Mac?** VS Code may ask "Do you trust the authors of the files in this folder?" — click **Yes, I trust the authors**.
+
+---
+
+## Step 5 — Open the built-in terminal
+
+VS Code has its own terminal built in — you'll use it to run your Python exercises.
+
+Press `` Ctrl+` `` (that's the backtick key — top-left of your keyboard, to the left of the `1` key).
+
+A panel opens at the bottom of the screen with a text prompt. You're in the right folder already.
+
+Type this and press Enter:
 
 ```
-python3 exercises/exercise_01_variables_and_strings.py
+python3 exercises/exercise_00_setup_check.py
 ```
 
-> On Windows, try `python` instead of `python3` if that doesn't work.
+You should see:
 
-You should see output printed in the terminal. If you do — you're ready!
+```
+Everything is set up correctly — you're ready to go!
+```
+
+If you see that — you're done! Start on Exercise 1.
+
+> **Windows tip:** if `python3` doesn't work, try `python` instead.
 
 ---
 
 ## Bonus — the Data Explorer
 
-There's a webpage that lets you browse 9,000+ real songs and shows you how to access any of them in Python. Double-click **`explore.command`** (Mac) or **`explore.bat`** (Windows) from the `setup` folder to open it.
+There's a webpage that lets you browse 9,000+ real songs and see exactly how to use any of them in your code.
+
+**Mac:** in Terminal, type `bash ` and drag `explore.command` into the window, then press Enter.
+**Windows:** open the `setup` folder, click the address bar, type `cmd`, press Enter, then type `explore.bat`.
 
 Press Enter in the terminal window (or close it) when you're done.
 
 ---
 
-## Quick Reference
+## Quick reference
 
-| Task | How |
+| What | How |
 |------|-----|
-| Run setup checks | double-click `setup/setup.command` (Mac) or `setup/setup.bat` (Windows) |
-| Run an exercise | `python3 exercises/exercise_01_variables_and_strings.py` in VS Code terminal |
-| Open the data explorer | double-click `setup/explore.command` (Mac) or `setup/explore.bat` (Windows) |
+| Run setup | Mac: `bash ` + drag `setup/setup.command` into Terminal · Windows: open `setup/` in Explorer, type `cmd` in address bar, run `setup.bat` |
+| Open the terminal in VS Code | `` Ctrl+` `` (backtick key) |
+| Run an exercise | `python3 exercises/exercise_01_variables_and_strings.py` |
+| Open the data explorer | Mac: `bash ` + drag `setup/explore.command` · Windows: same trick with `explore.bat` |

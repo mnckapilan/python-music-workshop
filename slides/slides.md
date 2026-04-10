@@ -7,13 +7,13 @@ lineNumbers: true
 layout: cover
 class: intro-cover
 shiki:
-  theme: 'github-light'
+  theme: "github-light"
 fonts:
-  sans: 'Figtree'
-  serif: 'Bricolage Grotesque'
-  mono: 'Fira Code'
-  weights: '400,500,600,700,800'
-  provider: 'google'
+  sans: "Figtree"
+  serif: "Bricolage Grotesque"
+  mono: "Fira Code"
+  weights: "400,500,600,700,800"
+  provider: "google"
 ---
 
 <div class="ic">
@@ -53,42 +53,62 @@ Over the next **2 hours** you'll learn the core building blocks of Python — us
 <div class="slide-footer-note"><strong>Finished early?</strong> Scroll to the <strong>Extension Challenge</strong> at the bottom of your exercise file — or open the <strong>Data Explorer</strong> to browse 9,000+ real songs.</div>
 
 ---
+
 layout: center
 class: exercise-header
+
 ---
 
 # Exercise 0
+
 ## Getting Set Up
 
 ---
 
-# Run the setup script
+# Step 1 — Run the setup script
 
-Open a terminal and run:
+**Mac** — open **Terminal** (Cmd+Space, type Terminal, press Enter):
+1. Type `bash ` with a space — don't press Enter yet
+2. Open your workshop folder → `setup` folder → drag **`setup.command`** into the Terminal window
+3. Press Enter
 
-| Your laptop | Open | Command to run |
-|-------------|------|----------------|
-| Mac | **Terminal** (search Spotlight) | `bash setup/setup.command` |
-| Windows | **Command Prompt** (`Win+R` → type `cmd`) | `setup\setup.bat` |
-
-The script checks Python and loads the music data:
+**Windows** — open the `setup` folder in File Explorer:
+1. Click the **address bar** at the top (where the folder path is shown)
+2. Type `cmd` and press Enter — a Command Prompt opens here
+3. Type `setup.bat` and press Enter
 
 ```
 [ OK ] Python 3.12.3 (bundled)
 [ OK ] Loaded 9237 songs.
-
 *** ALL DONE — YOU'RE GOOD TO GO! ***
 ```
-
-If anything shows `[FAIL]` — the script tells you exactly what to fix. Ask a volunteer!
 
 <FileHint file="exercise_00_setup_check.py" />
 
 ---
 
-# Running an exercise
+# Step 2 — Open VS Code
 
-Open the workshop folder in VS Code, then open the terminal with `` Ctrl+` `` and type:
+VS Code is where you'll read and write your Python code.
+
+1. Open **VS Code**
+2. **File → Open Folder…**
+3. Find your workshop folder → click it → click **Open**
+4. The `exercises` folder appears in the left panel
+
+> **Mac only:** if VS Code asks *"Do you trust the authors?"* — click **Yes, I trust the authors**.
+
+<FileHint file="exercise_00_setup_check.py" />
+
+---
+
+# Step 3 — Run your first exercise
+
+Open the terminal *inside* VS Code by pressing `` Ctrl+` ``
+
+That's the **backtick** key — top-left of your keyboard, to the left of `1`.
+
+A panel opens at the bottom. Type this and press Enter:
 
 ```bash
 python3 exercises/exercise_00_setup_check.py
@@ -100,16 +120,19 @@ You should see:
 Everything is set up correctly — you're ready to go!
 ```
 
-Open each exercise file in the `exercises` folder, read the example, then complete the **YOUR TASK** section.
+You're ready! Open each exercise in the `exercises` folder, read the example at the top, then complete the **YOUR TASK** section at the bottom.
 
 <FileHint file="exercise_00_setup_check.py" />
 
 ---
+
 layout: center
 class: exercise-header
+
 ---
 
 # Exercise 1
+
 ## Variables & Strings
 
 ---
@@ -188,11 +211,14 @@ Now Playing: <title> by <artist> | Released: <year> | Duration: <duration> mins
 <ExerciseTimer />
 
 ---
+
 layout: center
 class: exercise-header
+
 ---
 
 # Exercise 2
+
 ## Lists
 
 ---
@@ -254,11 +280,14 @@ playlist.insert(0, "Flowers")    # insert at position 0 (the start)`
 <ExerciseTimer />
 
 ---
+
 layout: center
 class: exercise-header
+
 ---
 
 # Exercise 3
+
 ## Loops
 
 ---
@@ -363,11 +392,14 @@ for i, song in enumerate(playlist, start=1):
 <ExerciseTimer />
 
 ---
+
 layout: center
 class: exercise-header
+
 ---
 
 # Exercise 4
+
 ## Conditionals
 
 ---
@@ -447,11 +479,14 @@ For each song the loop picks up its BPM, then the `if` decides which branch runs
 <ExerciseTimer />
 
 ---
+
 layout: center
 class: exercise-header
+
 ---
 
 # Exercise 5
+
 ## Dictionaries
 
 ---
@@ -516,11 +551,14 @@ for track_num, track_title in album["tracks"].items():
 <ExerciseTimer />
 
 ---
+
 layout: center
 class: exercise-header
+
 ---
 
 # Exercise 6
+
 ## Functions
 
 ---
@@ -621,11 +659,14 @@ Longest title: Someone Like You (16 characters)
 <ExerciseTimer />
 
 ---
+
 layout: center
 class: exercise-header
+
 ---
 
 # Exercise 7
+
 ## File I/O
 
 ---
@@ -703,8 +744,8 @@ for i, song in enumerate(lines, start=1):
 <ExerciseTimer />
 
 ---
-layout: center
----
+
+## layout: center
 
 # You've made it through all 7 exercises!
 
@@ -721,16 +762,16 @@ layout: center
 </div>
 
 ---
-layout: center
----
+
+## layout: center
 
 # Want to explore 9,000+ real songs?
 
 Open the Data Explorer from the `setup` folder:
 
-| Platform | File |
-|----------|------|
-| Mac | `setup/explore.command` |
-| Windows | `setup/explore.bat` |
+| Platform | File                    |
+| -------- | ----------------------- |
+| Mac      | `setup/explore.command` |
+| Windows  | `setup/explore.bat`     |
 
 Search by song, artist, or genre — then use what you find in your exercises.
