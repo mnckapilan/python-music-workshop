@@ -89,24 +89,27 @@ class: exercise-header
 ## Variables & Strings 🎤
 
 ---
+layout: two-cols-header
+---
 
 # What is a variable?
 
 A variable is a **labelled box** that stores a piece of information.
 
+::left::
+
 <div class="d-vars">
   <div class="d-row"><code class="d-box d-key">song_title</code><span class="d-arr">→</span><span class="d-box d-val">"Blinding Lights"</span></div>
   <div class="d-row"><code class="d-box d-key">artist</code><span class="d-arr">→</span><span class="d-box d-val">"The Weeknd"</span></div>
   <div class="d-row"><code class="d-box d-key">year</code><span class="d-arr">→</span><span class="d-box d-val">2019</span></div>
+  <div class="d-row"><code class="d-box d-key">duration</code><span class="d-arr">→</span><span class="d-box d-val">3.22</span></div>
 </div>
 
 > Text goes inside quote marks: `"like this"`<br/>Numbers don't need quotes: `2019`, `3.22`
 
----
+::right::
 
-# Variables — code
-
-```python
+```python {1|2|3|4|6|7|8|all}
 song_title = "Blinding Lights"
 artist     = "The Weeknd"
 year       = 2019
@@ -123,7 +126,7 @@ print(year)         # 2019
 
 Slot variables directly into text — put `f` before the quote and `{}` around variable names.
 
-```python
+```python {1|2|3|5|6|all}
 song_title = "Blinding Lights"
 artist     = "The Weeknd"
 year       = 2019
@@ -170,7 +173,7 @@ A list stores **multiple items in order** — each item has an index starting at
 
 # Lists — code
 
-```python
+```python {1|3|4|5|6|8|9|10|all}
 playlist = ["Blinding Lights", "Levitating", "Stay", "Heat Waves"]
 
 print(playlist)        # the whole list
@@ -203,10 +206,14 @@ class: exercise-header
 ## Loops 🔁
 
 ---
+layout: two-cols-header
+---
 
 # What is a loop?
 
 Instead of writing the same line for every song — let the loop do it.
+
+::left::
 
 <div class="d-loop">
   <div class="d-loop-row"><span class="d-arr">→</span><span>"Blinding Lights"</span><span class="d-loop-out">Now playing: Blinding Lights</span></div>
@@ -214,30 +221,32 @@ Instead of writing the same line for every song — let the loop do it.
   <div class="d-loop-row"><span class="d-arr">→</span><span>"Stay"</span><span class="d-loop-out">Now playing: Stay</span></div>
   <div class="d-loop-row"><span class="d-arr">→</span><span>"Heat Waves"</span><span class="d-loop-out">Now playing: Heat Waves</span></div>
 </div>
-<p class="d-caption">the indented code runs once for each item in the list</p>
+<p class="d-caption">the indented block runs once for each item</p>
 
-> The **indented lines** (4 spaces) are inside the loop — they run once per item.
+::right::
 
----
-
-# Loops — code
-
-```python
+```python {1|3|4|all}
 playlist = ["Blinding Lights", "Levitating", "Stay", "Heat Waves"]
 
 for song in playlist:
     print(f"Now playing: {song}")
 ```
 
-```python
+> The **indented lines** (4 spaces) are inside the loop — they run once per item.
+
+---
+
+# More loop patterns
+
+```python {2|3|4|all}
 # range() — repeat a fixed number of times
 chorus = "We will, we will rock you!"
 for i in range(4):
     print(chorus)
 ```
 
-```python
-# enumerate() — add a numbered counter
+```python {2|3|all}
+# enumerate() — track position while looping
 for i, song in enumerate(playlist, start=1):
     print(f"{i}. {song}")
 ```
@@ -259,10 +268,14 @@ class: exercise-header
 ## Conditionals 🔀
 
 ---
+layout: two-cols-header
+---
 
 # What is a conditional?
 
 Your code takes a **different path** depending on whether something is true.
+
+::left::
 
 <div class="d-cond">
   <div class="d-cond-input"><code class="d-box d-key">song_bpm = 140</code></div>
@@ -273,11 +286,9 @@ Your code takes a **different path** depending on whether something is true.
   </div>
 </div>
 
----
+::right::
 
-# Conditionals — code
-
-```python
+```python {1|3-4|5-6|7-8|all}
 song_bpm = 140
 
 if song_bpm > 150:
@@ -292,7 +303,7 @@ else:
 
 # Conditionals inside a loop
 
-```python
+```python {1-2|4|5|6-7|8-9|all}
 titles = ["Blinding Lights", "Savage",    "Levitating"]
 bpms   = [171,               134,         103]
 
@@ -342,7 +353,7 @@ Group related data under named **keys** — like a labelled form.
 
 # Dictionaries — code
 
-```python
+```python {1-10|12|13|15-16|all}
 album = {
     "title":  "Future Nostalgia",
     "artist": "Dua Lipa",
@@ -400,21 +411,28 @@ Define code **once**, call it as many times as you like — with different input
 </div>
 
 ---
+layout: two-cols-header
+---
 
 # Why use functions?
 
-Without a function, you repeat yourself:
+::left::
+
+**Without** — repeat yourself:
 
 ```python
 print("▶  Blinding Lights — The Weeknd")
 print("▶  Levitating — Dua Lipa")
 print("▶  Heat Waves — Glass Animals")
-# Change the format? Edit every single line.
+# Change the format?
+# Edit every single line.
 ```
 
-With a function, define the format **once**:
+::right::
 
-```python
+**With** — define the format **once**:
+
+```python {1-2|4|5|6|all}
 def now_playing(title, artist):
     print(f"▶  {title} — {artist}")
 
@@ -428,7 +446,7 @@ now_playing("Heat Waves",      "Glass Animals")
 
 # Functions that return a value
 
-```python
+```python {1|2-3|4-5|6-7|9|10|11|all}
 def classify_bpm(bpm):
     if bpm > 130:
         return "High energy"
@@ -480,10 +498,16 @@ So far, data disappears when the program stops. A file keeps it around.
 > `"w"` write · `"r"` read · `"a"` append
 
 ---
+layout: two-cols-header
+---
 
-# Writing to a file
+# File I/O — code
 
-```python
+::left::
+
+**Write** to a file:
+
+```python {1-5|7|8|9|11|all}
 playlist = [
     "Blinding Lights – The Weeknd",
     "Levitating – Dua Lipa",
@@ -497,17 +521,17 @@ with open("my_playlist.txt", "w") as f:
 print("Playlist saved!")
 ```
 
----
+::right::
 
-# Reading a file back
+**Read** it back:
 
-```python
+```python {1-2|4|5-6|all}
 with open("my_playlist.txt", "r") as f:
-    lines = f.readlines()   # returns a list, one string per line
+    lines = f.readlines()
 
 print(f"Loaded {len(lines)} songs:")
 for i, song in enumerate(lines, start=1):
-    print(f"{i}. {song.strip()}")   # .strip() removes the \n
+    print(f"{i}. {song.strip()}")   # .strip() removes \n
 ```
 
 ---

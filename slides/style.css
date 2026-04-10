@@ -27,6 +27,18 @@
   --font-mono: 'Fira Code', monospace;
 }
 
+/* ── Hide Slidev navigation overview panel ──────────────── */
+/* The slide-list panel that appears on the right in dev/present mode */
+.slidev-nav-go,
+.slidev-slides-overview,
+.slidev-slide-overview,
+.slide-list-wrapper,
+[class*="slide-overview"],
+[class*="slides-overview"],
+[class*="nav-overview"] {
+  display: none !important;
+}
+
 /* ── Base slide ─────────────────────────────────────────── */
 .slidev-layout {
   background: var(--d-bg);
@@ -69,6 +81,17 @@
   color: var(--d-cyan);
   font-style: normal;
   font-weight: 600;
+}
+
+/* ── Two-cols layout spacing fix ────────────────────────── */
+/* Reduce the large gap Slidev puts between header row and columns */
+.slidev-layout.two-cols-header {
+  gap: 0.6rem !important;
+  row-gap: 0.5rem !important;
+}
+
+.slidev-layout.two-cols-header h1 {
+  margin-bottom: 0.2rem !important;
 }
 
 /* ── Typography ─────────────────────────────────────────── */
