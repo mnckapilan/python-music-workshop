@@ -252,7 +252,7 @@ Now Playing: <title> by <artist> | Released: <year> | Duration: <duration> mins
 
 <div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
 
-<FileHint file="exercise_01_variables_and_strings.py" />
+<FileHint file="exercise_01_variables_and_strings.py" active />
 
 <ExerciseTimer />
 
@@ -318,7 +318,7 @@ playlist.insert(0, "Flowers")    # insert at position 0 (the start)`
 
 <div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
 
-<FileHint file="exercise_02_lists.py" />
+<FileHint file="exercise_02_lists.py" active />
 
 <ExerciseTimer />
 
@@ -427,7 +427,7 @@ for i, song in enumerate(playlist, start=1):
 
 <div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
 
-<FileHint file="exercise_03_loops.py" />
+<FileHint file="exercise_03_loops.py" active />
 
 <ExerciseTimer />
 
@@ -501,7 +501,7 @@ for i, title in enumerate(titles):
 
 <div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
 
-<FileHint file="exercise_04_conditionals.py" />
+<FileHint file="exercise_04_conditionals.py" active />
 
 <ExerciseTimer />
 
@@ -570,7 +570,7 @@ for track_num, track_title in album["tracks"].items():
 
 <div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
 
-<FileHint file="exercise_05_dictionaries.py" />
+<FileHint file="exercise_05_dictionaries.py" active />
 
 <ExerciseTimer />
 
@@ -678,7 +678,7 @@ Longest title: Someone Like You (16 characters)
 
 <div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
 
-<FileHint file="exercise_06_functions.py" />
+<FileHint file="exercise_06_functions.py" active />
 
 <ExerciseTimer />
 
@@ -760,7 +760,7 @@ for i, song in enumerate(lines, start=1):
 
 <div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
 
-<FileHint file="exercise_07_file_io.py" />
+<FileHint file="exercise_07_file_io.py" active />
 
 <ExerciseTimer />
 
