@@ -21,6 +21,9 @@ my_playlist.txt
 .DS_Store
 Thumbs.db
 
+# VS Code settings (written by setup scripts, machine-specific)
+.vscode/
+
 # Bundled Python runtimes (downloaded by tools/prepare-distribution.sh)
 python-runtime/
 

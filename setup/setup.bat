@@ -17,18 +17,57 @@ set FAIL=0
 set PYTHON_CMD=python-runtime\windows\python.exe
 set PYTHON_OK=0
 
-set ERR_PYTHON_MISSING=0
+set ERR_PYTHON=0
 set ERR_SMOKE=0
 
-:: ── 1. Python ──────────────────────────────────────────────
+:: ── 1. Python runtime ──────────────────────────────────────
 echo Checking Python...
 
-if not exist "%PYTHON_CMD%" (
-    echo   [FAIL] Bundled Python not found.
-    echo          Expected: python-runtime\windows\python.exe
-    echo          Make sure you unzipped the full workshop folder.
+if exist "%PYTHON_CMD%" goto python_ok
+
+:: Runtime missing — try to download it
+echo   Runtime not found -- downloading now (~35 MB)...
+echo.
+
+powershell -NoProfile -ExecutionPolicy Bypass -Command ^
+    "$ErrorActionPreference = 'Stop'; try { ^
+        $api = Invoke-RestMethod 'https://api.github.com/repos/astral-sh/python-build-standalone/releases/latest'; ^
+        $asset = $api.assets | Where-Object { $_.name -like '*x86_64-pc-windows-msvc-install_only.zip' } | Select-Object -First 1; ^
+        if (-not $asset) { throw 'Asset not found in release' }; ^
+        $url = $asset.browser_download_url; ^
+        $tmp = Join-Path $env:TEMP 'python-runtime-workshop.zip'; ^
+        $extract = Join-Path $env:TEMP 'python-extract-workshop'; ^
+        Write-Host '  Downloading...'; ^
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; ^
+        Invoke-WebRequest $url -OutFile $tmp -UseBasicParsing; ^
+        Write-Host '  Extracting...'; ^
+        if (Test-Path $extract) { Remove-Item $extract -Recurse -Force }; ^
+        Expand-Archive $tmp -DestinationPath $extract; ^
+        $inner = Get-ChildItem $extract | Select-Object -First 1 -ExpandProperty FullName; ^
+        if (-not (Test-Path 'python-runtime')) { New-Item -ItemType Directory -Path 'python-runtime' | Out-Null }; ^
+        Move-Item $inner 'python-runtime\windows'; ^
+        Remove-Item $tmp; ^
+        Remove-Item $extract -Recurse; ^
+        Write-Host '' ^
+    } catch { Write-Host ('  Download failed: ' + $_); exit 1 }"
+
+if %errorlevel% neq 0 (
+    echo.
+    echo   [FAIL] Could not download Python runtime.
+    echo          Check your internet connection, or ask a volunteer
+    echo          for a USB stick with the complete workshop folder.
     set /a FAIL+=1
-    set ERR_PYTHON_MISSING=1
+    set ERR_PYTHON=1
+    goto python_done
+)
+
+echo.
+
+:python_ok
+if not exist "%PYTHON_CMD%" (
+    echo   [FAIL] Python runtime still missing after download attempt.
+    set /a FAIL+=1
+    set ERR_PYTHON=1
     goto python_done
 )
 
@@ -69,6 +108,17 @@ if %FAIL% == 0 (
     echo.
     echo   *** ALL DONE -- YOU'RE GOOD TO GO! ***
     echo.
+
+    :: Write VS Code settings if VS Code is present
+    code --version >nul 2>&1
+    if %errorlevel% == 0 (
+        if not exist ".vscode" mkdir .vscode
+        powershell -NoProfile -Command ^
+            "$s = [ordered]@{ 'python.defaultInterpreterPath' = 'python-runtime/windows/python.exe'; 'terminal.integrated.env.windows' = @{ 'PATH' = '${workspaceFolder}/python-runtime/windows;${env:PATH}' } }; ^
+            $s | ConvertTo-Json -Depth 3 | Set-Content '.vscode/settings.json' -Encoding UTF8" ^
+            >nul 2>&1
+    )
+
     goto end
 )
 
@@ -78,12 +128,11 @@ echo.
 
 set ISSUE_NUM=0
 
-if %ERR_PYTHON_MISSING% == 1 (
+if %ERR_PYTHON% == 1 (
     set /a ISSUE_NUM+=1
-    echo   ISSUE %ISSUE_NUM%: Bundled Python runtime is missing.
-    echo   FIX %ISSUE_NUM%:   Right-click the downloaded .zip and choose "Extract All",
-    echo              then run setup.bat from inside the extracted folder.
-    echo              Do not run setup.bat from inside the zip file itself.
+    echo   ISSUE %ISSUE_NUM%: Python runtime is missing.
+    echo   FIX %ISSUE_NUM%:   Make sure the full workshop folder was unzipped, or
+    echo              check your internet connection and re-run this script.
     echo.
 )
 
