@@ -64,18 +64,17 @@ class: exercise-header
 
 # Run the setup script
 
-Open the **`setup`** folder and double-click:
+Open a terminal and run:
 
-| Your laptop | File to run |
-|-------------|-------------|
-| Mac | `setup.command` — right-click → Open the first time |
-| Windows | `setup.bat` |
+| Your laptop | Open | Command to run |
+|-------------|------|----------------|
+| Mac | **Terminal** (search Spotlight) | `bash setup/setup.command` |
+| Windows | **Command Prompt** (`Win+R` → type `cmd`) | `setup\setup.bat` |
 
-A terminal window runs three checks automatically:
+The script checks Python and loads the music data:
 
 ```
-[ OK ] Python 3.11.4
-[ OK ] VS Code 1.89.0
+[ OK ] Python 3.12.3 (bundled)
 [ OK ] Loaded 9237 songs.
 
 *** ALL DONE — YOU'RE GOOD TO GO! ***
@@ -89,15 +88,11 @@ If anything shows `[FAIL]` — the script tells you exactly what to fix. Ask a v
 
 # Running an exercise
 
-VS Code opens automatically when setup passes.
-
-Open the VS Code terminal with `` Ctrl+` `` and type:
+Open the workshop folder in VS Code, then open the terminal with `` Ctrl+` `` and type:
 
 ```bash
 python3 exercises/exercise_00_setup_check.py
 ```
-
-> If that doesn't work, try `python` instead of `python3`.
 
 You should see:
 
