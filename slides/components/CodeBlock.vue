@@ -73,11 +73,6 @@ const displayName = computed(() =>
   <div class="ce">
     <!-- ── Title bar ──────────────────────────────────────────────────────── -->
     <div class="ce-bar">
-      <div class="ce-dots">
-        <span class="ce-dot ce-dot-r" />
-        <span class="ce-dot ce-dot-y" />
-        <span class="ce-dot ce-dot-g" />
-      </div>
       <span class="ce-filename">{{ displayName }}</span>
       <button
         v-if="highlighted.size > 0"
@@ -132,33 +127,15 @@ const displayName = computed(() =>
 .ce-bar {
   display: flex;
   align-items: center;
-  padding: 0.42rem 0.85rem;
-  background: #E4E4E6;
+  padding: 0.38rem 0.85rem;
+  background: #ECEDEF;
   border-bottom: 1px solid #D3D3D4;
   gap: 0.7rem;
-  min-height: 2.1rem;
+  min-height: 2rem;
 }
-
-.ce-dots {
-  display: flex;
-  gap: 0.38rem;
-  flex-shrink: 0;
-}
-
-.ce-dot {
-  width: 0.72rem;
-  height: 0.72rem;
-  border-radius: 50%;
-  display: block;
-}
-
-.ce-dot-r { background: #FF5F57; }
-.ce-dot-y { background: #FEBC2E; }
-.ce-dot-g { background: #28C840; }
 
 .ce-filename {
   flex: 1;
-  text-align: center;
   font-size: 0.78rem;
   color: #696C77;
   font-weight: 500;

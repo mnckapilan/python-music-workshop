@@ -137,6 +137,12 @@
   overflow: hidden;
 }
 
+/* Force all Shiki-coloured spans in plain code fences to be dark and fully opaque */
+.slidev-code code .line span {
+  color: var(--text) !important;
+  opacity: 1 !important;
+}
+
 .slidev-layout code:not([class]) {
   background: var(--surface);
   border: 1px solid var(--border);
