@@ -218,16 +218,7 @@ print(year)         # 2019`
 
 Slot variables directly into text — put `f` before the quote and `{}` around variable names.
 
-<script setup>
-const code = `song_title = "Blinding Lights"
-artist     = "The Weeknd"
-year       = 2019
-
-print(f"Now Playing: {song_title} by {artist} ({year})")
-# Now Playing: Blinding Lights by The Weeknd (2019)`
-</script>
-
-<CodeBlock :code="code" lang="python" filename="fstrings.py" />
+<FStringViz />
 
 <FileHint file="exercise_01_variables_and_strings.py" />
 
