@@ -122,8 +122,12 @@
 }
 
 /* ── Code blocks ────────────────────────────────────────── */
+/* Force dark bg on all pre blocks — plain code (no language) skips
+   Shiki, so the default theme's light bg bleeds through without this */
 .slidev-code,
 .slidev-layout pre {
+  background: var(--d-bg) !important;
+  color: var(--d-fg);
   border-radius: 10px;
   border: 1px solid var(--d-border2);
   font-family: var(--font-mono);
@@ -132,7 +136,8 @@
   overflow: hidden;
 }
 
-code:not([class]) {
+/* Inline code — raise specificity to beat default theme styles */
+.slidev-layout code:not([class]) {
   background: var(--d-surface);
   border: 1px solid var(--d-border2);
   border-radius: 4px;
