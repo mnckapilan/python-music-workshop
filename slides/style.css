@@ -83,17 +83,6 @@
   font-weight: 600;
 }
 
-/* ── Two-cols layout spacing fix ────────────────────────── */
-/* Reduce the large gap Slidev puts between header row and columns */
-.slidev-layout.two-cols-header {
-  gap: 0.6rem !important;
-  row-gap: 0.5rem !important;
-}
-
-.slidev-layout.two-cols-header h1 {
-  margin-bottom: 0.2rem !important;
-}
-
 /* ── Typography ─────────────────────────────────────────── */
 .slidev-layout h1 {
   font-family: var(--font-head);

@@ -89,25 +89,22 @@ class: exercise-header
 ## Variables & Strings 🎤
 
 ---
-layout: two-cols-header
----
 
 # What is a variable?
 
 A variable is a **labelled box** that stores a piece of information.
 
-::left::
-
 <div class="d-vars">
   <div class="d-row"><code class="d-box d-key">song_title</code><span class="d-arr">→</span><span class="d-box d-val">"Blinding Lights"</span></div>
   <div class="d-row"><code class="d-box d-key">artist</code><span class="d-arr">→</span><span class="d-box d-val">"The Weeknd"</span></div>
   <div class="d-row"><code class="d-box d-key">year</code><span class="d-arr">→</span><span class="d-box d-val">2019</span></div>
-  <div class="d-row"><code class="d-box d-key">duration</code><span class="d-arr">→</span><span class="d-box d-val">3.22</span></div>
 </div>
 
 > Text goes inside quote marks: `"like this"`<br/>Numbers don't need quotes: `2019`, `3.22`
 
-::right::
+---
+
+# Variables — code
 
 ```python {1|2|3|4|6|7|8|all}
 song_title = "Blinding Lights"
@@ -206,14 +203,10 @@ class: exercise-header
 ## Loops 🔁
 
 ---
-layout: two-cols-header
----
 
 # What is a loop?
 
 Instead of writing the same line for every song — let the loop do it.
-
-::left::
 
 <div class="d-loop">
   <div class="d-loop-row"><span class="d-arr">→</span><span>"Blinding Lights"</span><span class="d-loop-out">Now playing: Blinding Lights</span></div>
@@ -223,7 +216,11 @@ Instead of writing the same line for every song — let the loop do it.
 </div>
 <p class="d-caption">the indented block runs once for each item</p>
 
-::right::
+> The **indented lines** (4 spaces) are inside the loop — they run once per item.
+
+---
+
+# Loops — code
 
 ```python {1|3|4|all}
 playlist = ["Blinding Lights", "Levitating", "Stay", "Heat Waves"]
@@ -231,8 +228,6 @@ playlist = ["Blinding Lights", "Levitating", "Stay", "Heat Waves"]
 for song in playlist:
     print(f"Now playing: {song}")
 ```
-
-> The **indented lines** (4 spaces) are inside the loop — they run once per item.
 
 ---
 
@@ -268,14 +263,10 @@ class: exercise-header
 ## Conditionals 🔀
 
 ---
-layout: two-cols-header
----
 
 # What is a conditional?
 
 Your code takes a **different path** depending on whether something is true.
-
-::left::
 
 <div class="d-cond">
   <div class="d-cond-input"><code class="d-box d-key">song_bpm = 140</code></div>
@@ -286,7 +277,9 @@ Your code takes a **different path** depending on whether something is true.
   </div>
 </div>
 
-::right::
+---
+
+# Conditionals — code
 
 ```python {1|3-4|5-6|7-8|all}
 song_bpm = 140
@@ -411,26 +404,19 @@ Define code **once**, call it as many times as you like — with different input
 </div>
 
 ---
-layout: two-cols-header
----
 
 # Why use functions?
 
-::left::
-
-**Without** — repeat yourself:
+Without a function, you repeat yourself:
 
 ```python
 print("▶  Blinding Lights — The Weeknd")
 print("▶  Levitating — Dua Lipa")
 print("▶  Heat Waves — Glass Animals")
-# Change the format?
-# Edit every single line.
+# Change the format? Edit every single line.
 ```
 
-::right::
-
-**With** — define the format **once**:
+With a function, define the format **once**:
 
 ```python {1-2|4|5|6|all}
 def now_playing(title, artist):
@@ -498,14 +484,8 @@ So far, data disappears when the program stops. A file keeps it around.
 > `"w"` write · `"r"` read · `"a"` append
 
 ---
-layout: two-cols-header
----
 
-# File I/O — code
-
-::left::
-
-**Write** to a file:
+# Writing to a file
 
 ```python {1-5|7|8|9|11|all}
 playlist = [
@@ -521,9 +501,9 @@ with open("my_playlist.txt", "w") as f:
 print("Playlist saved!")
 ```
 
-::right::
+---
 
-**Read** it back:
+# Reading a file back
 
 ```python {1-2|4|5-6|all}
 with open("my_playlist.txt", "r") as f:
