@@ -12,21 +12,16 @@ echo    Python Music Workshop -- Data Explorer
 echo ==================================================
 echo.
 
-:: Find Python
-set PYTHON_CMD=
-python --version >nul 2>&1
-if %errorlevel% == 0 ( set PYTHON_CMD=python & goto python_found )
-py --version >nul 2>&1
-if %errorlevel% == 0 ( set PYTHON_CMD=py & goto python_found )
-python3 --version >nul 2>&1
-if %errorlevel% == 0 ( set PYTHON_CMD=python3 & goto python_found )
+set PYTHON_CMD=python-runtime\windows\python.exe
 
-echo   Python not found. Please run setup\setup.bat first.
-echo.
-pause
-exit /b 1
+if not exist "%PYTHON_CMD%" (
+    echo   Python runtime not found.
+    echo   Please run setup\setup.bat first.
+    echo.
+    pause
+    exit /b 1
+)
 
-:python_found
 echo   The music library is opening in your browser.
 echo.
 echo   Browse songs, search by artist or genre, and see

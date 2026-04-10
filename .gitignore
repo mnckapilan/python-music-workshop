@@ -21,6 +21,12 @@ my_playlist.txt
 .DS_Store
 Thumbs.db
 
+# Bundled Python runtimes (downloaded by tools/prepare-distribution.sh)
+python-runtime/
+
+# Distribution zips (built by tools/prepare-distribution.sh)
+dist/
+
 # Replit
 .upm/
 .cache/

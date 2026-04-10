@@ -14,22 +14,23 @@ echo "   Python Music Workshop — Data Explorer"
 echo "=================================================="
 echo ""
 
-# Find Python
-PYTHON_CMD=""
-for cmd in python3 python python3.11 python3.10 python3.9 python3.8; do
-    if command -v "$cmd" &>/dev/null; then
-        PYTHON_CMD="$cmd"
-        break
-    fi
-done
+ARCH=$(uname -m)
+if [ "$ARCH" = "arm64" ]; then
+    PYTHON_CMD="python-runtime/mac-arm64/bin/python3"
+else
+    PYTHON_CMD="python-runtime/mac-x86/bin/python3"
+fi
 
-if [ -z "$PYTHON_CMD" ]; then
-    echo "  Python not found. Please run setup/setup.command first."
+if [ ! -f "$PYTHON_CMD" ]; then
+    echo "  Python runtime not found."
+    echo "  Please run setup/setup.command first."
     echo ""
     echo "Press Enter to close..."
     read -r
     exit 1
 fi
+
+xattr -rd com.apple.quarantine "$(dirname "$(dirname "$PYTHON_CMD")")" 2>/dev/null || true
 
 echo "  The music library is opening in your browser."
 echo ""
@@ -40,7 +41,7 @@ echo "  Press Enter here (or close this window) when you're done."
 echo "=================================================="
 echo ""
 
-$PYTHON_CMD data/explorer.py
+"$PYTHON_CMD" data/explorer.py
 
 echo ""
 echo "Explorer stopped. Press Enter to close this window..."
