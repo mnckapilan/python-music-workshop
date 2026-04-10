@@ -10,7 +10,7 @@ Your volunteer will share either a **link** or a **USB stick**.
 
 ### From a link
 
-1. Open the link in your browser
+1. Go to **github.com/mnckapilan/python-music-workshop**
 2. Click the green **Code** button near the top right
 3. Click **Download ZIP**
 4. The file downloads to your Downloads folder

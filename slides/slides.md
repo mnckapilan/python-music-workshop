@@ -67,16 +67,27 @@ class: exercise-header
 
 # Step 1 — Get the workshop folder
 
-Your volunteer will share a link or a USB stick. From a **link**:
+Go to **github.com/mnckapilan/python-music-workshop** → green **Code** button → **Download ZIP**
 
-1. Open the link in your browser
-2. Click the green **Code** button → **Download ZIP**
-3. Find the downloaded `.zip` file
-
-Then **unzip** it:
-
-- **Mac** — double-click the `.zip` file. A folder appears next to it.
-- **Windows** — right-click → **Extract All…** → **Extract**
+<div class="os-split">
+  <div class="os-box os-mac">
+    <div class="os-head">
+      <span>🍎</span> Mac
+    </div>
+    <div class="os-body">
+      Double-click the <code>.zip</code> file — a folder appears next to it
+    </div>
+  </div>
+  <div class="os-box os-win">
+    <div class="os-head">
+      <svg width="16" height="16" viewBox="0 0 88 88" style="flex-shrink:0"><rect fill="#F25022" x="0" y="0" width="40" height="40"/><rect fill="#7FBA00" x="48" y="0" width="40" height="40"/><rect fill="#00A4EF" x="0" y="48" width="40" height="40"/><rect fill="#FFB900" x="48" y="48" width="40" height="40"/></svg>
+      Windows
+    </div>
+    <div class="os-body">
+      Right-click the <code>.zip</code> → <strong>Extract All…</strong> → <strong>Extract</strong>
+    </div>
+  </div>
+</div>
 
 Put the folder somewhere easy to find, like your **Desktop**.
 
@@ -86,22 +97,33 @@ Put the folder somewhere easy to find, like your **Desktop**.
 
 # Step 2 — Run the setup script
 
-**Mac** — open **Terminal** (Cmd+Space → type *Terminal* → Enter):
-1. Type `bash ` with a space — don't press Enter yet
-2. Open your workshop folder → `setup` folder → drag **`setup.command`** into the Terminal window
-3. Press Enter
-
-**Windows** — open the `setup` folder in File Explorer:
-1. Click the **address bar** at the top → type `cmd` → press Enter
-2. Type `setup.bat` and press Enter
+<div class="os-split">
+  <div class="os-box os-mac">
+    <div class="os-head"><span>🍎</span> Mac</div>
+    <div class="os-body">
+      <ol>
+        <li>Open <strong>Terminal</strong> — press <code>Cmd+Space</code>, type <em>Terminal</em>, press Enter</li>
+        <li>Type <code>bash </code> with a space (don't press Enter yet)</li>
+        <li>Open the <code>setup</code> folder → drag <strong><code>setup.command</code></strong> into the Terminal window</li>
+        <li>Press Enter</li>
+      </ol>
+    </div>
+  </div>
+  <div class="os-box os-win">
+    <div class="os-head"><svg width="16" height="16" viewBox="0 0 88 88" style="flex-shrink:0"><rect fill="#F25022" x="0" y="0" width="40" height="40"/><rect fill="#7FBA00" x="48" y="0" width="40" height="40"/><rect fill="#00A4EF" x="0" y="48" width="40" height="40"/><rect fill="#FFB900" x="48" y="48" width="40" height="40"/></svg> Windows</div>
+    <div class="os-body">
+      <ol>
+        <li>Open the <code>setup</code> folder in File Explorer</li>
+        <li>Click the <strong>address bar</strong> at the top → type <code>cmd</code> → press Enter</li>
+        <li>Type <code>setup.bat</code> and press Enter</li>
+      </ol>
+    </div>
+  </div>
+</div>
 
 ```
-[ OK ] Python 3.12.3 (bundled)
-[ OK ] Loaded 9237 songs.
-*** ALL DONE — YOU'RE GOOD TO GO! ***
+[ OK ] Python 3.12.3 (bundled)    [ OK ] Loaded 9237 songs.    *** ALL DONE! ***
 ```
-
-If anything shows `[FAIL]` — ask a volunteer!
 
 <FileHint file="exercise_00_setup_check.py" />
 
