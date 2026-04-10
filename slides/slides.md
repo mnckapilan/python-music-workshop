@@ -121,8 +121,13 @@ Put the folder somewhere easy to find, like your **Desktop**.
   </div>
 </div>
 
+If you see this, you're all good:
+
 ```
-[ OK ] Python 3.12.3 (bundled)    [ OK ] Loaded 9237 songs.    *** ALL DONE! ***
+[ OK ] Python 3.12.3 (bundled)
+[ OK ] Loaded 9237 songs.
+
+*** ALL DONE — YOU'RE GOOD TO GO! ***
 ```
 
 <FileHint file="exercise_00_setup_check.py" />
