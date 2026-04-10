@@ -103,12 +103,11 @@ class: exercise-header
 
 A variable is a **labelled box** that stores a piece of information.
 
-```mermaid
-graph LR
-  A["song_title"] -->|stores| B(["'Blinding Lights'"])
-  C["artist"] -->|stores| D(["'The Weeknd'"])
-  E["year"] -->|stores| F(["2019"])
-```
+<div class="d-vars">
+  <div class="d-row"><code class="d-box d-key">song_title</code><span class="d-arr">→</span><span class="d-box d-val">"Blinding Lights"</span></div>
+  <div class="d-row"><code class="d-box d-key">artist</code><span class="d-arr">→</span><span class="d-box d-val">"The Weeknd"</span></div>
+  <div class="d-row"><code class="d-box d-key">year</code><span class="d-arr">→</span><span class="d-box d-val">2019</span></div>
+</div>
 
 > Text goes inside quote marks: `"like this"`<br/>Numbers don't need quotes: `2019`, `3.22`
 
@@ -167,13 +166,12 @@ class: exercise-header
 
 A list stores **multiple items in order** — each item has an index starting at 0.
 
-```mermaid
-graph LR
-  subgraph "playlist"
-    direction LR
-    A["[0]<br/>Blinding Lights"] --- B["[1]<br/>Levitating"] --- C["[2]<br/>Stay"] --- D["[3]<br/>Heat Waves"]
-  end
-```
+<div class="d-list">
+  <div class="d-cell"><div class="d-cell-idx">[0]</div><div class="d-cell-val">Blinding Lights</div></div>
+  <div class="d-cell"><div class="d-cell-idx">[1]</div><div class="d-cell-val">Levitating</div></div>
+  <div class="d-cell"><div class="d-cell-idx">[2]</div><div class="d-cell-val">Stay</div></div>
+  <div class="d-cell"><div class="d-cell-idx">[3]</div><div class="d-cell-val">Heat Waves</div></div>
+</div>
 
 > `playlist[0]` → first item · `playlist[-1]` → last item · `len(playlist)` → count
 
@@ -219,14 +217,13 @@ class: exercise-header
 
 Instead of writing the same line for every song — let the loop do it.
 
-```mermaid
-flowchart TD
-  A([Start]) --> B["Take next song from list"]
-  B --> C["Run the indented code"]
-  C --> D{More songs?}
-  D -->|Yes| B
-  D -->|No| E([Done])
-```
+<div class="d-loop">
+  <div class="d-loop-row"><span class="d-arr">→</span><span>"Blinding Lights"</span><span class="d-loop-out">Now playing: Blinding Lights</span></div>
+  <div class="d-loop-row"><span class="d-arr">→</span><span>"Levitating"</span><span class="d-loop-out">Now playing: Levitating</span></div>
+  <div class="d-loop-row"><span class="d-arr">→</span><span>"Stay"</span><span class="d-loop-out">Now playing: Stay</span></div>
+  <div class="d-loop-row"><span class="d-arr">→</span><span>"Heat Waves"</span><span class="d-loop-out">Now playing: Heat Waves</span></div>
+</div>
+<p class="d-caption">the indented code runs once for each item in the list</p>
 
 > The **indented lines** (4 spaces) are inside the loop — they run once per item.
 
@@ -276,14 +273,14 @@ class: exercise-header
 
 Your code takes a **different path** depending on whether something is true.
 
-```mermaid
-flowchart TD
-  A["song_bpm = 140"] --> B{bpm > 150?}
-  B -->|Yes| C["High energy!"]
-  B -->|No| D{bpm > 100?}
-  D -->|Yes| E["Mid-tempo"]
-  D -->|No| F["Slow and relaxed"]
-```
+<div class="d-cond">
+  <div class="d-cond-input"><code class="d-box d-key">song_bpm = 140</code></div>
+  <div class="d-cond-branch">
+    <div class="d-cond-row"><span class="d-cond-stem">├</span><span class="d-cond-check">bpm &gt; 150</span><span class="d-arr">→</span><span class="d-cond-result">"High energy!"</span></div>
+    <div class="d-cond-row"><span class="d-cond-stem">├</span><span class="d-cond-check">bpm &gt; 100</span><span class="d-arr">→</span><span class="d-cond-result">"Mid-tempo"</span></div>
+    <div class="d-cond-row"><span class="d-cond-stem">└</span><span class="d-cond-check">else&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="d-arr">→</span><span class="d-cond-result">"Slow and relaxed"</span></div>
+  </div>
+</div>
 
 ---
 
@@ -341,15 +338,12 @@ class: exercise-header
 
 Group related data under named **keys** — like a labelled form.
 
-```mermaid
-graph LR
-  subgraph "album { }"
-    K1["'title'"] -->|→| V1(["'Future Nostalgia'"])
-    K2["'artist'"] -->|→| V2(["'Dua Lipa'"])
-    K3["'year'"] -->|→| V3(["2020"])
-    K4["'tracks'"] -->|→| V4(["{ 1: ..., 2: ... }"])
-  end
-```
+<div class="d-dict">
+  <div class="d-dict-k">"title"</div><div class="d-dict-v">"Future Nostalgia"</div>
+  <div class="d-dict-k">"artist"</div><div class="d-dict-v">"Dua Lipa"</div>
+  <div class="d-dict-k">"year"</div><div class="d-dict-v">2020</div>
+  <div class="d-dict-k">"tracks"</div><div class="d-dict-v">{ 1: "Future Nostalgia", 2: "Don't Start Now", … }</div>
+</div>
 
 > Access any value with `album["key"]`
 
@@ -400,13 +394,19 @@ class: exercise-header
 
 Define code **once**, call it as many times as you like — with different inputs each time.
 
-```mermaid
-graph LR
-  A["'Blinding Lights', 'The Weeknd'"] --> B{{"now_playing()"}}
-  B --> C["▶ Blinding Lights — The Weeknd"]
-  D["'Levitating', 'Dua Lipa'"] --> B
-  B --> E["▶ Levitating — Dua Lipa"]
-```
+<div class="d-fn-wrap">
+  <div class="d-fn-group">
+    <div class="d-box d-val">"Blinding Lights", "The Weeknd"</div>
+    <div class="d-box d-val">"Levitating", "Dua Lipa"</div>
+  </div>
+  <span class="d-arr">→</span>
+  <div class="d-box d-dark">now_playing()</div>
+  <span class="d-arr">→</span>
+  <div class="d-fn-group">
+    <div class="d-box d-val">▶ Blinding Lights — The Weeknd</div>
+    <div class="d-box d-val">▶ Levitating — Dua Lipa</div>
+  </div>
+</div>
 
 ---
 
@@ -477,11 +477,14 @@ class: exercise-header
 
 So far, data disappears when the program stops. A file keeps it around.
 
-```mermaid
-graph LR
-  A["Python Program"] -->|"open 'w' · f.write()"| B["my_playlist.txt"]
-  B -->|"open 'r' · f.readlines()"| A
-```
+<div class="d-fileio">
+  <div class="d-box d-dark">Python Program</div>
+  <div class="d-fileio-mid">
+    <div class="d-fileio-row"><div class="d-fileio-line"></div><span class="d-arr">→</span><span>write</span></div>
+    <div class="d-fileio-row"><span>read</span><span class="d-arr">←</span><div class="d-fileio-line"></div></div>
+  </div>
+  <div class="d-box d-val">my_playlist.txt</div>
+</div>
 
 > `"w"` write · `"r"` read · `"a"` append
 

@@ -220,10 +220,222 @@ code:not([class]) {
   color: var(--c-accent);
 }
 
-/* ── Mermaid diagrams ───────────────────────────────────── */
-.mermaid svg {
-  max-width: 100%;
-  max-height: 280px;
+/* ── Custom diagrams ────────────────────────────────────── */
+
+/* Shared primitives */
+.d-box {
+  padding: 0.28rem 0.7rem;
+  border: 1.5px solid var(--c-border);
+  background: var(--c-surface);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+.d-box.d-key {
+  background: var(--c-accent-light);
+  border-color: oklch(0.76 0.10 60);
+  font-weight: 600;
+  color: oklch(0.38 0.10 50);
+}
+.d-box.d-val  { color: var(--c-text-muted); }
+.d-box.d-dark {
+  background: var(--c-navy);
+  border-color: oklch(0.30 0.04 260);
+  color: var(--c-navy-text);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.4rem 1.1rem;
+}
+.d-arr {
+  color: var(--c-accent);
+  font-size: 1.05rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.d-caption {
+  font-size: 0.73rem;
+  color: var(--c-text-muted);
+  font-family: var(--font-body);
+  font-style: italic;
+  margin-top: 0.4rem;
+}
+.d-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Variables diagram */
+.d-vars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 0.6rem 0;
+}
+
+/* Lists diagram */
+.d-list {
+  display: flex;
+  gap: 0;
+  margin: 0.6rem 0;
+}
+.d-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 7.5rem;
+}
+.d-cell-idx {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--c-accent);
+  padding: 0.1rem 0 0.2rem;
+}
+.d-cell-val {
+  padding: 0.38rem 0.5rem;
+  border: 1.5px solid var(--c-border);
+  border-right: none;
+  background: var(--c-surface);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.d-cell:last-child .d-cell-val { border-right: 1.5px solid var(--c-border); }
+
+/* Loop diagram */
+.d-loop {
+  border: 1.5px solid var(--c-border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 0.6rem 0;
+}
+.d-loop-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.32rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--c-border);
+}
+.d-loop-row:first-child { border-top: none; }
+.d-loop-row:nth-child(even) { background: oklch(0.975 0.010 80); }
+.d-loop-out {
+  margin-left: auto;
+  color: var(--c-text-muted);
+  font-size: 0.76rem;
+  white-space: nowrap;
+}
+
+/* Conditionals diagram */
+.d-cond {
+  margin: 0.6rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+.d-cond-input {
+  margin-bottom: 0.55rem;
+}
+.d-cond-branch {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-left: 0.4rem;
+}
+.d-cond-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.d-cond-stem {
+  color: oklch(0.68 0.08 60);
+  font-size: 1rem;
+  width: 0.9rem;
+  flex-shrink: 0;
+}
+.d-cond-check { color: var(--c-text-muted); }
+.d-cond-result {
+  padding: 0.18rem 0.55rem;
+  background: var(--c-accent-light);
+  border: 1px solid oklch(0.82 0.06 75);
+  border-radius: 3px;
+  font-size: 0.78rem;
+}
+
+/* Dictionary diagram */
+.d-dict {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  border: 1.5px solid var(--c-border);
+  border-radius: 6px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.81rem;
+  margin: 0.6rem 0;
+}
+.d-dict-k {
+  padding: 0.32rem 0.8rem;
+  background: var(--c-accent-light);
+  border-right: 1.5px solid oklch(0.80 0.07 72);
+  border-bottom: 1px solid var(--c-border);
+  font-weight: 600;
+  color: oklch(0.38 0.10 50);
+}
+.d-dict-v {
+  padding: 0.32rem 0.85rem;
+  border-bottom: 1px solid var(--c-border);
+  color: var(--c-text-muted);
+}
+.d-dict-k:last-of-type,
+.d-dict-v:last-of-type { border-bottom: none; }
+
+/* Function diagram */
+.d-fn-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0.6rem 0;
+  flex-wrap: wrap;
+}
+.d-fn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* File I/O diagram */
+.d-fileio {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 0.6rem 0;
+}
+.d-fileio-mid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  align-items: center;
+}
+.d-fileio-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--c-text-muted);
+  font-family: var(--font-body);
+}
+.d-fileio-line {
+  height: 2px;
+  width: 4.5rem;
+  background: var(--c-accent);
+  border-radius: 1px;
 }
 
 /* ── Slide number ───────────────────────────────────────── */
