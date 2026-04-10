@@ -93,5 +93,5 @@ my_playlist = [
 #      save_playlist(filename, playlist)
 #      load_playlist(filename)  → returns a list of strings
 #
-#  - Save all 40 songs from SONGS to a file, then read it back
+#  - Save all songs from SONGS to a file, then read it back
 #    and count how many songs are by the same artist.

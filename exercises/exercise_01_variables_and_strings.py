@@ -28,7 +28,7 @@ print(f"Now Playing: {song_title} by {artist} ({year})")
 # ------------------------------------------------------------
 #  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
 # ------------------------------------------------------------
-from music_data import SONGS   # 40 real songs, ready to use
+from music_data import SONGS   # 9,000+ real songs, ready to use
 #
 #  Try these to browse what's available:
 #    print(SONGS[0])                  # see one song's full details
@@ -37,7 +37,7 @@ from music_data import SONGS   # 40 real songs, ready to use
 #    print(SONGS[0]["year"])          # release year
 #    print(SONGS[0]["duration"])      # length in minutes
 #
-#  Change the number to pick a different song (0 to 39).
+#  Change the number to pick a different song (e.g. SONGS[5], SONGS[100]).
 
 # ------------------------------------------------------------
 #  YOUR TASK
@@ -67,6 +67,6 @@ my_duration   = 0.00
 #    and print a second line:  Genre: <genre>
 #  - Try printing the artist name in ALL CAPS:
 #    print(my_artist.upper())
-#  - Loop through all 40 songs in SONGS and print each title:
+#  - Loop through all songs in SONGS and print each title:
 #    for s in SONGS:
 #        print(s["title"])

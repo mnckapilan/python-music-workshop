@@ -32,7 +32,7 @@ print(playlist)
 # ------------------------------------------------------------
 #  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
 # ------------------------------------------------------------
-from music_data import SONGS   # 40 real songs, ready to use
+from music_data import SONGS   # 9,000+ real songs, ready to use
 #
 #  Try these to browse what's available:
 #    print(SONGS[0]["title"])                        # one title
@@ -70,5 +70,5 @@ my_playlist = [
 #    Hint: use len() on each string inside a loop.
 #  - Sort the playlist alphabetically: my_playlist.sort()
 #  - Reverse the playlist: my_playlist.reverse()
-#  - Try using all 40 songs from SONGS as your playlist and
+#  - Try using all songs from SONGS as your playlist and
 #    find the longest title across the whole library.

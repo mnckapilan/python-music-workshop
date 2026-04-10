@@ -47,7 +47,7 @@ print(f"Most played: {winner}")
 # ------------------------------------------------------------
 #  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
 # ------------------------------------------------------------
-from music_data import SONGS   # 40 real songs, ready to use
+from music_data import SONGS   # 9,000+ real songs, ready to use
 #
 #  Each song has a real bpm and play_count — try passing one
 #  to now_playing():
@@ -107,4 +107,4 @@ sample_playlist = [
 #    (case-insensitive).
 #    Hint: use keyword.lower() and title.lower()
 #
-#  - Try calling shuffle() and search() on all 40 SONGS.
+#  - Try calling shuffle() and search() on all SONGS.

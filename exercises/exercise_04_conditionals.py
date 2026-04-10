@@ -43,7 +43,7 @@ for song in songs:
 # ------------------------------------------------------------
 #  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
 # ------------------------------------------------------------
-from music_data import SONGS   # 40 real songs, ready to use
+from music_data import SONGS   # 9,000+ real songs, ready to use
 #
 #  Each song has real BPM, genre, and explicit values:
 #    print(SONGS[0]["title"])     # title
@@ -91,7 +91,7 @@ for song in my_songs:
 #    Only print a song if it is NOT explicit:
 #      if not song["explicit"]:
 #
-#  - Run the same energy check across all 40 songs in SONGS
+#  - Run the same energy check across all songs in SONGS
 #    (they have real bpm and explicit values):
 #      for s in SONGS:
 #          # your if/elif/else logic here

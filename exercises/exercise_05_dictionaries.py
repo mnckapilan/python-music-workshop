@@ -47,7 +47,7 @@ print(album["label"])
 # ------------------------------------------------------------
 #  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
 # ------------------------------------------------------------
-from music_data import SONGS   # 40 real songs, ready to use
+from music_data import SONGS   # 9,000+ real songs, ready to use
 #
 #  Each song is already a dictionary — print one to see all its keys:
 #    print(SONGS[0])
