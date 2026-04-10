@@ -39,7 +39,7 @@ for i, song in enumerate(playlist, start=1):
 from music_data import SONGS   # 9,000+ real songs, ready to use
 #
 #  Try looping over real data:
-#    for s in SONGS:
+#    for s in SONGS[:10]:
 #        print(s["title"], "–", s["artist"])
 #
 #  Or use real titles as your playlist:

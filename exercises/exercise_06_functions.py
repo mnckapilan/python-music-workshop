@@ -54,8 +54,8 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 #    now_playing(SONGS[0]["title"], SONGS[0]["artist"], SONGS[0]["bpm"])
 #
 #  Or build lists to pass to most_played():
-#    titles = [s["title"] for s in SONGS]
-#    plays  = [s["play_count"] for s in SONGS]
+#    titles = [s["title"] for s in SONGS[:10]]
+#    plays  = [s["play_count"] for s in SONGS[:10]]
 #    print(most_played(titles, plays))
 
 # ------------------------------------------------------------

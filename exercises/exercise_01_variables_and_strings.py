@@ -67,6 +67,6 @@ my_duration   = 0.00
 #    and print a second line:  Genre: <genre>
 #  - Try printing the artist name in ALL CAPS:
 #    print(my_artist.upper())
-#  - Loop through all songs in SONGS and print each title:
-#    for s in SONGS:
+#  - Loop through the first 10 songs in SONGS and print each title:
+#    for s in SONGS[:10]:
 #        print(s["title"])

@@ -51,8 +51,8 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 #    print(SONGS[0]["genre"])     # e.g. "Pop", "Hip-Hop/Rap"
 #    print(SONGS[0]["explicit"])  # True or False
 #
-#  See all BPMs at once:
-#    for s in SONGS:
+#  See the first 10 BPMs:
+#    for s in SONGS[:10]:
 #        print(s["title"], s["bpm"])
 
 # ------------------------------------------------------------
@@ -91,9 +91,9 @@ for song in my_songs:
 #    Only print a song if it is NOT explicit:
 #      if not song["explicit"]:
 #
-#  - Run the same energy check across all songs in SONGS
+#  - Run the same energy check across the first 10 songs in SONGS
 #    (they have real bpm and explicit values):
-#      for s in SONGS:
+#      for s in SONGS[:10]:
 #          # your if/elif/else logic here
 #
 #  - Count how many songs fall into each energy category

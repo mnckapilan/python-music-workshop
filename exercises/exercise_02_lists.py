@@ -36,8 +36,8 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 #
 #  Try these to browse what's available:
 #    print(SONGS[0]["title"])                        # one title
-#    for s in SONGS:
-#        print(s["title"], "–", s["artist"])        # all songs
+#    for s in SONGS[:10]:
+#        print(s["title"], "–", s["artist"])        # first 10 songs
 #
 #  Build a real playlist from the library:
 #    real_playlist = [s["title"] for s in SONGS[:5]]
