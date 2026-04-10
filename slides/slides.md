@@ -1,7 +1,7 @@
 ---
 theme: default
 title: Python & the Music World
-info: A hands-on Python coding workshop for beginners
+dinfo: A hands-on Python coding workshop for beginners
 highlighter: shiki
 lineNumbers: true
 shiki:

@@ -27,15 +27,20 @@
   --font-mono: 'Fira Code', monospace;
 }
 
-/* ── Hide Slidev navigation overview panel ──────────────── */
-/* The slide-list panel that appears on the right in dev/present mode */
+/* ── Hide Slidev navigation UI ──────────────────────────── */
+/* Hide the bottom nav bar — use arrow keys to advance slides */
+.slidev-nav {
+  display: none !important;
+}
+/* Hide the slides overview/goto panel and any overlay panels */
+.slidev-overlay,
 .slidev-nav-go,
 .slidev-slides-overview,
 .slidev-slide-overview,
-.slide-list-wrapper,
 [class*="slide-overview"],
 [class*="slides-overview"],
-[class*="nav-overview"] {
+[class*="overview-panel"],
+[class*="goto"] {
   display: none !important;
 }
 
