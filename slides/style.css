@@ -375,6 +375,27 @@
 
 .d-fileio-line { height: 3px; width: 6rem; background: var(--blue); border-radius: 1px; }
 
+/* ── Code line stepping — pointer approach ──────────────── */
+/* Remove dimming — all lines stay fully readable at all times */
+.slidev-code .slidev-code-dishonored {
+  opacity: 1 !important;
+}
+
+/* Highlighted line: subtle blue background spanning full block width */
+.slidev-code .slidev-code-highlighted {
+  display: block;
+  background: rgba(64, 120, 242, 0.09);
+  border-radius: 2px;
+  margin: 0 calc(-1 * var(--slidev-code-padding, 1.25rem));
+  padding: 0 var(--slidev-code-padding, 1.25rem);
+}
+
+/* Active line number turns blue — acts as a visual pointer */
+.slidev-code-line-numbers .slidev-code code .line.slidev-code-highlighted::before {
+  color: var(--blue) !important;
+  font-weight: 700 !important;
+}
+
 /* ── Congratulations concepts ────────────────────────────── */
 .concepts {
   display: flex;

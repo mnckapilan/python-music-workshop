@@ -218,8 +218,6 @@ Instead of writing the same line for every song — let the loop do it.
   <div class="d-loop-row"><span class="d-arr">→</span><span>"Stay"</span><span class="d-loop-out">Now playing: Stay</span></div>
   <div class="d-loop-row"><span class="d-arr">→</span><span>"Heat Waves"</span><span class="d-loop-out">Now playing: Heat Waves</span></div>
 </div>
-<p class="d-caption">the indented block runs once for each item</p>
-
 > The **indented lines** (4 spaces) are inside the loop — they run once per item.
 
 ---
@@ -455,9 +453,9 @@ print(classify_bpm(68))    # Slow
 
 # Your Task — Exercise 6
 
-1. Write `describe_song(title, artist, year)` — prints one line about the song. Call it at least 3 times.
+1. Write `describe_song(title, artist, year)` — prints one formatted line. Call it 3 times.
 
-2. Write `longest_title(songs)` — takes a list of title strings and prints the longest one with its character count:
+2. Write `longest_title(songs)` — prints the longest title and its character count:
 
 ```
 Longest title: Someone Like You (16 characters)
