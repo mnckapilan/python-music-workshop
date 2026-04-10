@@ -65,9 +65,9 @@ class: exercise-header
 
 # Step 1 — Get the workshop folder
 
-Go to **tinyurl.com/python-walthamstow-workshop** → click the green **Code** button → **Download ZIP**
+<div class="setup-step">Go to <strong>tinyurl.com/python-walthamstow-workshop</strong> → click the green <strong>Code</strong> button → <strong>Download ZIP</strong></div>
 
-Then unzip it:
+<div class="setup-step">Then unzip it:</div>
 
 <div class="os-split">
   <div class="os-box os-mac">
@@ -84,7 +84,7 @@ Then unzip it:
   </div>
 </div>
 
-Move the folder somewhere easy to find, like your **Desktop**.
+<div class="setup-step">Move the folder somewhere easy to find, like your <strong>Desktop</strong>.</div>
 
 <FileHint file="exercise_00_setup_check.py" />
 

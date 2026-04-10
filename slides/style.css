@@ -609,6 +609,13 @@
   color: var(--text);
 }
 
+/* ── Plain body text that won't get styled as a subtitle ── */
+.setup-step {
+  color: var(--text);
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+}
+
 /* ── OS split: side-by-side Mac / Windows boxes ─────────── */
 .os-split {
   display: grid;
