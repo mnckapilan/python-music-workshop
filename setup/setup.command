@@ -6,8 +6,8 @@
 #  If macOS blocks it: right-click the file → Open → Open
 # ============================================================
 
-# Always run from the folder containing this script
-cd "$(dirname "$0")" || exit 1
+# Always run from the project root (one level up from setup/)
+cd "$(dirname "$0")/.." || exit 1
 
 clear
 echo "=================================================="
