@@ -28,19 +28,9 @@
 }
 
 /* ── Hide Slidev navigation UI ──────────────────────────── */
-/* Hide the bottom nav bar — use arrow keys to advance slides */
-.slidev-nav {
-  display: none !important;
-}
-/* Hide the slides overview/goto panel and any overlay panels */
-.slidev-overlay,
-.slidev-nav-go,
-.slidev-slides-overview,
-.slidev-slide-overview,
-[class*="slide-overview"],
-[class*="slides-overview"],
-[class*="overview-panel"],
-[class*="goto"] {
+/* Goto dialog lives permanently in the DOM, toggled by moving between
+   top-5 (visible) and -top-20 (off-screen). Force it fully hidden. */
+#slidev-goto-dialog {
   display: none !important;
 }
 
