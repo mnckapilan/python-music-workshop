@@ -613,6 +613,7 @@
 .setup-step {
   color: var(--text);
   font-size: 1.05rem;
+  margin-top: 0.8rem;
   margin-bottom: 0.6rem;
 }
 
