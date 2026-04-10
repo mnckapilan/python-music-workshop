@@ -67,29 +67,30 @@ class: exercise-header
 
 # Step 1 — Get the workshop folder
 
-Go to **github.com/mnckapilan/python-music-workshop** → green **Code** button → **Download ZIP**
-
 <div class="os-split">
   <div class="os-box os-mac">
-    <div class="os-head">
-      <span>🍎</span> Mac
-    </div>
+    <div class="os-head"><span>🍎</span> Mac</div>
     <div class="os-body">
-      Double-click the <code>.zip</code> file — a folder appears next to it
+      <ol>
+        <li>Go to <strong>github.com/mnckapilan/python-music-workshop</strong></li>
+        <li>Click the green <strong>Code</strong> button → <strong>Download ZIP</strong></li>
+        <li>Double-click the <code>.zip</code> — a folder appears next to it</li>
+        <li>Move the folder to your <strong>Desktop</strong></li>
+      </ol>
     </div>
   </div>
   <div class="os-box os-win">
-    <div class="os-head">
-      <svg width="16" height="16" viewBox="0 0 88 88" style="flex-shrink:0"><rect fill="#F25022" x="0" y="0" width="40" height="40"/><rect fill="#7FBA00" x="48" y="0" width="40" height="40"/><rect fill="#00A4EF" x="0" y="48" width="40" height="40"/><rect fill="#FFB900" x="48" y="48" width="40" height="40"/></svg>
-      Windows
-    </div>
+    <div class="os-head"><svg width="16" height="16" viewBox="0 0 88 88" style="flex-shrink:0"><rect fill="#F25022" x="0" y="0" width="40" height="40"/><rect fill="#7FBA00" x="48" y="0" width="40" height="40"/><rect fill="#00A4EF" x="0" y="48" width="40" height="40"/><rect fill="#FFB900" x="48" y="48" width="40" height="40"/></svg> Windows</div>
     <div class="os-body">
-      Right-click the <code>.zip</code> → <strong>Extract All…</strong> → <strong>Extract</strong>
+      <ol>
+        <li>Go to <strong>github.com/mnckapilan/python-music-workshop</strong></li>
+        <li>Click the green <strong>Code</strong> button → <strong>Download ZIP</strong></li>
+        <li>Right-click the <code>.zip</code> → <strong>Extract All…</strong> → <strong>Extract</strong></li>
+        <li>Move the folder to your <strong>Desktop</strong></li>
+      </ol>
     </div>
   </div>
 </div>
-
-Put the folder somewhere easy to find, like your **Desktop**.
 
 <FileHint file="exercise_00_setup_check.py" />
 
