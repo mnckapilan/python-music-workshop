@@ -4,6 +4,8 @@ title: Python & the Music World
 info: A hands-on Python coding workshop for beginners
 highlighter: shiki
 lineNumbers: true
+shiki:
+  theme: 'github-light'
 fonts:
   sans: 'Figtree'
   serif: 'Bricolage Grotesque'
