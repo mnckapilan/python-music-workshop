@@ -65,17 +65,35 @@ class: exercise-header
 
 ---
 
-# Step 1 — Run the setup script
+# Step 1 — Get the workshop folder
 
-**Mac** — open **Terminal** (Cmd+Space, type Terminal, press Enter):
+Your volunteer will share a link or a USB stick. From a **link**:
+
+1. Open the link in your browser
+2. Click the green **Code** button → **Download ZIP**
+3. Find the downloaded `.zip` file
+
+Then **unzip** it:
+
+- **Mac** — double-click the `.zip` file. A folder appears next to it.
+- **Windows** — right-click → **Extract All…** → **Extract**
+
+Put the folder somewhere easy to find, like your **Desktop**.
+
+<FileHint file="exercise_00_setup_check.py" />
+
+---
+
+# Step 2 — Run the setup script
+
+**Mac** — open **Terminal** (Cmd+Space → type *Terminal* → Enter):
 1. Type `bash ` with a space — don't press Enter yet
 2. Open your workshop folder → `setup` folder → drag **`setup.command`** into the Terminal window
 3. Press Enter
 
 **Windows** — open the `setup` folder in File Explorer:
-1. Click the **address bar** at the top (where the folder path is shown)
-2. Type `cmd` and press Enter — a Command Prompt opens here
-3. Type `setup.bat` and press Enter
+1. Click the **address bar** at the top → type `cmd` → press Enter
+2. Type `setup.bat` and press Enter
 
 ```
 [ OK ] Python 3.12.3 (bundled)
@@ -83,32 +101,34 @@ class: exercise-header
 *** ALL DONE — YOU'RE GOOD TO GO! ***
 ```
 
+If anything shows `[FAIL]` — ask a volunteer!
+
 <FileHint file="exercise_00_setup_check.py" />
 
 ---
 
-# Step 2 — Open VS Code
+# Step 3 — Open VS Code
 
-VS Code is where you'll read and write your Python code.
+VS Code is the program you'll write Python in. If you don't have it — ask a volunteer.
 
 1. Open **VS Code**
 2. **File → Open Folder…**
-3. Find your workshop folder → click it → click **Open**
-4. The `exercises` folder appears in the left panel
+3. Find your workshop folder → select it → click **Open**
+4. You'll see the `exercises` folder appear in the left panel
 
-> **Mac only:** if VS Code asks *"Do you trust the authors?"* — click **Yes, I trust the authors**.
+> **Mac:** if VS Code asks *"Do you trust the authors?"* → click **Yes, I trust the authors**
 
 <FileHint file="exercise_00_setup_check.py" />
 
 ---
 
-# Step 3 — Run your first exercise
+# Step 4 — Run your first exercise
 
-Open the terminal *inside* VS Code by pressing `` Ctrl+` ``
+Open the terminal *inside* VS Code:
 
-That's the **backtick** key — top-left of your keyboard, to the left of `1`.
+Press `` Ctrl+` `` — the **backtick** key, top-left of the keyboard next to `1`
 
-A panel opens at the bottom. Type this and press Enter:
+A panel opens at the bottom of VS Code. Type this and press Enter:
 
 ```bash
 python3 exercises/exercise_00_setup_check.py
@@ -120,7 +140,7 @@ You should see:
 Everything is set up correctly — you're ready to go!
 ```
 
-You're ready! Open each exercise in the `exercises` folder, read the example at the top, then complete the **YOUR TASK** section at the bottom.
+> **Windows:** if `python3` isn't recognised, try `python` instead
 
 <FileHint file="exercise_00_setup_check.py" />
 

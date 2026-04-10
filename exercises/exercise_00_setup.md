@@ -4,9 +4,22 @@ This guide walks you through everything before you write your first line of Pyth
 
 ---
 
-## Step 1 — Unzip the workshop folder
+## Step 1 — Get the workshop folder
 
-Your volunteer will give you a **.zip file** (it might be on a USB stick, or a download link).
+Your volunteer will share either a **link** or a **USB stick**.
+
+### From a link
+
+1. Open the link in your browser
+2. Click the green **Code** button near the top right
+3. Click **Download ZIP**
+4. The file downloads to your Downloads folder
+
+### From a USB stick
+
+Copy the `.zip` file from the USB stick to your Desktop (or anywhere easy to find).
+
+### Unzip it
 
 **Mac**
 1. Double-click the `.zip` file
