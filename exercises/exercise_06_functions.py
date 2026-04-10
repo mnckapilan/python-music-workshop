@@ -66,10 +66,10 @@ for i, title in enumerate(titles):
 #       "Blinding Lights by The Weeknd (2019)"
 #     Call it at least three times with different songs.
 #
-#  2. Write a function called print_playlist(songs) that takes
-#     a list of song title strings and prints a numbered track
-#     listing (like exercise 3). Call it on the sample list below,
-#     then call it again on a different list of your own.
+#  2. Write a function called longest_title(songs) that takes
+#     a list of song title strings and prints the one with the
+#     most characters and how long it is, e.g.:
+#       "Longest title: Someone Like You (16 characters)"
 
 # Start your code here 👇
 
@@ -79,7 +79,7 @@ def describe_song(title, artist, year):
 
 
 # Task 2
-def print_playlist(songs):
+def longest_title(songs):
     pass   # replace with your code
 
 
@@ -105,9 +105,9 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 #  Pass a real song to now_playing():
 #    now_playing(SONGS[0]["title"], SONGS[0]["artist"])
 #
-#  Build a playlist of real titles and pass it to print_playlist():
-#    real_titles = [s["title"] for s in SONGS[:10]]
-#    print_playlist(real_titles)
+#  Find the longest title in the first 100 real songs:
+#    real_titles = [s["title"] for s in SONGS[:100]]
+#    print(longest_title(real_titles))
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
