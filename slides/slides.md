@@ -20,18 +20,30 @@ A Coding Workshop
 
 ---
 
-# What we'll cover today
+# How today works
 
-| # | Concept |
-|---|---------|
-| 0 | Getting set up |
-| 1 | Variables & Strings |
-| 2 | Lists |
-| 3 | Loops |
-| 4 | Conditionals |
-| 5 | Dictionaries |
-| 6 | Functions |
-| 7 | File I/O |
+Over the next **2 hours** you'll learn the core building blocks of Python — using songs, playlists, albums, and lyrics as your playground. Every section follows the same rhythm:
+
+<div class="d-row" style="margin: 1.1rem 0; gap: 0.9rem; flex-wrap: wrap;">
+  <span class="d-box">📖 Live example on screen</span>
+  <span class="d-arr">→</span>
+  <span class="d-box d-key">💻 Exercise — your turn</span>
+  <span class="d-arr">→</span>
+  <span class="d-box">Next section</span>
+</div>
+
+<div class="concepts">
+  <span>0 · Setup</span>
+  <span>1 · Variables & Strings</span>
+  <span>2 · Lists</span>
+  <span>3 · Loops</span>
+  <span>4 · Conditionals</span>
+  <span>5 · Dictionaries</span>
+  <span>6 · Functions</span>
+  <span>7 · File I/O</span>
+</div>
+
+> **Finished early?** Scroll to the **Extension Challenge** at the bottom of your exercise file — or open the **Data Explorer** to browse 9,000+ real songs.
 
 ---
 layout: center
