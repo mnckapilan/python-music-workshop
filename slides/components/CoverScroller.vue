@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onUnmounted } from 'vue'
 
 // ── Live clock ────────────────────────────────────────────────────────────────
 const now = ref(new Date())
@@ -93,32 +93,12 @@ print(fun_fact)`
   return code.split('\n').map(hlLine).join('\n')
 })
 
-// ── rAF scroll — pixel-perfect, immune to re-renders ─────────────────────────
-const trackRef = ref(null)
-let raf = null
-let offset = 0
-const SPEED = 0.4 // px per frame (~24px/s at 60fps)
-
-function tick() {
-  const el = trackRef.value
-  if (el) {
-    const half = el.scrollHeight / 2
-    offset = (offset + SPEED) % half
-    el.style.transform = `translateY(-${offset}px)`
-  }
-  raf = requestAnimationFrame(tick)
-}
-
-onMounted(() => { raf = requestAnimationFrame(tick) })
-onUnmounted(() => {
-  cancelAnimationFrame(raf)
-  clearInterval(clockTimer)
-})
+onUnmounted(() => { clearInterval(clockTimer) })
 </script>
 
 <template>
   <div class="cs-outer" aria-hidden="true">
-    <div class="cs-track" ref="trackRef">
+    <div class="cs-track">
       <pre class="cs-pre" v-html="highlighted"></pre>
       <pre class="cs-pre" v-html="highlighted"></pre>
     </div>
@@ -139,6 +119,12 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   will-change: transform;
+  animation: cs-scroll 35s linear infinite;
+}
+
+@keyframes cs-scroll {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
 }
 
 /* !important needed to beat Slidev's own .slidev-layout pre rules */
