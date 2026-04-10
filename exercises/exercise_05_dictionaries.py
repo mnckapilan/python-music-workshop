@@ -17,21 +17,22 @@
 
 # --- EXAMPLE — run this and see what it prints --------------
 
+# Real album — Future Nostalgia by Dua Lipa (2020, Warner Records)
 album = {
-    "title":  "After Hours",
-    "artist": "The Weeknd",
+    "title":  "Future Nostalgia",
+    "artist": "Dua Lipa",
     "year":   2020,
     "tracks": {
-        1: "Alone Again",
-        2: "Too Late",
-        3: "Hardest to Love",
-        4: "Scared to Live",
-        5: "Snowchild",
+        1: "Future Nostalgia",
+        2: "Don't Start Now",
+        3: "Cool",
+        4: "Physical",
+        5: "Levitating",
     }
 }
 
-print(album["title"])          # After Hours
-print(album["tracks"][3])      # Hardest to Love
+print(album["title"])          # Future Nostalgia
+print(album["tracks"][3])      # Cool
 
 print("---")
 
@@ -40,13 +41,29 @@ for track_num, track_title in album["tracks"].items():
     print(f"Track {track_num}: {track_title}")
 
 # Add a new key after creation
-album["label"] = "Republic Records"
+album["label"] = "Warner Records"
 print(album["label"])
+
+# ------------------------------------------------------------
+#  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
+# ------------------------------------------------------------
+from music_data import SONGS   # 40 real songs, ready to use
+#
+#  Each song is already a dictionary — print one to see all its keys:
+#    print(SONGS[0])
+#
+#  Access individual fields:
+#    print(SONGS[0]["title"])    # title
+#    print(SONGS[0]["album"])    # album name
+#    print(SONGS[0]["artist"])   # artist
+#    print(SONGS[0]["year"])     # release year
+#    print(SONGS[0]["genre"])    # genre
 
 # ------------------------------------------------------------
 #  YOUR TASK
 # ------------------------------------------------------------
-#  1. Create a dictionary called `my_album` with these keys:
+#  1. Create a dictionary called `my_album` for your favourite
+#     album. Give it these keys:
 #       'title', 'artist', 'year', 'genre', 'tracks'
 #     The 'tracks' value should itself be a dictionary
 #     mapping track numbers (integers) to song titles.
@@ -87,3 +104,7 @@ my_album = {
 #  - Print the total number of tracks using len().
 #  - Create a list of 2–3 album dictionaries and loop through
 #    all of them, printing each album's title and track count.
+#  - Pick any song from SONGS and print all its key–value pairs
+#    using a for loop:
+#      for key, value in SONGS[0].items():
+#          print(f"{key}: {value}")

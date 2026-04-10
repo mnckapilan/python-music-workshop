@@ -34,9 +34,23 @@ for i, song in enumerate(playlist, start=1):
     print(f"{i}. {song}")
 
 # ------------------------------------------------------------
+#  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
+# ------------------------------------------------------------
+from music_data import SONGS   # 40 real songs, ready to use
+#
+#  Try looping over real data:
+#    for s in SONGS:
+#        print(s["title"], "–", s["artist"])
+#
+#  Or use real titles as your playlist:
+#    real_playlist = [s["title"] for s in SONGS[:5]]
+
+# ------------------------------------------------------------
 #  YOUR TASK
 # ------------------------------------------------------------
 #  1. Create a list of at least 5 songs.
+#     Type your own, or pull real titles from SONGS:
+#       my_playlist = [s["title"] for s in SONGS[:5]]
 #     Loop through and print each one with its track number
 #     (1, 2, 3...) using enumerate().
 #
@@ -69,3 +83,5 @@ my_lyric = "YOUR LYRIC HERE"
 #    titles combined (add up len(song) for each song).
 #  - Loop through the playlist BACKWARDS: my_playlist[::-1]
 #  - Print only songs whose title is longer than 10 characters.
+#  - Loop over all 40 songs in SONGS and print only the ones
+#    with a title longer than 15 characters.

@@ -20,14 +20,10 @@
 # --- EXAMPLE — run this and see what it prints --------------
 
 import os
+from music_data import SONGS
 
-# Write a playlist to a file
-playlist = [
-    "Blinding Lights – The Weeknd",
-    "Levitating – Dua Lipa",
-    "Stay – The Kid LAROI & Justin Bieber",
-    "Heat Waves – Glass Animals",
-]
+# Build a playlist from real songs and save it to a file
+playlist = [f"{s['title']} – {s['artist']}" for s in SONGS[:4]]
 
 with open("example_playlist.txt", "w") as f:
     for song in playlist:
@@ -45,7 +41,7 @@ for i, song in enumerate(lines, start=1):
 
 # Append a new song
 with open("example_playlist.txt", "a") as f:
-    f.write("As It Was – Harry Styles\n")
+    f.write(f"{SONGS[4]['title']} – {SONGS[4]['artist']}\n")
 
 print("\nAfter adding a song:")
 with open("example_playlist.txt", "r") as f:
@@ -59,7 +55,9 @@ os.remove("example_playlist.txt")
 #  YOUR TASK
 # ------------------------------------------------------------
 #  1. Create a list of at least 5 songs in "Title – Artist"
-#     format and write them to a file called my_playlist.txt.
+#     format. Use your own favourites, or pull from SONGS:
+#       my_playlist = [f"{s['title']} – {s['artist']}" for s in SONGS[:5]]
+#     Write them to a file called my_playlist.txt.
 #
 #  2. Read the file back and print a numbered track listing.
 #
@@ -69,7 +67,8 @@ os.remove("example_playlist.txt")
 # Start your code here 👇
 
 my_playlist = [
-    # add your songs here as "Title – Artist" strings
+    # add your songs here as "Title – Artist" strings,
+    # or use: [f"{s['title']} – {s['artist']}" for s in SONGS[:5]]
 ]
 
 # Step 1 — write to file:
@@ -94,5 +93,5 @@ my_playlist = [
 #      save_playlist(filename, playlist)
 #      load_playlist(filename)  → returns a list of strings
 #
-#  - Count how many songs are by the same artist across the
-#    whole file and print a summary.
+#  - Save all 40 songs from SONGS to a file, then read it back
+#    and count how many songs are by the same artist.

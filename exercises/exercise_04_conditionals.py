@@ -41,11 +41,28 @@ for song in songs:
         print(f"Pop hit: {song['title']}")
 
 # ------------------------------------------------------------
+#  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
+# ------------------------------------------------------------
+from music_data import SONGS   # 40 real songs, ready to use
+#
+#  Each song has real BPM, genre, and explicit values:
+#    print(SONGS[0]["title"])     # title
+#    print(SONGS[0]["bpm"])       # beats per minute (60–145)
+#    print(SONGS[0]["genre"])     # e.g. "Pop", "Hip-Hop/Rap"
+#    print(SONGS[0]["explicit"])  # True or False
+#
+#  See all BPMs at once:
+#    for s in SONGS:
+#        print(s["title"], s["bpm"])
+
+# ------------------------------------------------------------
 #  YOUR TASK
 # ------------------------------------------------------------
 #  1. Create a list of at least 5 songs. Each song should be
 #     a dictionary with 'title' and 'bpm' keys.
-#     Make up BPM values (typical range: 60–200).
+#     Make up your own BPM values (typical range: 60–200), or
+#     use real ones from SONGS:
+#       my_songs = [{"title": s["title"], "bpm": s["bpm"]} for s in SONGS[:5]]
 #
 #  2. Loop through the list and print whether each song is:
 #       High energy  → BPM > 130
@@ -73,6 +90,11 @@ for song in my_songs:
 #  - Add an 'explicit' key (True or False) to each song.
 #    Only print a song if it is NOT explicit:
 #      if not song["explicit"]:
+#
+#  - Run the same energy check across all 40 songs in SONGS
+#    (they have real bpm and explicit values):
+#      for s in SONGS:
+#          # your if/elif/else logic here
 #
 #  - Count how many songs fall into each energy category
 #    (use three counter variables) and print a summary

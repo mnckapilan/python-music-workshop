@@ -27,8 +27,8 @@ def now_playing(title, artist, bpm):
 
 
 now_playing("Blinding Lights", "The Weeknd", 171)
-now_playing("Stay", "The Kid LAROI", 170)
-now_playing("someone like you", "Adele", 68)
+now_playing("Shape of You",    "Ed Sheeran", 96)
+now_playing("Someone Like You","Adele",       68)
 
 print("---")
 
@@ -45,17 +45,32 @@ winner = most_played(songs, plays)
 print(f"Most played: {winner}")
 
 # ------------------------------------------------------------
+#  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
+# ------------------------------------------------------------
+from music_data import SONGS   # 40 real songs, ready to use
+#
+#  Each song has a real bpm and play_count — try passing one
+#  to now_playing():
+#    now_playing(SONGS[0]["title"], SONGS[0]["artist"], SONGS[0]["bpm"])
+#
+#  Or build lists to pass to most_played():
+#    titles = [s["title"] for s in SONGS]
+#    plays  = [s["play_count"] for s in SONGS]
+#    print(most_played(titles, plays))
+
+# ------------------------------------------------------------
 #  YOUR TASK
 # ------------------------------------------------------------
 #  1. Write a function called describe_song(title, artist, year)
 #     that prints a one-line description of a song.
-#     Call it at least three times with different songs.
+#     Call it at least three times with different songs —
+#     your own, or from SONGS:
+#       describe_song(SONGS[0]["title"], SONGS[0]["artist"], SONGS[0]["year"])
 #
 #  2. Write a function called count_by_artist(playlist, artist)
 #     that takes a list of song dictionaries (each with
 #     'title' and 'artist' keys) and RETURNS how many songs
-#     are by that artist.
-#     Print the result.
+#     are by that artist. Print the result.
 
 # Start your code here 👇
 
@@ -69,13 +84,10 @@ def count_by_artist(playlist, artist):
     pass   # replace with your code
 
 
-# Test data for task 2
+# Sample playlist — 10 real songs with title and artist
 sample_playlist = [
-    {"title": "Blinding Lights",  "artist": "The Weeknd"},
-    {"title": "Save Your Tears",  "artist": "The Weeknd"},
-    {"title": "Levitating",       "artist": "Dua Lipa"},
-    {"title": "Future Nostalgia", "artist": "Dua Lipa"},
-    {"title": "Stay",             "artist": "The Kid LAROI"},
+    {"title": s["title"], "artist": s["artist"]}
+    for s in SONGS[:10]
 ]
 
 # Call your functions here:
@@ -94,3 +106,5 @@ sample_playlist = [
 #    returns all songs whose title contains the keyword
 #    (case-insensitive).
 #    Hint: use keyword.lower() and title.lower()
+#
+#  - Try calling shuffle() and search() on all 40 SONGS.
