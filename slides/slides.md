@@ -1,11 +1,9 @@
 ---
 theme: default
 title: Python & the Music World
-dinfo: A hands-on Python coding workshop for beginners
+info: A hands-on Python coding workshop for beginners
 highlighter: shiki
 lineNumbers: true
-shiki:
-  theme: 'dracula'
 fonts:
   sans: 'Figtree'
   serif: 'Bricolage Grotesque'
