@@ -78,10 +78,7 @@ This opens a local webpage where students can search by song, artist, or genre, 
 
 ## Workshop Instructions
 
-Full classroom instructions are in the `instructions/` folder:
-
-- `python_music_workshop.md` — readable on GitHub
-- `python_music_workshop.docx` — Word document for printing
+Full classroom instructions are in `instructions/python_music_workshop.md`.
 
 ---
 
