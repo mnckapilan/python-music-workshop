@@ -16,77 +16,13 @@ fonts:
   provider: 'google'
 ---
 
-<script setup>
-const wm = `song_title = "Blinding Lights"
-artist     = "The Weeknd"
-year       = 2019
-
-playlist = [
-    "Blinding Lights",
-    "Levitating",
-    "Heat Waves",
-    "As It Was",
-]
-
-for song in playlist:
-    print(f"Now playing: {song}")
-
-def classify_bpm(bpm):
-    if bpm > 130:
-        return "High energy"
-    elif bpm > 90:
-        return "Mid-tempo"
-    return "Slow"
-
-album = {
-    "title":  "Future Nostalgia",
-    "artist": "Dua Lipa",
-    "year":   2020,
-}
-
-with open("my_playlist.txt", "w") as f:
-    for song in playlist:
-        f.write(song + "\\n")`
-function _esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') }
-const _KW = new Set(['def','for','in','if','elif','else','return','with','as','True','False','None','and','or','not','import','from','while','class','print','open'])
-function _hlLine(line) {
-  function sp(c, t) { return '<span style="color:' + c + '">' + _esc(t) + '</span>' }
-  let out = '', rest = line, cmAt = -1, inStr = false
-  for (let i = 0; i < rest.length; i++) {
-    if (rest[i] === '"') inStr = !inStr
-    if (!inStr && rest[i] === '#') { cmAt = i; break }
-  }
-  const cm = cmAt >= 0 ? rest.slice(cmAt) : ''
-  rest = cmAt >= 0 ? rest.slice(0, cmAt) : rest
-  while (rest.length) {
-    let m
-    if ((m = rest.match(/^f?"[^"]*"/))) { out += sp('#50FA7B', m[0]); rest = rest.slice(m[0].length); continue }
-    if ((m = rest.match(/^\d+\.?\d*/))) { out += sp('#FFB86C', m[0]); rest = rest.slice(m[0].length); continue }
-    if ((m = rest.match(/^[a-zA-Z_]\w*/))) {
-      const w = m[0], after = rest.slice(w.length).trimStart()
-      const c = _KW.has(w) ? '#BD93F9' : after[0] === '(' ? '#8BE9FD' : '#F0F0F5'
-      out += sp(c, w); rest = rest.slice(w.length); continue
-    }
-    out += _esc(rest[0]); rest = rest.slice(1)
-  }
-  if (cm) out += sp('#A0B0D0', cm)
-  return out
-}
-const highlighted = wm.split('\n').map(_hlLine).join('\n')
-</script>
-
 <div class="ic">
   <div class="ic-left">
     <p class="ic-label">Python · Music · Code</p>
     <h1>Getting Started<br>with Python</h1>
     <p class="ic-sub">A 2-hour coding workshop</p>
   </div>
-  <div class="ic-right" aria-hidden="true">
-    <div class="ic-scroller">
-      <pre class="ic-code" v-html="highlighted"></pre>
-      <pre class="ic-code" v-html="highlighted"></pre>
-    </div>
-  </div>
+  <CoverScroller />
 </div>
 
 ---

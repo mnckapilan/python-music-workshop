@@ -143,46 +143,7 @@
   letter-spacing: 0.01em;
 }
 
-.ic-right {
-  flex: 1;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  padding: 2rem 3rem 2rem 1rem;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
-}
 
-/* specificity boost needed to beat .slidev-layout pre { background: !important } */
-.slidev-layout.intro-cover .ic-code {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  line-height: 1.85;
-  color: #F0F0F5;
-  opacity: 0.22;
-  white-space: pre;
-  display: block;
-  margin: 0 !important;
-  background: none !important;
-  border: none !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
-  pointer-events: none;
-  user-select: none;
-  overflow: visible;
-}
-
-.ic-scroller {
-  animation: ic-scroll 35s linear infinite;
-  will-change: transform;
-}
-
-@keyframes ic-scroll {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-50%); }
-}
 
 /* ── Section break slides ───────────────────────────────── */
 .slidev-layout.exercise-header {
