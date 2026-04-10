@@ -113,14 +113,8 @@ onUnmounted(() => clearInterval(timer))
           'lcv-branch-active': currentClass && currentClass.branch === 0,
           'lcv-branch-dim':    currentClass && currentClass.branch !== 0,
         }"
-        :style="currentClass && currentClass.branch === 0
-          ? { borderColor: '#feb2b2', background: '#fff5f5' }
-          : {}"
       >
-        <span
-          class="lcv-kw"
-          :style="currentClass && currentClass.branch === 0 ? { color: '#E53E3E' } : {}"
-        >if</span>
+        <span class="lcv-kw">if</span>
         <span class="lcv-check">
           <span
             class="lcv-bpm-sub"
@@ -133,10 +127,7 @@ onUnmounted(() => clearInterval(timer))
           class="lcv-badge"
           :class="currentClass.branch === 0 ? 'lcv-badge-true' : 'lcv-badge-false'"
         >{{ currentClass.branch === 0 ? 'true ✓' : 'false ✗' }}</span>
-        <span
-          class="lcv-result"
-          :style="currentClass && currentClass.branch === 0 ? { color: '#E53E3E' } : {}"
-        >→ "High energy"</span>
+        <span class="lcv-result">→ "High energy"</span>
       </div>
 
       <!-- else branch -->
@@ -146,24 +137,15 @@ onUnmounted(() => clearInterval(timer))
           'lcv-branch-active': currentClass && currentClass.branch === 1,
           'lcv-branch-dim':    currentClass && currentClass.branch !== 1,
         }"
-        :style="currentClass && currentClass.branch === 1
-          ? { borderColor: '#b8ccfb', background: '#e8effe' }
-          : {}"
       >
-        <span
-          class="lcv-kw"
-          :style="currentClass && currentClass.branch === 1 ? { color: '#4078F2' } : {}"
-        >else</span>
+        <span class="lcv-kw">else</span>
         <span class="lcv-check lcv-check-else">(no condition)</span>
         <span
           v-if="currentSong"
           class="lcv-badge"
           :class="currentClass.branch === 1 ? 'lcv-badge-true' : 'lcv-badge-skip'"
         >{{ currentClass.branch === 1 ? 'true ✓' : 'skipped' }}</span>
-        <span
-          class="lcv-result"
-          :style="currentClass && currentClass.branch === 1 ? { color: '#4078F2' } : {}"
-        >→ "Mid-tempo or slower"</span>
+        <span class="lcv-result">→ "Mid-tempo or slower"</span>
       </div>
     </div>
 
@@ -325,8 +307,10 @@ onUnmounted(() => clearInterval(timer))
 }
 
 .lcv-branch-active {
+  background: #e8effe;
+  border-color: #4078F2;
   transform: translateX(6px);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 10px rgba(64,120,242,0.15);
 }
 
 .lcv-branch-dim { opacity: 0.3; }
@@ -336,8 +320,9 @@ onUnmounted(() => clearInterval(timer))
   color: #A626A4;
   min-width: 2rem;
   flex-shrink: 0;
-  transition: color 0.2s;
 }
+
+.lcv-branch-active .lcv-kw { color: #4078F2; }
 
 .lcv-check {
   font-size: 0.85rem;
@@ -382,8 +367,9 @@ onUnmounted(() => clearInterval(timer))
   color: #A0A1A7;
   font-weight: 600;
   margin-left: auto;
-  transition: color 0.2s;
 }
+
+.lcv-branch-active .lcv-result { color: #4078F2; }
 
 /* ── Output ── */
 .lcv-output {
