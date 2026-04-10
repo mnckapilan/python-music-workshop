@@ -7,44 +7,82 @@
 
 ## Exercise 0 — Getting Set Up
 
-Before writing any code, you need two things installed on your laptop: **Python** (the language) and **VS Code** (the editor). The setup script checks both for you.
+### Step 1 — Get the workshop folder
 
-### Step 1 — Run the setup script
+Go to **tinyurl.com/python-walthamstow-workshop** → click the green **Code** button → **Download ZIP**.
 
-Open the **`setup`** folder inside the python-music-workshop folder.
+Unzip it:
+- **Mac:** double-click the `.zip` — a folder appears next to it
+- **Windows:** right-click the `.zip` → **Extract All…** → **Extract**
 
-| Your laptop | File to double-click |
-|-------------|----------------------|
-| Mac | `setup.command` — right-click → Open the first time (macOS security) |
-| Windows | `setup.bat` |
+Move the folder somewhere easy to find, like your **Desktop**.
 
-A terminal window opens and runs three checks automatically:
+---
+
+### Step 2 — Run the setup script
+
+Python is included with the workshop — you don't need to install it. The setup script checks everything for you.
+
+**Mac:**
+1. Open **Terminal** — press Cmd+Space, type *Terminal*, press Enter
+2. Type `bash ` with a space (don't press Enter yet)
+3. Open the `setup` folder → drag **`setup.command`** into the Terminal window
+4. Press Enter
+
+**Windows:**
+1. Open the `setup` folder in File Explorer
+2. Click the **address bar** at the top → type `cmd` → press Enter
+3. Type `setup.bat` and press Enter
+
+If Windows SmartScreen appears, click **More info → Run anyway**.
+
+You should see:
 
 ```
-[ OK ] Python 3.11.4
-[ OK ] VS Code 1.89.0
+[ OK ] Python 3.12.3 (bundled)
 [ OK ] Loaded 9237 songs.
 
 *** ALL DONE — YOU'RE GOOD TO GO! ***
 ```
 
-VS Code opens automatically when all three pass. If anything shows `[FAIL]`, the script tells you exactly what to fix — show it to a volunteer.
+If anything shows `[FAIL]`, show the output to a volunteer.
 
-### Step 2 — Open your first exercise
+---
 
-In VS Code, click the `exercises` folder in the left panel, then open `exercise_01_variables_and_strings.py`.
+### Step 3 — Install & open VS Code
 
-To run a file, open the terminal in VS Code (`` Ctrl+` ``) and type:
+VS Code is the program you'll write Python in. If you don't have it: go to **code.visualstudio.com** → download and install it.
+
+1. Open **VS Code**
+2. **File → Open Folder…**
+3. Find your workshop folder → select it → click **Open**
+4. You'll see the `exercises` folder appear in the left panel
+
+> **Mac:** if VS Code asks *"Do you trust the authors?"* → click **Yes, I trust the authors**
+
+---
+
+### Step 4 — Run your first exercise
+
+Open the terminal inside VS Code: press `` Ctrl+` `` (backtick key, top-left of the keyboard next to `1`).
+
+A panel opens at the bottom. Type this and press Enter:
 
 ```
-python3 exercises/exercise_01_variables_and_strings.py
+python3 exercises/exercise_00_setup_check.py
 ```
 
-> On Windows, use `python` instead of `python3` if that doesn't work.
+You should see:
+
+```
+Everything is set up correctly — you're ready to go!
+```
+
+> **Windows:** if `python3` isn't recognised, try `python3.bat` instead
 
 ### The Music Library & Data Explorer
 
-From Exercise 4 onwards, the exercises give you access to a real library of 9,000+ songs. To browse it, double-click **`explore.command`** (Mac) or **`explore.bat`** (Windows) from the `setup` folder. A webpage opens in your browser where you can search by song, artist, or genre — and see the Python code to pull any song into your exercises.
+From Exercise 4 onwards, the exercises give you access to a real library of 9,000+ songs. To browse it, run the explorer the same way as the setup script — drag **`explore.command`** (Mac) or open cmd and type **`explore.bat`** (Windows) from the `setup` folder. A webpage opens in your browser where you can search by song, artist, or genre — and see the Python code to pull any song into your exercises.
 
 Press Enter in the terminal window (or close it) when you're done with the explorer.
 
@@ -448,4 +486,4 @@ for i, song in enumerate(lines, start=1):
 
 ---
 
-*🎵 Great work — you've made it through all 7 exercises! You now know the core building blocks of Python. If you haven't already, open the Data Explorer (double-click `explore.command` or `explore.bat` in the `setup` folder) and try pulling real songs into your code.*
+*🎵 Great work — you've made it through all 7 exercises! You now know the core building blocks of Python. If you haven't already, open the Data Explorer (run `explore.command` or `explore.bat` from the `setup` folder) and try pulling real songs into your code.*

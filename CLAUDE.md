@@ -8,10 +8,14 @@ A Python coding workshop for beginners. Seven self-contained exercises teach cor
 
 ## Running Exercises
 
+Python is bundled in `python-runtime/` (auto-downloaded by setup scripts). Use the wrapper scripts at the project root:
+
 ```bash
-python exercises/exercise_01_variables_and_strings.py
-python exercises/exercise_02_lists.py
-# ... etc
+# Mac
+./python3 exercises/exercise_01_variables_and_strings.py
+
+# Windows
+python3.bat exercises/exercise_01_variables_and_strings.py
 ```
 
 No test suite, no linter, no build step. Exercises run standalone.
@@ -39,3 +43,6 @@ Each exercise follows the same pattern:
 - Exercise 07 writes/reads `my_playlist.txt` (gitignored) and cleans up with `os.remove()`
 - Exercises are designed to be assigned individually — concepts build progressively but each file is self-contained
 - Full workshop instructions are in `instructions/python_music_workshop.md`
+- Volunteer setup notes are in `setup/VOLUNTEER_GUIDE.md`
+- Setup scripts (`setup/setup.command`, `setup/setup.bat`) auto-download the Python runtime if `python-runtime/` is absent
+- `python-runtime/` and `dist/` are gitignored — don't commit them
