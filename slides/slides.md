@@ -82,7 +82,20 @@ layout: center
 
 # What is a variable?
 
-A variable is a labelled box that stores a piece of information.
+A variable is a **labelled box** that stores a piece of information.
+
+```mermaid
+graph LR
+  A["song_title"] -->|stores| B(["'Blinding Lights'"])
+  C["artist"] -->|stores| D(["'The Weeknd'"])
+  E["year"] -->|stores| F(["2019"])
+```
+
+> Text goes inside quote marks: `"like this"`<br/>Numbers don't need quotes: `2019`, `3.22`
+
+---
+
+# Variables — code
 
 ```python
 song_title = "Blinding Lights"
@@ -94,9 +107,6 @@ print(song_title)   # Blinding Lights
 print(artist)       # The Weeknd
 print(year)         # 2019
 ```
-
-> Text goes inside quote marks: `"like this"`
-> Numbers don't need quotes: `2019`, `3.22`
 
 ---
 
@@ -135,7 +145,21 @@ layout: center
 
 # What is a list?
 
-A list stores multiple items in one variable — perfect for a playlist.
+A list stores **multiple items in order** — each item has an index starting at 0.
+
+```mermaid
+graph LR
+  subgraph "playlist"
+    direction LR
+    A["[0]<br/>Blinding Lights"] --- B["[1]<br/>Levitating"] --- C["[2]<br/>Stay"] --- D["[3]<br/>Heat Waves"]
+  end
+```
+
+> `playlist[0]` → first item · `playlist[-1]` → last item · `len(playlist)` → count
+
+---
+
+# Lists — code
 
 ```python
 playlist = ["Blinding Lights", "Levitating", "Stay", "Heat Waves"]
@@ -144,20 +168,10 @@ print(playlist)        # the whole list
 print(playlist[0])     # first item  → "Blinding Lights"
 print(playlist[-1])    # last item   → "Heat Waves"
 print(len(playlist))   # how many    → 4
-```
 
-> Python counts from **0** — so the first item is `playlist[0]`, not `playlist[1]`
-
----
-
-# Changing a list
-
-```python
 playlist.append("As It Was")     # add to the end
 playlist.remove("Stay")          # remove a specific song
 playlist.insert(0, "Flowers")    # insert at position 0 (the start)
-
-print(playlist)
 ```
 
 ---
@@ -182,7 +196,22 @@ layout: center
 
 # What is a loop?
 
-Repeat code for every item in a list — without writing it out again and again.
+Instead of writing the same line for every song — let the loop do it.
+
+```mermaid
+flowchart TD
+  A([Start]) --> B["Take next song from list"]
+  B --> C["Run the indented code"]
+  C --> D{More songs?}
+  D -->|Yes| B
+  D -->|No| E([Done])
+```
+
+> The **indented lines** (4 spaces) are inside the loop — they run once per item.
+
+---
+
+# Loops — code
 
 ```python
 playlist = ["Blinding Lights", "Levitating", "Stay", "Heat Waves"]
@@ -190,12 +219,6 @@ playlist = ["Blinding Lights", "Levitating", "Stay", "Heat Waves"]
 for song in playlist:
     print(f"Now playing: {song}")
 ```
-
-> The indented lines (4 spaces) are **inside** the loop — they run once per item.
-
----
-
-# Useful loop tools
 
 ```python
 # range() — repeat a fixed number of times
@@ -229,7 +252,20 @@ layout: center
 
 # What is a conditional?
 
-Make decisions in your code with `if`, `elif`, and `else`.
+Your code takes a **different path** depending on whether something is true.
+
+```mermaid
+flowchart TD
+  A["song_bpm = 140"] --> B{bpm > 150?}
+  B -->|Yes| C["High energy!"]
+  B -->|No| D{bpm > 100?}
+  D -->|Yes| E["Mid-tempo"]
+  D -->|No| F["Slow and relaxed"]
+```
+
+---
+
+# Conditionals — code
 
 ```python
 song_bpm = 140
@@ -280,7 +316,23 @@ layout: center
 
 # What is a dictionary?
 
-Store related data together as **key–value pairs**.
+Group related data under named **keys** — like a labelled form.
+
+```mermaid
+graph LR
+  subgraph "album { }"
+    K1["'title'"] -->|→| V1(["'Future Nostalgia'"])
+    K2["'artist'"] -->|→| V2(["'Dua Lipa'"])
+    K3["'year'"] -->|→| V3(["2020"])
+    K4["'tracks'"] -->|→| V4(["{ 1: ..., 2: ... }"])
+  end
+```
+
+> Access any value with `album["key"]`
+
+---
+
+# Dictionaries — code
 
 ```python
 album = {
@@ -296,20 +348,9 @@ album = {
 
 print(album["title"])       # Future Nostalgia
 print(album["tracks"][2])   # Don't Start Now
-```
 
----
-
-# Working with dictionaries
-
-```python
-# Loop through key-value pairs
 for track_num, track_title in album["tracks"].items():
     print(f"Track {track_num}: {track_title}")
-
-# Add a new key at any time
-album["label"] = "Warner Records"
-print(album["label"])
 ```
 
 ---
@@ -328,6 +369,20 @@ layout: center
 
 # Exercise 6
 ## Functions 🎛️
+
+---
+
+# What is a function?
+
+Define code **once**, call it as many times as you like — with different inputs each time.
+
+```mermaid
+graph LR
+  A["'Blinding Lights', 'The Weeknd'"] --> B{{"now_playing()"}}
+  B --> C["▶ Blinding Lights — The Weeknd"]
+  D["'Levitating', 'Dua Lipa'"] --> B
+  B --> E["▶ Levitating — Dua Lipa"]
+```
 
 ---
 
@@ -395,8 +450,19 @@ layout: center
 
 # Why save to a file?
 
-So far, data disappears when the program stops.
-Files let us **save it for next time** — like an app storing your playlist.
+So far, data disappears when the program stops. A file keeps it around.
+
+```mermaid
+graph LR
+  A["🐍 Python Program"] -->|"open 'w' · f.write()"| B["📄 my_playlist.txt"]
+  B -->|"open 'r' · f.readlines()"| A
+```
+
+> `"w"` write · `"r"` read · `"a"` append
+
+---
+
+# Writing to a file
 
 ```python
 playlist = [
@@ -424,10 +490,6 @@ print(f"Loaded {len(lines)} songs:")
 for i, song in enumerate(lines, start=1):
     print(f"{i}. {song.strip()}")   # .strip() removes the \n
 ```
-
-> `"w"` — write (creates or overwrites)
-> `"r"` — read
-> `"a"` — append (adds to the end without overwriting)
 
 ---
 
