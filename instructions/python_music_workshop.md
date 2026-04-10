@@ -1,7 +1,52 @@
 # 🎵 Python & the Music World
-### A Coding Workshop for Year 10 — Exercises 1–7
+### A Coding Workshop for Year 10 — Exercises 0–7
 
 > **How to use this booklet:** Read the explanation → look at the example code → complete the task → try the extension challenge!
+
+---
+
+## Exercise 0 — Getting Set Up
+
+Before writing any code, you need two things installed on your laptop: **Python** (the language) and **VS Code** (the editor). The setup script checks both for you.
+
+### Step 1 — Run the setup script
+
+Open the **`setup`** folder inside the python-music-workshop folder.
+
+| Your laptop | File to double-click |
+|-------------|----------------------|
+| Mac | `setup.command` — right-click → Open the first time (macOS security) |
+| Windows | `setup.bat` |
+
+A terminal window opens and runs three checks automatically:
+
+```
+[ OK ] Python 3.11.4
+[ OK ] VS Code 1.89.0
+[ OK ] Loaded 9237 songs.
+
+*** ALL DONE — YOU'RE GOOD TO GO! ***
+```
+
+VS Code opens automatically when all three pass. If anything shows `[FAIL]`, the script tells you exactly what to fix — show it to a volunteer.
+
+### Step 2 — Open your first exercise
+
+In VS Code, click the `exercises` folder in the left panel, then open `exercise_01_variables_and_strings.py`.
+
+To run a file, open the terminal in VS Code (`` Ctrl+` ``) and type:
+
+```
+python3 exercises/exercise_01_variables_and_strings.py
+```
+
+> On Windows, use `python` instead of `python3` if that doesn't work.
+
+### The Music Library & Data Explorer
+
+From Exercise 4 onwards, the exercises give you access to a real library of 9,000+ songs. To browse it, double-click **`explore.command`** (Mac) or **`explore.bat`** (Windows) from the `setup` folder. A webpage opens in your browser where you can search by song, artist, or genre — and see the Python code to pull any song into your exercises.
+
+Press Enter in the terminal window (or close it) when you're done with the explorer.
 
 ---
 
@@ -405,4 +450,4 @@ for i, song in enumerate(lines, start=1):
 
 ---
 
-*🎵 Great work — you've made it through all 7 exercises! You now know the core building blocks of Python. Next up: the web demo!*
+*🎵 Great work — you've made it through all 7 exercises! You now know the core building blocks of Python. If you haven't already, open the Data Explorer (double-click `explore.command` or `explore.bat` in the `setup` folder) and try pulling real songs into your code.*
