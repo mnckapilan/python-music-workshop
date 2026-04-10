@@ -7,13 +7,11 @@
 :root {
   --c-bg:           oklch(0.985 0.008 80);
   --c-surface:      oklch(0.965 0.014 80);
-  --c-code-bg:      oklch(0.930 0.018 80);  /* distinctly darker warm surface for code blocks */
   --c-text:         oklch(0.15  0.010 250);
   --c-text-muted:   oklch(0.42  0.015 250);
   --c-accent:       oklch(0.65  0.155 55);
   --c-accent-light: oklch(0.93  0.040 78);
   --c-border:       oklch(0.87  0.016 80);
-  --c-code-border:  oklch(0.78  0.022 80);  /* stronger border for code blocks */
   --c-navy:         oklch(0.20  0.035 260);
   --c-navy-text:    oklch(0.96  0.006 80);
 
@@ -144,30 +142,25 @@
 }
 
 /* ── Code blocks ────────────────────────────────────────── */
+/* Let Shiki control the background color — only set structural styles */
 .slidev-code,
 .slidev-layout pre {
-  background: var(--c-code-bg) !important;
-  border: 1.5px solid var(--c-code-border);
-  border-radius: 8px;
+  border-radius: 10px;
+  border: 1px solid oklch(0.28 0.025 260);
   font-family: var(--font-mono);
   font-size: 0.93rem;
   line-height: 1.7;
-}
-
-/* Shiki wraps code in a span with a bg set inline — override it */
-.slidev-code span,
-.slidev-layout pre span {
-  background: transparent !important;
+  overflow: hidden;  /* clip shiki bg to border-radius */
 }
 
 code:not([class]) {
-  background: var(--c-code-bg);
-  border: 1px solid var(--c-code-border);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
   border-radius: 4px;
   padding: 0.1em 0.4em;
   font-family: var(--font-mono);
   font-size: 0.88em;
-  color: oklch(0.42 0.12 50);  /* richer amber — readable on both light and code-bg */
+  color: var(--c-text);
 }
 
 /* ── Blockquotes / tips ─────────────────────────────────── */
