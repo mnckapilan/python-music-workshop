@@ -1,28 +1,17 @@
 ---
-theme: default
+theme: dracula
 title: Python & the Music World
 info: A hands-on Python coding workshop for beginners
 highlighter: shiki
 lineNumbers: true
 shiki:
-  theme: 'github-dark'
+  theme: 'dracula'
 fonts:
   sans: 'Figtree'
   serif: 'Bricolage Grotesque'
   mono: 'Fira Code'
   weights: '400,500,600,700,800'
   provider: 'google'
-mermaid:
-  theme: base
-  themeVariables:
-    primaryColor: '#EDD9A3'
-    primaryTextColor: '#1A1A2E'
-    primaryBorderColor: '#C4942D'
-    lineColor: '#C4942D'
-    secondaryColor: '#F5EDD6'
-    tertiaryColor: '#FBF6EC'
-    edgeLabelBackground: '#FBF6EC'
-    fontFamily: 'Figtree, sans-serif'
 ---
 
 # Python &<br>the Music World

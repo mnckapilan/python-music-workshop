@@ -1,41 +1,38 @@
 /* ============================================================
-   Python Music Workshop — Slidev Custom Styles
-   Palette: warm paper · charcoal text · amber accent · navy breaks
-   Fonts: Bricolage Grotesque (headings) · Figtree (body) · Fira Code (mono)
+   Python Music Workshop — Custom overrides for @slidev/theme-dracula
+   Dracula palette:
+     bg         #282A36   surface  #44475A   fg       #F8F8F2
+     comment    #6272A4   cyan     #8BE9FD   green    #50FA7B
+     orange     #FFB86C   pink     #FF79C6   purple   #BD93F9
+     yellow     #F1FA8C
    ============================================================ */
 
 :root {
-  --c-bg:           oklch(0.985 0.008 80);
-  --c-surface:      oklch(0.965 0.014 80);
-  --c-text:         oklch(0.15  0.010 250);
-  --c-text-muted:   oklch(0.42  0.015 250);
-  --c-accent:       oklch(0.65  0.155 55);
-  --c-accent-light: oklch(0.93  0.040 78);
-  --c-border:       oklch(0.87  0.016 80);
-  --c-navy:         oklch(0.20  0.035 260);
-  --c-navy-text:    oklch(0.96  0.006 80);
+  --d-bg:         #282A36;
+  --d-surface:    #44475A;
+  --d-surface2:   #383A4A;
+  --d-fg:         #F8F8F2;
+  --d-muted:      #6272A4;
+  --d-purple:     #BD93F9;
+  --d-pink:       #FF79C6;
+  --d-cyan:       #8BE9FD;
+  --d-green:      #50FA7B;
+  --d-orange:     #FFB86C;
+  --d-yellow:     #F1FA8C;
+  --d-border:     #44475A;
+  --d-border2:    #6272A4;
 
   --font-head: 'Bricolage Grotesque', sans-serif;
   --font-body: 'Figtree', sans-serif;
   --font-mono: 'Fira Code', monospace;
 }
 
-/* ── Base slide ─────────────────────────────────────────── */
-.slidev-layout {
-  background: var(--c-bg);
-  color: var(--c-text);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.65;
-}
-
-/* ── Headings ───────────────────────────────────────────── */
+/* ── Typography ─────────────────────────────────────────── */
 .slidev-layout h1 {
   font-family: var(--font-head);
   font-weight: 800;
   font-size: 2.4rem;
   line-height: 1.15;
-  color: var(--c-text);
   letter-spacing: -0.02em;
   margin-bottom: 1.2rem;
 }
@@ -44,139 +41,68 @@
   font-family: var(--font-head);
   font-weight: 600;
   font-size: 1.5rem;
-  color: var(--c-text-muted);
   letter-spacing: -0.01em;
   margin-bottom: 0.6rem;
+  color: var(--d-muted);
 }
 
-.slidev-layout h3 {
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--c-text);
-}
-
-/* ── Cover layout ───────────────────────────────────────── */
-.slidev-layout.cover {
-  background: var(--c-bg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 4rem 5rem;
-  position: relative;
-}
-
-.slidev-layout.cover::before {
-  content: '♩';
-  position: absolute;
-  top: 2.5rem;
-  right: 3rem;
-  font-size: 8rem;
-  color: var(--c-accent);
-  opacity: 0.12;
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-}
-
-.slidev-layout.cover h1 {
-  font-size: 3.4rem;
-  font-weight: 800;
-  line-height: 1.05;
-  max-width: 14ch;
-  color: var(--c-text);
-}
-
-.slidev-layout.cover p {
-  color: var(--c-text-muted);
-  font-size: 1.1rem;
-  margin-top: 1rem;
-}
-
-/* amber rule under cover h1 */
-.slidev-layout.cover h1::after {
-  content: '';
-  display: block;
-  width: 3rem;
-  height: 3px;
-  background: var(--c-accent);
-  margin-top: 1rem;
-  border-radius: 2px;
-}
-
-/* ── Section / chapter-break slides ────────────────────── */
+/* ── Section break slides ───────────────────────────────── */
 .slidev-layout.exercise-header {
-  background: var(--c-navy);
-  color: var(--c-navy-text);
+  background: var(--d-purple);
+  color: var(--d-bg);
 }
 
 .slidev-layout.exercise-header h1 {
-  color: var(--c-navy-text);
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  color: var(--d-bg);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  opacity: 0.6;
+  opacity: 0.65;
   margin-bottom: 0.4rem;
 }
 
 .slidev-layout.exercise-header h2 {
-  color: var(--c-navy-text);
+  color: var(--d-bg);
   font-size: 2.8rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   opacity: 1;
 }
 
-/* amber accent dot on section headers */
-.slidev-layout.exercise-header::after {
-  content: '';
-  position: absolute;
-  bottom: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2rem;
-  height: 3px;
-  background: var(--c-accent);
-  border-radius: 2px;
-}
-
 /* ── Code blocks ────────────────────────────────────────── */
-/* Let Shiki control the background color — only set structural styles */
 .slidev-code,
 .slidev-layout pre {
   border-radius: 10px;
-  border: 1px solid oklch(0.28 0.025 260);
+  border: 1px solid var(--d-border2);
   font-family: var(--font-mono);
   font-size: 0.93rem;
   line-height: 1.7;
-  overflow: hidden;  /* clip shiki bg to border-radius */
+  overflow: hidden;
 }
 
 code:not([class]) {
-  background: var(--c-surface);
-  border: 1px solid var(--c-border);
+  background: var(--d-surface);
+  border: 1px solid var(--d-border2);
   border-radius: 4px;
   padding: 0.1em 0.4em;
   font-family: var(--font-mono);
   font-size: 0.88em;
-  color: var(--c-text);
+  color: var(--d-cyan);
 }
 
-/* ── Blockquotes / tips ─────────────────────────────────── */
+/* ── Blockquotes ────────────────────────────────────────── */
 .slidev-layout blockquote {
-  background: var(--c-accent-light);
-  border: 1px solid var(--c-border);
+  background: var(--d-surface2);
+  border: 1px solid var(--d-border2);
   border-radius: 6px;
   padding: 0.6rem 1.1rem;
-  color: var(--c-text-muted);
+  color: var(--d-muted);
   font-size: 0.9rem;
   margin: 1rem 0 0;
 }
 
-.slidev-layout blockquote p {
-  margin: 0;
-}
+.slidev-layout blockquote p { margin: 0; }
 
 /* ── Tables ─────────────────────────────────────────────── */
 .slidev-layout table {
@@ -186,23 +112,22 @@ code:not([class]) {
 }
 
 .slidev-layout th {
-  background: var(--c-accent-light);
+  background: var(--d-surface);
   font-family: var(--font-head);
   font-weight: 700;
   text-align: left;
   padding: 0.5rem 1rem;
-  border: 1px solid var(--c-border);
+  border: 1px solid var(--d-border2);
+  color: var(--d-purple);
 }
 
 .slidev-layout td {
   padding: 0.45rem 1rem;
-  border: 1px solid var(--c-border);
+  border: 1px solid var(--d-border);
   vertical-align: top;
 }
 
-.slidev-layout tr:nth-child(even) td {
-  background: oklch(0.975 0.010 80);
-}
+.slidev-layout tr:nth-child(even) td { background: var(--d-surface2); }
 
 /* ── Lists ──────────────────────────────────────────────── */
 .slidev-layout ul,
@@ -213,57 +138,54 @@ code:not([class]) {
   gap: 0.4rem;
 }
 
-.slidev-layout li {
-  line-height: 1.5;
-}
+.slidev-layout li::marker { color: var(--d-purple); }
 
-.slidev-layout li::marker {
-  color: var(--c-accent);
-}
-
-/* ── Custom diagrams ────────────────────────────────────── */
-
-/* Shared primitives */
+/* ── Shared diagram primitives ──────────────────────────── */
 .d-box {
   padding: 0.28rem 0.7rem;
-  border: 1.5px solid var(--c-border);
-  background: var(--c-surface);
+  border: 1.5px solid var(--d-border2);
+  background: var(--d-surface);
   border-radius: 4px;
   font-family: var(--font-mono);
   font-size: 0.82rem;
   white-space: nowrap;
   line-height: 1.5;
+  color: var(--d-fg);
 }
+
 .d-box.d-key {
-  background: var(--c-accent-light);
-  border-color: oklch(0.76 0.10 60);
+  background: rgba(189, 147, 249, 0.15);
+  border-color: var(--d-purple);
+  color: var(--d-purple);
   font-weight: 600;
-  color: oklch(0.38 0.10 50);
 }
-.d-box.d-val  { color: var(--c-text-muted); }
+
+.d-box.d-val { color: var(--d-fg); }
+
 .d-box.d-dark {
-  background: var(--c-navy);
-  border-color: oklch(0.30 0.04 260);
-  color: var(--c-navy-text);
+  background: var(--d-surface);
+  border-color: var(--d-purple);
+  color: var(--d-purple);
   font-family: var(--font-head);
   font-weight: 700;
   font-size: 0.9rem;
   padding: 0.4rem 1.1rem;
 }
+
 .d-arr {
-  color: var(--c-accent);
+  color: var(--d-pink);
   font-size: 1.05rem;
   font-weight: 700;
   flex-shrink: 0;
-  line-height: 1;
 }
+
 .d-caption {
   font-size: 0.73rem;
-  color: var(--c-text-muted);
-  font-family: var(--font-body);
+  color: var(--d-muted);
   font-style: italic;
   margin-top: 0.4rem;
 }
+
 .d-row {
   display: flex;
   align-items: center;
@@ -284,39 +206,45 @@ code:not([class]) {
   gap: 0;
   margin: 0.6rem 0;
 }
+
 .d-cell {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-width: 7.5rem;
 }
+
 .d-cell-idx {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 700;
-  color: var(--c-accent);
+  color: var(--d-purple);
   padding: 0.1rem 0 0.2rem;
 }
+
 .d-cell-val {
   padding: 0.38rem 0.5rem;
-  border: 1.5px solid var(--c-border);
+  border: 1.5px solid var(--d-border2);
   border-right: none;
-  background: var(--c-surface);
+  background: var(--d-surface);
   font-family: var(--font-mono);
   font-size: 0.76rem;
   text-align: center;
   width: 100%;
   box-sizing: border-box;
+  color: var(--d-fg);
 }
-.d-cell:last-child .d-cell-val { border-right: 1.5px solid var(--c-border); }
+
+.d-cell:last-child .d-cell-val { border-right: 1.5px solid var(--d-border2); }
 
 /* Loop diagram */
 .d-loop {
-  border: 1.5px solid var(--c-border);
+  border: 1.5px solid var(--d-border2);
   border-radius: 6px;
   overflow: hidden;
   margin: 0.6rem 0;
 }
+
 .d-loop-row {
   display: flex;
   align-items: center;
@@ -324,13 +252,16 @@ code:not([class]) {
   padding: 0.32rem 0.8rem;
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  border-top: 1px solid var(--c-border);
+  border-top: 1px solid var(--d-border);
+  color: var(--d-fg);
 }
+
 .d-loop-row:first-child { border-top: none; }
-.d-loop-row:nth-child(even) { background: oklch(0.975 0.010 80); }
+.d-loop-row:nth-child(even) { background: var(--d-surface2); }
+
 .d-loop-out {
   margin-left: auto;
-  color: var(--c-text-muted);
+  color: var(--d-green);
   font-size: 0.76rem;
   white-space: nowrap;
 }
@@ -341,59 +272,67 @@ code:not([class]) {
   font-family: var(--font-mono);
   font-size: 0.82rem;
 }
-.d-cond-input {
-  margin-bottom: 0.55rem;
-}
+
+.d-cond-input { margin-bottom: 0.55rem; }
+
 .d-cond-branch {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
   padding-left: 0.4rem;
 }
+
 .d-cond-row {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
+
 .d-cond-stem {
-  color: oklch(0.68 0.08 60);
+  color: var(--d-muted);
   font-size: 1rem;
   width: 0.9rem;
   flex-shrink: 0;
 }
-.d-cond-check { color: var(--c-text-muted); }
+
+.d-cond-check { color: var(--d-muted); }
+
 .d-cond-result {
   padding: 0.18rem 0.55rem;
-  background: var(--c-accent-light);
-  border: 1px solid oklch(0.82 0.06 75);
+  background: rgba(189, 147, 249, 0.15);
+  border: 1px solid var(--d-purple);
   border-radius: 3px;
   font-size: 0.78rem;
+  color: var(--d-purple);
 }
 
 /* Dictionary diagram */
 .d-dict {
   display: grid;
   grid-template-columns: auto 1fr;
-  border: 1.5px solid var(--c-border);
+  border: 1.5px solid var(--d-border2);
   border-radius: 6px;
   overflow: hidden;
   font-family: var(--font-mono);
   font-size: 0.81rem;
   margin: 0.6rem 0;
 }
+
 .d-dict-k {
   padding: 0.32rem 0.8rem;
-  background: var(--c-accent-light);
-  border-right: 1.5px solid oklch(0.80 0.07 72);
-  border-bottom: 1px solid var(--c-border);
+  background: rgba(189, 147, 249, 0.15);
+  border-right: 1.5px solid var(--d-purple);
+  border-bottom: 1px solid var(--d-border);
   font-weight: 600;
-  color: oklch(0.38 0.10 50);
+  color: var(--d-purple);
 }
+
 .d-dict-v {
   padding: 0.32rem 0.85rem;
-  border-bottom: 1px solid var(--c-border);
-  color: var(--c-text-muted);
+  border-bottom: 1px solid var(--d-border);
+  color: var(--d-fg);
 }
+
 .d-dict-k:last-of-type,
 .d-dict-v:last-of-type { border-bottom: none; }
 
@@ -405,6 +344,7 @@ code:not([class]) {
   margin: 0.6rem 0;
   flex-wrap: wrap;
 }
+
 .d-fn-group {
   display: flex;
   flex-direction: column;
@@ -418,42 +358,26 @@ code:not([class]) {
   gap: 1.2rem;
   margin: 0.6rem 0;
 }
+
 .d-fileio-mid {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
   align-items: center;
 }
+
 .d-fileio-row {
   display: flex;
   align-items: center;
   gap: 0.35rem;
   font-size: 0.75rem;
-  color: var(--c-text-muted);
+  color: var(--d-muted);
   font-family: var(--font-body);
 }
+
 .d-fileio-line {
   height: 2px;
   width: 4.5rem;
-  background: var(--c-accent);
+  background: var(--d-purple);
   border-radius: 1px;
-}
-
-/* ── Slide number ───────────────────────────────────────── */
-.slidev-page-number {
-  color: var(--c-text-muted);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-}
-
-/* ── Strong / em ────────────────────────────────────────── */
-.slidev-layout strong {
-  font-weight: 700;
-  color: var(--c-text);
-}
-
-.slidev-layout em {
-  color: var(--c-accent);
-  font-style: normal;
-  font-weight: 600;
 }
