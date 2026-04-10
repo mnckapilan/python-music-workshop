@@ -69,37 +69,47 @@ onUnmounted(() => clearInterval(timer))
 <template>
   <div class="lcv">
 
-    <!-- ── Left: song list ── -->
-    <div class="lcv-list">
-      <div class="lcv-list-label">playlist</div>
-      <div
-        v-for="(song, i) in songs"
-        :key="i"
-        class="lcv-row"
-        :class="{
-          'lcv-row-active':   active === i,
-          'lcv-row-visited':  active >  i,
-        }"
-      >
-        <!-- loop pointer -->
-        <div class="lcv-ptr" :class="{ 'lcv-ptr-on': active === i }">▶</div>
-        <div class="lcv-row-body">
+    <!-- ── Left: two lists side by side ── -->
+    <div class="lcv-lists">
+
+      <!-- titles list -->
+      <div class="lcv-list">
+        <div class="lcv-list-label">titles</div>
+        <div
+          v-for="(song, i) in songs"
+          :key="i"
+          class="lcv-row"
+          :class="{
+            'lcv-row-active':  active === i,
+            'lcv-row-visited': active >  i,
+          }"
+        >
+          <div class="lcv-ptr" :class="{ 'lcv-ptr-on': active === i }">▶</div>
           <span class="lcv-title">{{ song.title }}</span>
-          <span
-            class="lcv-bpm"
-            :class="{
-              'lcv-bpm-active':   active === i,
-              'lcv-bpm-visited':  active >  i,
-            }"
-          >{{ song.bpm }} bpm</span>
+          <transition name="lcv-pill">
+            <div class="lcv-ivar" v-if="active === i">
+              <span class="lcv-ivar-k">i</span>=<span class="lcv-ivar-v">{{ i }}</span>
+            </div>
+          </transition>
         </div>
-        <!-- i variable pill -->
-        <transition name="lcv-pill">
-          <div class="lcv-ivar" v-if="active === i">
-            <span class="lcv-ivar-k">i</span> = <span class="lcv-ivar-v">{{ i }}</span>
-          </div>
-        </transition>
       </div>
+
+      <!-- bpms list -->
+      <div class="lcv-list">
+        <div class="lcv-list-label">bpms</div>
+        <div
+          v-for="(song, i) in songs"
+          :key="i"
+          class="lcv-row lcv-row-bpm"
+          :class="{
+            'lcv-row-active':  active === i,
+            'lcv-row-visited': active >  i,
+          }"
+        >
+          <span class="lcv-bpm-val">{{ song.bpm }}</span>
+        </div>
+      </div>
+
     </div>
 
     <!-- ── Middle: conditional branches ── -->
@@ -187,11 +197,17 @@ onUnmounted(() => clearInterval(timer))
   height: 310px;
 }
 
-/* ── Song list ── */
+/* ── Two-column list wrapper ── */
+.lcv-lists {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+}
+
 .lcv-list {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.35rem;
 }
 
 .lcv-list-label,
@@ -209,22 +225,29 @@ onUnmounted(() => clearInterval(timer))
 .lcv-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.55rem 0.7rem;
+  gap: 0.45rem;
+  padding: 0 0.6rem;
+  height: 2.6rem;
+  overflow: hidden;
   background: #F0F0F1;
   border: 1px solid #D3D3D4;
   border-radius: 7px;
   font-family: 'Fira Code', monospace;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   transition: background 0.2s, border-color 0.2s, transform 0.15s;
 }
+
+/* bpm column rows don't shift on active — they stay aligned */
+.lcv-row-bpm { justify-content: center; min-width: 4rem; }
 
 .lcv-row-active {
   background: #e8effe;
   border-color: #4078F2;
-  transform: translateX(5px);
   box-shadow: 0 2px 8px rgba(64,120,242,0.15);
 }
+
+/* only title rows translate to show movement */
+.lcv-list:first-child .lcv-row-active { transform: translateX(4px); }
 
 .lcv-row-visited {
   background: #eaf3ea;
@@ -240,29 +263,26 @@ onUnmounted(() => clearInterval(timer))
 
 .lcv-ptr-on { color: #4078F2; }
 
-.lcv-row-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  flex: 1;
-}
-
 .lcv-title {
   color: #383A42;
-  font-size: 0.85rem;
+  font-size: 0.83rem;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .lcv-row-active  .lcv-title { color: #4078F2; font-weight: 600; }
 .lcv-row-visited .lcv-title { color: #3a7a39; }
 
-.lcv-bpm {
-  font-size: 0.72rem;
-  color: #A0A1A7;
-  transition: color 0.2s;
+.lcv-bpm-val {
+  color: #383A42;
+  font-weight: 600;
 }
 
-.lcv-bpm-active  { color: #4078F2; font-weight: 700; }
-.lcv-bpm-visited { color: #50A14F; }
+.lcv-row-active  .lcv-bpm-val { color: #4078F2; }
+.lcv-row-visited .lcv-bpm-val { color: #3a7a39; }
 
 /* i variable pill */
 .lcv-ivar {
