@@ -158,8 +158,8 @@ onUnmounted(() => clearInterval(timer))
         <span
           v-if="currentSong"
           class="lcv-badge"
-          :class="currentClass.branch === 1 ? 'lcv-badge-skip' : 'lcv-badge-skip'"
-        >{{ currentClass.branch === 1 ? 'runs ✓' : 'skipped' }}</span>
+          :class="currentClass.branch === 1 ? 'lcv-badge-true' : 'lcv-badge-skip'"
+        >{{ currentClass.branch === 1 ? 'true ✓' : 'skipped' }}</span>
         <span
           class="lcv-result"
           :style="currentClass && currentClass.branch === 1 ? { color: '#4078F2' } : {}"
@@ -374,9 +374,9 @@ onUnmounted(() => clearInterval(timer))
   flex-shrink: 0;
 }
 
-.lcv-badge-true  { background: #fff5f5; color: #E53E3E; border: 1px solid #feb2b2; }
+.lcv-badge-true  { background: #eaf3ea; color: #50A14F; border: 1px solid #9ecf9d; }
 .lcv-badge-false { background: #fff0f0; color: #c0392b; border: 1px solid #f5b7b1; }
-.lcv-badge-skip  { background: #eaf3ea; color: #50A14F; border: 1px solid #9ecf9d; }
+.lcv-badge-skip  { background: #F0F0F1; color: #A0A1A7; border: 1px solid #D3D3D4; }
 
 .lcv-result {
   font-size: 0.82rem;
