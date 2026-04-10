@@ -27,6 +27,50 @@
   --font-mono: 'Fira Code', monospace;
 }
 
+/* ── Base slide ─────────────────────────────────────────── */
+.slidev-layout {
+  background: var(--d-bg);
+  color: var(--d-fg);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* ── Cover ──────────────────────────────────────────────── */
+.slidev-layout.cover {
+  background: var(--d-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 5rem;
+}
+
+.slidev-layout.cover h1 {
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1.05;
+  max-width: 14ch;
+  color: var(--d-purple);
+}
+
+.slidev-layout.cover p {
+  color: var(--d-muted);
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+/* ── Strong / em ────────────────────────────────────────── */
+.slidev-layout strong {
+  font-weight: 700;
+  color: var(--d-fg);
+}
+
+.slidev-layout em {
+  color: var(--d-cyan);
+  font-style: normal;
+  font-weight: 600;
+}
+
 /* ── Typography ─────────────────────────────────────────── */
 .slidev-layout h1 {
   font-family: var(--font-head);
