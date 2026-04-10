@@ -4,10 +4,11 @@
 #
 #  WHAT IS A FUNCTION?
 #  A function is a reusable block of code you give a name to.
-#  Define it once, call it as many times as you like.
+#  Define it once, call it as many times as you like —
+#  and if you want to change how it works, you only edit
+#  one place instead of hunting through your whole program.
 #
 #  def function_name(parameter1, parameter2):
-#      """Optional description (docstring)."""
 #      # code goes here
 #      return result      # optional — sends a value back
 #
@@ -15,46 +16,60 @@
 
 # --- EXAMPLE — run this and see what it prints --------------
 
-def now_playing(title, artist, bpm):
-    """Prints a formatted Now Playing message."""
-    if bpm > 130:
-        energy = "High Energy"
-    elif bpm > 90:
-        energy = "Mid-Tempo"
-    else:
-        energy = "Slow Jam"
-    print(f"▶  {title} — {artist}  [{energy}]")
+# Without a function, you'd repeat yourself for every song:
+#   print("▶  Blinding Lights — The Weeknd")
+#   print("▶  Levitating — Dua Lipa")
+#   print("▶  Heat Waves — Glass Animals")
+# Change the format? Edit every line. That gets painful fast.
 
+# With a function, define the format once:
+def now_playing(title, artist):
+    print(f"▶  {title} — {artist}")
 
-now_playing("Blinding Lights", "The Weeknd", 171)
-now_playing("Shape of You",    "Ed Sheeran", 96)
-now_playing("Someone Like You","Adele",       68)
+now_playing("Blinding Lights", "The Weeknd")
+now_playing("Levitating",      "Dua Lipa")
+now_playing("Heat Waves",      "Glass Animals")
+# Now changing "▶" to "🎵" means editing one line, not three.
 
 print("---")
 
-# A function that RETURNS a value
-def most_played(playlist, play_counts):
-    """Returns the song with the highest play count."""
-    top_index = play_counts.index(max(play_counts))
-    return playlist[top_index]
+# A function can also RETURN a value for you to use later.
+def classify_bpm(bpm):
+    """Returns an energy label for a given BPM."""
+    if bpm > 130:
+        return "High energy"
+    elif bpm > 90:
+        return "Mid-tempo"
+    else:
+        return "Slow"
 
+# Use the return value directly:
+print(classify_bpm(171))   # High energy
+print(classify_bpm(96))    # Mid-tempo
+print(classify_bpm(68))    # Slow
 
-songs  = ["Levitating", "Peaches", "drivers license"]
-plays  = [120, 85, 200]
-winner = most_played(songs, plays)
-print(f"Most played: {winner}")
+print("---")
+
+# Combine both ideas — call classify_bpm() inside a loop:
+titles = ["Blinding Lights", "Shape of You", "Someone Like You"]
+bpms   = [171,               96,             68]
+
+for i, title in enumerate(titles):
+    label = classify_bpm(bpms[i])
+    print(f"{title}: {label}")
 
 # ------------------------------------------------------------
 #  YOUR TASK
 # ------------------------------------------------------------
 #  1. Write a function called describe_song(title, artist, year)
-#     that prints a one-line description of a song.
+#     that prints one line about a song, e.g.:
+#       "Blinding Lights by The Weeknd (2019)"
 #     Call it at least three times with different songs.
 #
-#  2. Write a function called count_by_artist(playlist, artist)
-#     that takes a list of song dictionaries (each with
-#     'title' and 'artist' keys) and RETURNS how many songs
-#     are by that artist. Print the result.
+#  2. Write a function called print_playlist(songs) that takes
+#     a list of song title strings and prints a numbered track
+#     listing (like exercise 3). Call it on the sample list below,
+#     then call it again on a different list of your own.
 
 # Start your code here 👇
 
@@ -64,17 +79,16 @@ def describe_song(title, artist, year):
 
 
 # Task 2
-def count_by_artist(playlist, artist):
+def print_playlist(songs):
     pass   # replace with your code
 
 
-# Sample playlist to test count_by_artist with:
-sample_playlist = [
-    {"title": "Blinding Lights",  "artist": "The Weeknd"},
-    {"title": "Save Your Tears",  "artist": "The Weeknd"},
-    {"title": "Levitating",       "artist": "Dua Lipa"},
-    {"title": "Heat Waves",       "artist": "Glass Animals"},
-    {"title": "Stay",             "artist": "The Kid LAROI"},
+sample_songs = [
+    "Blinding Lights",
+    "Levitating",
+    "Heat Waves",
+    "Stay",
+    "Bad Habit",
 ]
 
 # Call your functions here:
@@ -85,28 +99,35 @@ sample_playlist = [
 # ------------------------------------------------------------
 from music_data import SONGS   # 9,000+ real songs, ready to use
 #
-#  Try passing a real song to your describe_song() function:
+#  Pass a real song to describe_song():
 #    describe_song(SONGS[0]["title"], SONGS[0]["artist"], SONGS[0]["year"])
 #
-#  Or pass a real song to now_playing():
-#    now_playing(SONGS[0]["title"], SONGS[0]["artist"], SONGS[0]["bpm"])
+#  Pass a real song to now_playing():
+#    now_playing(SONGS[0]["title"], SONGS[0]["artist"])
 #
-#  Build a real playlist and pass it to count_by_artist():
-#    real_playlist = [{"title": s["title"], "artist": s["artist"]} for s in SONGS[:10]]
-#    print(count_by_artist(real_playlist, "Taylor Swift"))
+#  Build a playlist of real titles and pass it to print_playlist():
+#    real_titles = [s["title"] for s in SONGS[:10]]
+#    print_playlist(real_titles)
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
 # ------------------------------------------------------------
-#  - Write a function called shuffle(playlist) that returns
-#    a randomly ordered copy of the list.
-#    Hint:
-#      import random
-#      return random.sample(playlist, len(playlist))
+#  - Add classify_bpm() to your now_playing() function so it
+#    prints the energy label too. You already have classify_bpm —
+#    just call it inside now_playing().
 #
-#  - Write a function called search(playlist, keyword) that
-#    returns all songs whose title contains the keyword
-#    (case-insensitive).
+#  - Write a function called count_by_artist(songs, artist)
+#    that takes a list of song dictionaries (each with "title"
+#    and "artist" keys) and RETURNS how many songs match.
+#    Test it on sample_playlist below:
+#
+#    sample_playlist = [
+#        {"title": "Blinding Lights", "artist": "The Weeknd"},
+#        {"title": "Save Your Tears", "artist": "The Weeknd"},
+#        {"title": "Levitating",      "artist": "Dua Lipa"},
+#    ]
+#    print(count_by_artist(sample_playlist, "The Weeknd"))  # 2
+#
+#  - Write a function called search(songs, keyword) that returns
+#    a list of titles containing the keyword (case-insensitive).
 #    Hint: use keyword.lower() and title.lower()
-#
-#  - Try calling shuffle() and search() on all SONGS.
