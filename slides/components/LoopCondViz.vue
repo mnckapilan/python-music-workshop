@@ -93,6 +93,12 @@ onUnmounted(() => clearInterval(timer))
             }"
           >{{ song.bpm }} bpm</span>
         </div>
+        <!-- i variable pill -->
+        <transition name="lcv-pill">
+          <div class="lcv-ivar" v-if="active === i">
+            <span class="lcv-ivar-k">i</span> = <span class="lcv-ivar-v">{{ i }}</span>
+          </div>
+        </transition>
       </div>
     </div>
 
@@ -276,6 +282,25 @@ onUnmounted(() => clearInterval(timer))
 
 .lcv-bpm-active  { color: #4078F2; font-weight: 700; }
 .lcv-bpm-visited { color: #50A14F; }
+
+/* i variable pill */
+.lcv-ivar {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  background: #fff;
+  border: 1px solid #b8ccfb;
+  border-radius: 4px;
+  padding: 0.1rem 0.45rem;
+  color: #4078F2;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.lcv-ivar-k { color: #A626A4; font-weight: 700; }
+.lcv-ivar-v { color: #50A14F; font-weight: 700; }
+
+.lcv-pill-enter-active { transition: opacity 0.2s, transform 0.2s; }
+.lcv-pill-enter-from   { opacity: 0; transform: translateX(6px); }
 
 /* ── Conditional ── */
 .lcv-cond {
