@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Is
 
-A Python coding workshop for Year 10 students (beginners). Seven self-contained exercises teach core Python concepts through music-themed examples (playlists, albums, artists, lyrics). No third-party dependencies — pure Python 3.8+.
+A Python coding workshop for beginners. Seven self-contained exercises teach core Python concepts through music-themed examples (playlists, albums, artists, lyrics). No third-party dependencies — pure Python 3.8+.
 
 ## Running Exercises
 

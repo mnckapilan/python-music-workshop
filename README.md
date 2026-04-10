@@ -1,6 +1,6 @@
 # Python Music Workshop
 
-A hands-on Python workshop for Year 10 students, themed around music — playlists, albums, artists, and lyrics.
+A hands-on Python workshop for beginners, themed around music — playlists, albums, artists, and lyrics.
 
 ## Overview
 

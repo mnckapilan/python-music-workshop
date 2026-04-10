@@ -1,5 +1,5 @@
 # 🎵 Python & the Music World
-### A Coding Workshop for Year 10 — Exercises 0–7
+### A Coding Workshop — Exercises 0–7
 
 > **How to use this booklet:** Read the explanation → look at the example code → complete the task → try the extension challenge!
 
