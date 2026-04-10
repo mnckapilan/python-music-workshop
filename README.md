@@ -66,13 +66,14 @@ No packages to install — the workshop uses Python's standard library only.
 
 Exercises 4–7 include an optional `EXPLORE` section that uses a real library of 9,000+ songs (artists include Sabrina Carpenter, Central Cee, RAYE, Olivia Dean, Bad Bunny, Taylor Swift, and many more). The data is bundled in `data/songs.json` — no internet connection needed.
 
-To browse the library with a searchable web UI:
+To browse the library with a searchable web UI, double-click the launcher from the `setup` folder:
 
-```bash
-python3 data/explorer.py
-```
+| Platform | File |
+|----------|------|
+| Mac | `setup/explore.command` (right-click → Open the first time) |
+| Windows | `setup/explore.bat` |
 
-This opens a local webpage where students can search by song, artist, or genre, and see the Python code needed to access any entry.
+This opens a local webpage where students can search by song, artist, or genre, and see the Python code needed to access any entry. Press Enter in the terminal window (or close it) to stop the server.
 
 ---
 
