@@ -176,7 +176,6 @@ onUnmounted(() => clearInterval(timer))
           v-for="(s, i) in printed"
           :key="i"
           class="lcv-line"
-          :style="{ color: s.color }"
         >
           <span class="lcv-prompt">▶</span>
           <span class="lcv-line-text">{{ s.title }} — {{ s.label }}</span>
