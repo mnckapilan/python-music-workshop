@@ -106,16 +106,18 @@ A variable is a **labelled box** that stores a piece of information.
 
 # Variables — code
 
-```python {1|2|3|4|6|7|8|all}
-song_title = "Blinding Lights"
+<script setup>
+const code = `song_title = "Blinding Lights"
 artist     = "The Weeknd"
 year       = 2019
 duration   = 3.22   # minutes
 
 print(song_title)   # Blinding Lights
 print(artist)       # The Weeknd
-print(year)         # 2019
-```
+print(year)         # 2019`
+</script>
+
+<CodeBlock :code="code" lang="python" filename="variables.py" />
 
 ---
 
@@ -123,14 +125,16 @@ print(year)         # 2019
 
 Slot variables directly into text — put `f` before the quote and `{}` around variable names.
 
-```python {1|2|3|5|6|all}
-song_title = "Blinding Lights"
+<script setup>
+const code = `song_title = "Blinding Lights"
 artist     = "The Weeknd"
 year       = 2019
 
 print(f"Now Playing: {song_title} by {artist} ({year})")
-# Now Playing: Blinding Lights by The Weeknd (2019)
-```
+# Now Playing: Blinding Lights by The Weeknd (2019)`
+</script>
+
+<CodeBlock :code="code" lang="python" filename="fstrings.py" />
 
 ---
 
@@ -174,8 +178,8 @@ A list stores **multiple items in order** — each item has an index starting at
 
 # Lists — code
 
-```python {1|3|4|5|6|8|9|10|all}
-playlist = ["Blinding Lights", "Levitating", "Stay", "Heat Waves"]
+<script setup>
+const code = `playlist = ["Blinding Lights", "Levitating", "Stay", "Heat Waves"]
 
 print(playlist)        # the whole list
 print(playlist[0])     # first item  → "Blinding Lights"
@@ -184,8 +188,10 @@ print(len(playlist))   # how many    → 4
 
 playlist.append("As It Was")     # add to the end
 playlist.remove("Stay")          # remove a specific song
-playlist.insert(0, "Flowers")    # insert at position 0 (the start)
-```
+playlist.insert(0, "Flowers")    # insert at position 0 (the start)`
+</script>
+
+<CodeBlock :code="code" lang="python" filename="lists.py" />
 
 ---
 
@@ -224,29 +230,33 @@ Instead of writing the same line for every song — let the loop do it.
 
 # Loops — code
 
-```python {1|3|4|all}
-playlist = ["Blinding Lights", "Levitating", "Stay", "Heat Waves"]
+<script setup>
+const code = `playlist = ["Blinding Lights", "Levitating", "Stay", "Heat Waves"]
 
 for song in playlist:
-    print(f"Now playing: {song}")
-```
+    print(f"Now playing: {song}")`
+</script>
+
+<CodeBlock :code="code" lang="python" filename="loops.py" />
 
 ---
 
 # More loop patterns
 
-```python {2|3|4|all}
-# range() — repeat a fixed number of times
+<script setup>
+const code1 = `# range() — repeat a fixed number of times
 chorus = "We will, we will rock you!"
 for i in range(4):
-    print(chorus)
-```
+    print(chorus)`
 
-```python {2|3|all}
-# enumerate() — track position while looping
+const code2 = `# enumerate() — track position while looping
 for i, song in enumerate(playlist, start=1):
-    print(f"{i}. {song}")
-```
+    print(f"{i}. {song}")`
+</script>
+
+<CodeBlock :code="code1" lang="python" filename="range()" />
+
+<CodeBlock :code="code2" lang="python" filename="enumerate()" />
 
 ---
 
@@ -283,23 +293,25 @@ Your code takes a **different path** depending on whether something is true.
 
 # Conditionals — code
 
-```python {1|3-4|5-6|7-8|all}
-song_bpm = 140
+<script setup>
+const code = `song_bpm = 140
 
 if song_bpm > 150:
     print("High energy — great for a workout!")
 elif song_bpm > 100:
     print("Mid-tempo — good for studying.")
 else:
-    print("Slow and relaxed — wind-down music.")
-```
+    print("Slow and relaxed — wind-down music.")`
+</script>
+
+<CodeBlock :code="code" lang="python" filename="conditionals.py" />
 
 ---
 
 # Conditionals inside a loop
 
-```python {1-2|4|5|6-7|8-9|all}
-titles = ["Blinding Lights", "Savage",    "Levitating"]
+<script setup>
+const code = `titles = ["Blinding Lights", "Savage",    "Levitating"]
 bpms   = [171,               134,         103]
 
 for i, title in enumerate(titles):
@@ -307,8 +319,10 @@ for i, title in enumerate(titles):
     if bpm > 130:
         print(f"{title} — High energy")
     else:
-        print(f"{title} — Mid-tempo or slower")
-```
+        print(f"{title} — Mid-tempo or slower")`
+</script>
+
+<CodeBlock :code="code" lang="python" filename="conditionals_loop.py" />
 
 ---
 
@@ -348,8 +362,8 @@ Group related data under named **keys** — like a labelled form.
 
 # Dictionaries — code
 
-```python {1-10|12|13|15-16|all}
-album = {
+<script setup>
+const code = `album = {
     "title":  "Future Nostalgia",
     "artist": "Dua Lipa",
     "year":   2020,
@@ -364,8 +378,10 @@ print(album["title"])       # Future Nostalgia
 print(album["tracks"][2])   # Don't Start Now
 
 for track_num, track_title in album["tracks"].items():
-    print(f"Track {track_num}: {track_title}")
-```
+    print(f"Track {track_num}: {track_title}")`
+</script>
+
+<CodeBlock :code="code" lang="python" filename="dictionaries.py" />
 
 ---
 
@@ -412,31 +428,33 @@ Define code **once**, call it as many times as you like — with different input
 
 Without a function, you repeat yourself:
 
-```python
-print("▶  Blinding Lights — The Weeknd")
+<script setup>
+const codeA = `print("▶  Blinding Lights — The Weeknd")
 print("▶  Levitating — Dua Lipa")
 print("▶  Heat Waves — Glass Animals")
-# Change the format? Edit every single line.
-```
+# Change the format? Edit every single line.`
 
-With a function, define the format **once**:
-
-```python {1-2|4|5|6|all}
-def now_playing(title, artist):
+const codeB = `def now_playing(title, artist):
     print(f"▶  {title} — {artist}")
 
 now_playing("Blinding Lights", "The Weeknd")
 now_playing("Levitating",      "Dua Lipa")
 now_playing("Heat Waves",      "Glass Animals")
-# Change the format? Edit one line.
-```
+# Change the format? Edit one line.`
+</script>
+
+<CodeBlock :code="codeA" lang="python" filename="without a function" />
+
+With a function, define the format **once**:
+
+<CodeBlock :code="codeB" lang="python" filename="now_playing()" />
 
 ---
 
 # Functions that return a value
 
-```python {1|2-3|4-5|6-7|9|10|11|all}
-def classify_bpm(bpm):
+<script setup>
+const code = `def classify_bpm(bpm):
     if bpm > 130:
         return "High energy"
     elif bpm > 90:
@@ -446,8 +464,10 @@ def classify_bpm(bpm):
 
 print(classify_bpm(171))   # High energy
 print(classify_bpm(96))    # Mid-tempo
-print(classify_bpm(68))    # Slow
-```
+print(classify_bpm(68))    # Slow`
+</script>
+
+<CodeBlock :code="code" lang="python" filename="classify_bpm()" />
 
 ---
 
@@ -490,8 +510,8 @@ So far, data disappears when the program stops. A file keeps it around.
 
 # Writing to a file
 
-```python {1-5|7|8|9|11|all}
-playlist = [
+<script setup>
+const code = `playlist = [
     "Blinding Lights – The Weeknd",
     "Levitating – Dua Lipa",
     "Heat Waves – Glass Animals",
@@ -499,23 +519,27 @@ playlist = [
 
 with open("my_playlist.txt", "w") as f:
     for song in playlist:
-        f.write(song + "\n")   # \n = new line
+        f.write(song + "\\n")   # \\n = new line
 
-print("Playlist saved!")
-```
+print("Playlist saved!")`
+</script>
+
+<CodeBlock :code="code" lang="python" filename="write_playlist.py" />
 
 ---
 
 # Reading a file back
 
-```python {1-2|4|5-6|all}
-with open("my_playlist.txt", "r") as f:
+<script setup>
+const code = `with open("my_playlist.txt", "r") as f:
     lines = f.readlines()
 
 print(f"Loaded {len(lines)} songs:")
 for i, song in enumerate(lines, start=1):
-    print(f"{i}. {song.strip()}")   # .strip() removes \n
-```
+    print(f"{i}. {song.strip()}")   # .strip() removes \\n`
+</script>
+
+<CodeBlock :code="code" lang="python" filename="read_playlist.py" />
 
 ---
 
