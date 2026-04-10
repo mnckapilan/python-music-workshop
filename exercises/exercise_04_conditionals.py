@@ -72,12 +72,8 @@ for i, title in enumerate(my_titles):
 # ------------------------------------------------------------
 from music_data import SONGS   # 9,000+ real songs, ready to use
 #
-#  Each entry in SONGS has a "title" and "bpm" field
-#  (you'll learn exactly how this works in Exercise 5).
-#
-#  See the first 10 titles and BPMs:
-#    for s in SONGS[:10]:
-#        print(s["title"], s["bpm"])
+#  SONGS uses a format called dictionaries — covered in Exercise 5.
+#  Come back to this section after you've done that exercise!
 #
 #  Run your energy check on real songs:
 #    for s in SONGS[:10]:

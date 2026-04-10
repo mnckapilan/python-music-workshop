@@ -249,31 +249,31 @@ else:
 
 You can put an `if` statement inside a `for` loop to check each item as you go through a list.
 
-**Example — filtering a playlist by genre:**
+**Example — classifying songs by BPM:**
 
 ```python
-songs = [
-    {"title": "Blinding Lights", "genre": "Pop"},
-    {"title": "Savage",          "genre": "Hip-Hop"},
-    {"title": "Levitating",      "genre": "Pop"},
-]
+titles = ["Blinding Lights", "Savage",    "Levitating"]
+bpms   = [171,               134,         103]
 
-for song in songs:
-    if song["genre"] == "Pop":
-        print(f"Pop hit: {song['title']}")
+for i, title in enumerate(titles):
+    bpm = bpms[i]
+    if bpm > 130:
+        print(f"{title} — High energy")
+    else:
+        print(f"{title} — Mid-tempo or slower")
 ```
 
 ### Your Task
 
-1. Create a list of at least 5 songs, each stored as a dictionary with `'title'` and `'bpm'` keys (make up the BPM values).
-2. Loop through the list. For each song, print whether it is `'High energy'` (BPM > 130), `'Mid-tempo'` (BPM 90–130), or `'Slow'` (BPM < 90).
-3. Add a `'skip'` condition: if the BPM is over 180, print `'Skipping <title> — too fast!'` instead.
+1. Create two lists: one for song titles, one for BPM values. Include at least 5 songs (make up the BPM values — typical range is 60–200).
+2. Loop through them using `enumerate` and print whether each song is High energy (BPM > 130), Mid-tempo (BPM 90–130), or Slow (BPM < 90).
+3. Add a skip condition: if BPM > 180, print `'Skipping <title> — too fast!'` instead of the category.
 
 ### 🎸 Extension Challenge
 
-- Add an `'explicit'` key (`True`/`False`) to each song dictionary.
-- Only print a song if it is NOT explicit: `if not song["explicit"]:`
-- Count how many songs are in each energy category and print a summary at the end.
+- Use three counter variables (`high_count`, `mid_count`, `slow_count`) to tally how many songs fall into each category, then print a summary at the end.
+- Use `and` to combine two conditions — for example, only classify a song if its BPM is between 60 and 200: `if bpm >= 60 and bpm <= 200:`
+- After completing Exercise 5 (Dictionaries), come back and run your energy check on real songs from the music library.
 
 ---
 
@@ -340,22 +340,36 @@ for track_num, track_title in album["tracks"].items():
 
 A function is a reusable block of code that you give a name to. Instead of copying the same code in multiple places, you define it once and call it whenever you need it. Functions can accept inputs (called **parameters**) and send back an output (called the **return value**).
 
-**Example — a 'Now Playing' formatter:**
+**Example — without and with a function:**
 
 ```python
-def now_playing(title, artist, bpm):
-    """Prints a formatted Now Playing message."""
-    if bpm > 130:
-        energy = "High Energy"
-    elif bpm > 90:
-        energy = "Mid-Tempo"
-    else:
-        energy = "Slow Jam"
-    print(f"▶  {title} — {artist}  [{energy}]")
+# Without a function, you repeat yourself for every song:
+#   print("▶  Blinding Lights — The Weeknd")
+#   print("▶  Levitating — Dua Lipa")
+#   print("▶  Heat Waves — Glass Animals")
 
-now_playing("Blinding Lights", "The Weeknd", 171)
-now_playing("Stay", "The Kid LAROI", 170)
-now_playing("someone like you", "Adele", 68)
+# With a function, define the format once:
+def now_playing(title, artist):
+    print(f"▶  {title} — {artist}")
+
+now_playing("Blinding Lights", "The Weeknd")
+now_playing("Levitating",      "Dua Lipa")
+now_playing("Heat Waves",      "Glass Animals")
+```
+
+A function can also **return** a value for you to use:
+
+```python
+def classify_bpm(bpm):
+    if bpm > 130:
+        return "High energy"
+    elif bpm > 90:
+        return "Mid-tempo"
+    else:
+        return "Slow"
+
+print(classify_bpm(171))   # High energy
+print(classify_bpm(68))    # Slow
 ```
 
 > 💡 **Tip — `def`, parameters, `return`**
@@ -364,32 +378,16 @@ now_playing("someone like you", "Adele", 68)
 > Use `return` to send a value back to the caller.
 > A function without `return` still runs its code — it just gives back `None`.
 
----
-
-### A function that returns a value
-
-```python
-def most_played(playlist, play_counts):
-    """Returns the song with the highest play count."""
-    top_index = play_counts.index(max(play_counts))
-    return playlist[top_index]
-
-songs  = ["Levitating", "Peaches", "drivers license"]
-plays  = [120, 85, 200]
-winner = most_played(songs, plays)
-print(f"Most played: {winner}")
-```
-
 ### Your Task
 
-1. Write a function called `describe_song(title, artist, year)` that prints a one-line description of a song.
-2. Write a function called `count_by_artist(playlist, artist)` that takes a list of song dictionaries (each with `'title'` and `'artist'` keys) and returns how many songs in the playlist are by that artist.
-3. Call both functions and print the results.
+1. Write a function called `describe_song(title, artist, year)` that prints a one-line description of a song, e.g. `"Blinding Lights by The Weeknd (2019)"`. Call it at least three times.
+2. Write a function called `longest_title(songs)` that takes a list of song title strings and prints the longest one along with how many characters it has, e.g. `"Longest title: Someone Like You (16 characters)"`.
 
 ### 🎸 Extension Challenge
 
-- Write a function called `shuffle(playlist)` that returns a randomly ordered copy of the playlist. Hint: `import random`, then use `random.sample(playlist, len(playlist))`.
-- Write a function called `search(playlist, keyword)` that returns a list of all songs whose title contains the keyword (case-insensitive). Hint: use `keyword.lower()` and `title.lower()`.
+- Update `now_playing()` to also call `classify_bpm()` and print the energy label alongside the title and artist.
+- Write a function called `count_by_artist(songs, artist)` that takes a list of song dictionaries (each with `"title"` and `"artist"` keys) and returns how many songs match that artist.
+- Write a function called `search(songs, keyword)` that returns a list of titles containing the keyword (case-insensitive). Hint: use `keyword.lower()` and `title.lower()`.
 
 ---
 

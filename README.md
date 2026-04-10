@@ -88,7 +88,7 @@ Full classroom instructions are in `instructions/python_music_workshop.md`.
 - Run `setup.command` / `setup.bat` on each student laptop before the session. The output tells you exactly what is missing and how to fix it.
 - Each exercise is self-contained — students don't need to complete them in order, but concepts do build progressively.
 - The example code at the top of each file runs without modification — a good way to start each exercise is to run it first, then read through it.
-- Exercise 7 (File I/O) creates `my_playlist.txt` in the working directory — this is gitignored and cleaned up by the exercise itself.
+- Exercise 7 (File I/O) creates `my_playlist.txt` in the working directory — this is gitignored.
 - Extension challenges are intentionally open-ended; encourage students to experiment beyond what's asked.
 
 ---

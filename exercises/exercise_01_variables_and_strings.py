@@ -50,16 +50,10 @@ my_duration   = 0.00
 # ------------------------------------------------------------
 from music_data import SONGS   # 9,000+ real songs, ready to use
 #
-#  Try these to browse what's available:
-#    print(SONGS[0])                  # see one song's full details
-#    print(SONGS[0]["title"])         # just the title
-#    print(SONGS[0]["artist"])        # just the artist
-#    print(SONGS[0]["year"])          # release year
-#    print(SONGS[0]["duration"])      # length in minutes
-#
-#  Change the number to pick a different song (e.g. SONGS[5], SONGS[100]).
-#  Or grab a song to use in your task above:
-#    my_song = SONGS[0]   # then use my_song["title"], my_song["artist"] etc.
+#  Print a song to see everything stored about it:
+#    print(SONGS[0])     # first song
+#    print(SONGS[5])     # change the number to pick a different one
+#    print(SONGS[100])
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
@@ -68,6 +62,6 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 #    and print a second line:  Genre: <genre>
 #  - Try printing the artist name in ALL CAPS:
 #    print(my_artist.upper())
-#  - Loop through the first 10 songs in SONGS and print each title:
+#  - Loop through the first 10 songs in SONGS and print each one:
 #    for s in SONGS[:10]:
-#        print(s["title"])
+#        print(s)   # you'll learn how to pick out individual fields in Exercise 5
