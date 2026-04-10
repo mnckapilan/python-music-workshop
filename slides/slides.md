@@ -490,6 +490,16 @@ for i, title in enumerate(titles):
 
 ---
 
+# Loop + conditional — step by step
+
+For each song the loop picks up its BPM, then the `if` decides which branch runs.
+
+<LoopCondViz />
+
+<FileHint file="exercise_04_conditionals.py" />
+
+---
+
 # Your Task — Exercise 4
 
 1. Create two lists: song titles and BPM values (at least 5 songs, BPM range 60–200)
