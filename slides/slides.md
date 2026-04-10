@@ -129,9 +129,11 @@ If you see this, you're all good:
 
 ---
 
-# Step 3 — Open VS Code
+# Step 3 — Install &amp; Open VS Code
 
-VS Code is the program you'll write Python in. If you don't have it — ask a volunteer.
+<div class="setup-step">VS Code is the program you'll write Python in.</div>
+
+<div class="setup-step">If you don't have VS Code yet: go to <strong>code.visualstudio.com</strong> → download and install it</div>
 
 1. Open **VS Code**
 2. **File → Open Folder…**
