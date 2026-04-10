@@ -47,6 +47,32 @@ album = {
 with open("my_playlist.txt", "w") as f:
     for song in playlist:
         f.write(song + "\\n")`
+function _esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') }
+const _KW = new Set(['def','for','in','if','elif','else','return','with','as','True','False','None','and','or','not','import','from','while','class','print','open'])
+function _hlLine(line) {
+  function sp(c, t) { return '<span style="color:' + c + '">' + _esc(t) + '</span>' }
+  let out = '', rest = line, cmAt = -1, inStr = false
+  for (let i = 0; i < rest.length; i++) {
+    if (rest[i] === '"') inStr = !inStr
+    if (!inStr && rest[i] === '#') { cmAt = i; break }
+  }
+  const cm = cmAt >= 0 ? rest.slice(cmAt) : ''
+  rest = cmAt >= 0 ? rest.slice(0, cmAt) : rest
+  while (rest.length) {
+    let m
+    if ((m = rest.match(/^f?"[^"]*"/))) { out += sp('#50FA7B', m[0]); rest = rest.slice(m[0].length); continue }
+    if ((m = rest.match(/^\d+\.?\d*/))) { out += sp('#FFB86C', m[0]); rest = rest.slice(m[0].length); continue }
+    if ((m = rest.match(/^[a-zA-Z_]\w*/))) {
+      const w = m[0], after = rest.slice(w.length).trimStart()
+      const c = _KW.has(w) ? '#BD93F9' : after[0] === '(' ? '#8BE9FD' : '#F0F0F5'
+      out += sp(c, w); rest = rest.slice(w.length); continue
+    }
+    out += _esc(rest[0]); rest = rest.slice(1)
+  }
+  if (cm) out += sp('#A0B0D0', cm)
+  return out
+}
+const highlighted = wm.split('\n').map(_hlLine).join('\n')
 </script>
 
 <div class="ic">
@@ -56,7 +82,10 @@ with open("my_playlist.txt", "w") as f:
     <p class="ic-sub">A 2-hour coding workshop</p>
   </div>
   <div class="ic-right" aria-hidden="true">
-    <pre class="ic-code">{{ wm }}</pre>
+    <div class="ic-scroller">
+      <pre class="ic-code" v-html="highlighted"></pre>
+      <pre class="ic-code" v-html="highlighted"></pre>
+    </div>
   </div>
 </div>
 
@@ -74,18 +103,18 @@ Over the next **2 hours** you'll learn the core building blocks of Python — us
   <span class="d-box">Next section</span>
 </div>
 
-<div class="concepts">
-  <span>0 · Setup</span>
-  <span>1 · Variables & Strings</span>
-  <span>2 · Lists</span>
-  <span>3 · Loops</span>
-  <span>4 · Conditionals</span>
-  <span>5 · Dictionaries</span>
-  <span>6 · Functions</span>
-  <span>7 · File I/O</span>
+<div class="concepts-list">
+  <div>0 · Setup</div>
+  <div>1 · Variables &amp; Strings</div>
+  <div>2 · Lists</div>
+  <div>3 · Loops</div>
+  <div>4 · Conditionals</div>
+  <div>5 · Dictionaries</div>
+  <div>6 · Functions</div>
+  <div>7 · File I/O</div>
 </div>
 
-> **Finished early?** Scroll to the **Extension Challenge** at the bottom of your exercise file — or open the **Data Explorer** to browse 9,000+ real songs.
+<div class="slide-footer-note"><strong>Finished early?</strong> Scroll to the <strong>Extension Challenge</strong> at the bottom of your exercise file — or open the <strong>Data Explorer</strong> to browse 9,000+ real songs.</div>
 
 ---
 layout: center
@@ -127,10 +156,16 @@ VS Code opens automatically when setup passes.
 Open the VS Code terminal with `` Ctrl+` `` and type:
 
 ```bash
-python3 exercises/exercise_01_variables_and_strings.py
+python3 exercises/exercise_00_setup_check.py
 ```
 
-> On Windows, use `python` instead of `python3` if that doesn't work.
+> If that doesn't work, try `python` instead of `python3`.
+
+You should see:
+
+```
+Everything is set up correctly — you're ready to go!
+```
 
 Open each exercise file in the `exercises` folder, read the example, then complete the **YOUR TASK** section.
 
@@ -140,7 +175,7 @@ class: exercise-header
 ---
 
 # Exercise 1
-## Variables & Strings 🎤
+## Variables & Strings
 
 ---
 
@@ -205,13 +240,17 @@ print(f"Now Playing: {song_title} by {artist} ({year})")
 Now Playing: <title> by <artist> | Released: <year> | Duration: <duration> mins
 ```
 
+<div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
+
+<ExerciseTimer />
+
 ---
 layout: center
 class: exercise-header
 ---
 
 # Exercise 2
-## Lists 📋
+## Lists
 
 ---
 
@@ -219,14 +258,17 @@ class: exercise-header
 
 A list stores **multiple items in order** — each item has an index starting at 0.
 
-<div class="d-list">
+<div class="d-list d-list-center">
   <div class="d-cell"><div class="d-cell-idx">[0]</div><div class="d-cell-val">Blinding Lights</div></div>
   <div class="d-cell"><div class="d-cell-idx">[1]</div><div class="d-cell-val">Levitating</div></div>
   <div class="d-cell"><div class="d-cell-idx">[2]</div><div class="d-cell-val">Stay</div></div>
   <div class="d-cell"><div class="d-cell-idx">[3]</div><div class="d-cell-val">Heat Waves</div></div>
 </div>
-
-> `playlist[0]` → first item · `playlist[-1]` → last item · `len(playlist)` → count
+<div class="d-index-boxes">
+  <div class="d-index-box"><code>playlist[0]</code><span class="d-index-label">the <strong>first</strong> item</span></div>
+  <div class="d-index-box"><code>playlist[-1]</code><span class="d-index-label">the <strong>last</strong> item</span></div>
+  <div class="d-index-box"><code>len(playlist)</code><span class="d-index-label"><strong>how many</strong> items</span></div>
+</div>
 
 ---
 
@@ -258,13 +300,17 @@ playlist.insert(0, "Flowers")    # insert at position 0 (the start)`
 5. Use `.remove()` to delete one song
 6. Print the total number of songs using `len()`
 
+<div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
+
+<ExerciseTimer />
+
 ---
 layout: center
 class: exercise-header
 ---
 
 # Exercise 3
-## Loops 🔁
+## Loops
 
 ---
 
@@ -272,13 +318,7 @@ class: exercise-header
 
 Instead of writing the same line for every song — let the loop do it.
 
-<div class="d-loop">
-  <div class="d-loop-row"><span class="d-arr">→</span><span>"Blinding Lights"</span><span class="d-loop-out">Now playing: Blinding Lights</span></div>
-  <div class="d-loop-row"><span class="d-arr">→</span><span>"Levitating"</span><span class="d-loop-out">Now playing: Levitating</span></div>
-  <div class="d-loop-row"><span class="d-arr">→</span><span>"Stay"</span><span class="d-loop-out">Now playing: Stay</span></div>
-  <div class="d-loop-row"><span class="d-arr">→</span><span>"Heat Waves"</span><span class="d-loop-out">Now playing: Heat Waves</span></div>
-</div>
-> The **indented lines** (4 spaces) are inside the loop — they run once per item.
+<LoopViz />
 
 ---
 
@@ -295,22 +335,19 @@ for song in playlist:
 
 ---
 
-# More loop patterns
+# range() — repeat a fixed number of times
 
-<script setup>
-const code1 = `# range() — repeat a fixed number of times
-chorus = "We will, we will rock you!"
-for i in range(4):
-    print(chorus)`
+`range(4)` generates the numbers **0, 1, 2, 3** — the loop body runs once for each.
 
-const code2 = `# enumerate() — track position while looping
-for i, song in enumerate(playlist, start=1):
-    print(f"{i}. {song}")`
-</script>
+<RangeViz />
 
-<CodeBlock :code="code1" lang="python" filename="range()" />
+---
 
-<CodeBlock :code="code2" lang="python" filename="enumerate()" />
+# enumerate() — loop with a counter
+
+Instead of just the item, you also get its **index** — great for numbered lists.
+
+<EnumerateViz />
 
 ---
 
@@ -320,13 +357,17 @@ for i, song in enumerate(playlist, start=1):
 2. Pick a short lyric. Use `range()` to print it four times
 3. Loop through and print every title in **UPPERCASE** using `.upper()`
 
+<div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
+
+<ExerciseTimer />
+
 ---
 layout: center
 class: exercise-header
 ---
 
 # Exercise 4
-## Conditionals 🔀
+## Conditionals
 
 ---
 
@@ -334,14 +375,7 @@ class: exercise-header
 
 Your code takes a **different path** depending on whether something is true.
 
-<div class="d-cond">
-  <div class="d-cond-input"><code class="d-box d-key">song_bpm = 140</code></div>
-  <div class="d-cond-branch">
-    <div class="d-cond-row"><span class="d-cond-stem">├</span><span class="d-cond-check">bpm &gt; 150</span><span class="d-arr">→</span><span class="d-cond-result">"High energy!"</span></div>
-    <div class="d-cond-row"><span class="d-cond-stem">├</span><span class="d-cond-check">bpm &gt; 100</span><span class="d-arr">→</span><span class="d-cond-result">"Mid-tempo"</span></div>
-    <div class="d-cond-row"><span class="d-cond-stem">└</span><span class="d-cond-check">else&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="d-arr">→</span><span class="d-cond-result">"Slow and relaxed"</span></div>
-  </div>
-</div>
+<CondViz />
 
 ---
 
@@ -389,13 +423,17 @@ for i, title in enumerate(titles):
    - **Slow** → BPM < 90
 3. Add a skip condition: if BPM > 180, print `"Skipping <title> — too fast!"`
 
+<div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
+
+<ExerciseTimer />
+
 ---
 layout: center
 class: exercise-header
 ---
 
 # Exercise 5
-## Dictionaries 📀
+## Dictionaries
 
 ---
 
@@ -448,13 +486,17 @@ for track_num, track_title in album["tracks"].items():
 3. Loop through the tracks and print a numbered listing
 4. Add a new track to the dictionary after you've created it
 
+<div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
+
+<ExerciseTimer />
+
 ---
 layout: center
 class: exercise-header
 ---
 
 # Exercise 6
-## Functions 🎛️
+## Functions
 
 ---
 
@@ -462,17 +504,26 @@ class: exercise-header
 
 Define code **once**, call it as many times as you like — with different inputs each time.
 
-<div class="d-fn-wrap">
-  <div class="d-fn-group">
-    <div class="d-box d-val">"Blinding Lights", "The Weeknd"</div>
-    <div class="d-box d-val">"Levitating", "Dua Lipa"</div>
+<div class="fn-calls">
+  <div class="fn-call">
+    <div class="fn-call-inputs">
+      <div class="fn-param"><span class="fn-pk">title</span>=<span class="fn-pv">"Blinding Lights"</span></div>
+      <div class="fn-param"><span class="fn-pk">artist</span>=<span class="fn-pv">"The Weeknd"</span></div>
+    </div>
+    <div class="fn-varr">↓</div>
+    <div class="fn-machine">now_playing()</div>
+    <div class="fn-varr">↓</div>
+    <div class="fn-out">▶ Blinding Lights — The Weeknd</div>
   </div>
-  <span class="d-arr">→</span>
-  <div class="d-box d-dark">now_playing()</div>
-  <span class="d-arr">→</span>
-  <div class="d-fn-group">
-    <div class="d-box d-val">▶ Blinding Lights — The Weeknd</div>
-    <div class="d-box d-val">▶ Levitating — Dua Lipa</div>
+  <div class="fn-call">
+    <div class="fn-call-inputs">
+      <div class="fn-param"><span class="fn-pk">title</span>=<span class="fn-pv">"Levitating"</span></div>
+      <div class="fn-param"><span class="fn-pk">artist</span>=<span class="fn-pv">"Dua Lipa"</span></div>
+    </div>
+    <div class="fn-varr">↓</div>
+    <div class="fn-machine">now_playing()</div>
+    <div class="fn-varr">↓</div>
+    <div class="fn-out">▶ Levitating — Dua Lipa</div>
   </div>
 </div>
 
@@ -535,13 +586,17 @@ print(classify_bpm(68))    # Slow`
 Longest title: Someone Like You (16 characters)
 ```
 
+<div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
+
+<ExerciseTimer />
+
 ---
 layout: center
 class: exercise-header
 ---
 
 # Exercise 7
-## File I/O 💾
+## File I/O
 
 ---
 
@@ -605,11 +660,15 @@ for i, song in enumerate(lines, start=1):
 2. Read `my_playlist.txt` back and print a numbered track listing.
    Remember to use `.strip()` so the `\n` doesn't show up.
 
+<div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
+
+<ExerciseTimer />
+
 ---
 layout: center
 ---
 
-# 🎉 You've made it through all 7 exercises!
+# You've made it through all 7 exercises!
 
 **You now know the core building blocks of Python:**
 

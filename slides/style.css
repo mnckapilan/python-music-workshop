@@ -148,7 +148,8 @@
   overflow: hidden;
   position: relative;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   padding: 2rem 3rem 2rem 1rem;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
@@ -159,9 +160,10 @@
   font-family: var(--font-mono);
   font-size: 0.78rem;
   line-height: 1.85;
-  color: #C8C9D0;
-  opacity: 0.11;
+  color: #F0F0F5;
+  opacity: 0.22;
   white-space: pre;
+  display: block;
   margin: 0 !important;
   background: none !important;
   border: none !important;
@@ -170,6 +172,16 @@
   pointer-events: none;
   user-select: none;
   overflow: visible;
+}
+
+.ic-scroller {
+  animation: ic-scroll 35s linear infinite;
+  will-change: transform;
+}
+
+@keyframes ic-scroll {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
 }
 
 /* ── Section break slides ───────────────────────────────── */
@@ -369,6 +381,44 @@
 
 .d-cell:last-child .d-cell-val { border-right: 1px solid var(--border); }
 
+/* List diagram — centred */
+.d-list-center { justify-content: center; margin: 1.8rem 0 0; }
+.d-list-center .d-cell { flex: 1; }
+.d-list-center .d-cell-val {
+  font-size: 1rem;
+  padding: 0.9rem 0.6rem;
+}
+.d-list-center .d-cell-idx {
+  font-size: 0.95rem;
+  padding-bottom: 0.4rem;
+}
+
+/* Index / len explanation boxes */
+.d-index-boxes {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+
+.d-index-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 1.2rem 1.4rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+}
+
+.d-index-label {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
 /* Loop diagram */
 .d-loop {
   border: 1px solid var(--border);
@@ -445,9 +495,79 @@
 .d-dict-k:last-of-type,
 .d-dict-v:last-of-type { border-bottom: none; }
 
-/* Function diagram */
+/* Function diagram (old) */
 .d-fn-wrap { display: flex; align-items: center; gap: 1.5rem; margin: 1.5rem 0; flex-wrap: wrap; }
 .d-fn-group { display: flex; flex-direction: column; gap: 0.5rem; }
+
+/* Function input→output diagram */
+.fn-calls {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.2rem 0 0;
+  min-height: 310px;
+}
+
+.fn-call {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.8rem 1.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+}
+
+.fn-call-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  width: 100%;
+}
+
+.fn-param {
+  padding: 0.4rem 0.85rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.fn-pk { color: var(--blue); font-weight: 600; }
+.fn-pv { color: var(--green); }
+
+.fn-varr {
+  color: var(--blue);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.fn-machine {
+  padding: 0.55rem 1.4rem;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.fn-out {
+  padding: 0.4rem 0.85rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--muted);
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
 
 /* File I/O diagram */
 .d-fileio { display: flex; align-items: center; gap: 2rem; margin: 1.5rem 0; }
@@ -464,6 +584,42 @@
 
 .d-fileio-line { height: 3px; width: 6rem; background: var(--blue); border-radius: 1px; }
 
+
+/* ── Slide footer note (e.g. "Finished early?") ─────────── */
+.slide-footer-note {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 2rem;
+  right: 2rem;
+  background: var(--hl);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.7rem 1.2rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* ── Exercise volunteer prompt ───────────────────────────── */
+.et-help {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 2rem;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+/* ── Agenda 2-column list (slide 2) ─────────────────────── */
+.concepts-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, auto);
+  grid-auto-flow: column;
+  gap: 0.5rem 2.5rem;
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text);
+}
 
 /* ── Congratulations concepts ────────────────────────────── */
 .concepts {
