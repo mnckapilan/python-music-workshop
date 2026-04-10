@@ -30,40 +30,40 @@ else:
 print("---")
 
 # Conditionals inside a loop
-songs = [
-    {"title": "Blinding Lights", "genre": "Pop"},
-    {"title": "Savage",          "genre": "Hip-Hop"},
-    {"title": "Levitating",      "genre": "Pop"},
-]
+# Two parallel lists — title and BPM for each song
+titles = ["Blinding Lights", "Savage",    "Levitating"]
+bpms   = [171,               134,         103]
 
-for song in songs:
-    if song["genre"] == "Pop":
-        print(f"Pop hit: {song['title']}")
+for i, title in enumerate(titles):
+    bpm = bpms[i]
+    if bpm > 130:
+        print(f"{title} — High energy")
+    else:
+        print(f"{title} — Mid-tempo or slower")
 
 # ------------------------------------------------------------
 #  YOUR TASK
 # ------------------------------------------------------------
-#  1. Create a list of at least 5 songs. Each song should be
-#     a dictionary with 'title' and 'bpm' keys.
-#     Make up your own BPM values (typical range: 60–200).
+#  1. Create two lists: one for song titles, one for BPM values.
+#     Include at least 5 songs. Make up your own BPM values
+#     (typical range: 60–200).
 #
-#  2. Loop through the list and print whether each song is:
+#  2. Loop through them (use enumerate like the example above)
+#     and print whether each song is:
 #       High energy  → BPM > 130
 #       Mid-tempo    → BPM 90–130
 #       Slow         → BPM < 90
 #
 #  3. Add a 'skip' condition: if BPM > 180, print
-#     "Skipping <title> — too fast!" instead.
+#     "Skipping <title> — too fast!" instead of the category.
 
 # Start your code here 👇
 
-my_songs = [
-    {"title": "Song One",   "bpm": 120},
-    {"title": "Song Two",   "bpm": 85},
-    # add more songs...
-]
+my_titles = ["Song One", "Song Two"]   # add more...
+my_bpms   = [120,        85]           # matching BPMs
 
-for song in my_songs:
+for i, title in enumerate(my_titles):
+    bpm = my_bpms[i]
     pass   # replace 'pass' with your if/elif/else logic
 
 
@@ -72,31 +72,32 @@ for song in my_songs:
 # ------------------------------------------------------------
 from music_data import SONGS   # 9,000+ real songs, ready to use
 #
-#  Each song has real BPM, genre, and explicit values:
-#    print(SONGS[0]["title"])     # title
-#    print(SONGS[0]["bpm"])       # beats per minute
-#    print(SONGS[0]["genre"])     # e.g. "Pop", "Hip-Hop/Rap"
-#    print(SONGS[0]["explicit"])  # True or False
+#  Each entry in SONGS has a "title" and "bpm" field
+#  (you'll learn exactly how this works in Exercise 5).
 #
-#  See the first 10 BPMs:
+#  See the first 10 titles and BPMs:
 #    for s in SONGS[:10]:
 #        print(s["title"], s["bpm"])
 #
-#  Use real songs in your task above:
-#    my_songs = [{"title": s["title"], "bpm": s["bpm"]} for s in SONGS[:5]]
+#  Run your energy check on real songs:
+#    for s in SONGS[:10]:
+#        title = s["title"]
+#        bpm   = s["bpm"]
+#        # your if/elif/else logic here
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
 # ------------------------------------------------------------
-#  - Add an 'explicit' key (True or False) to each song.
-#    Only print a song if it is NOT explicit:
-#      if not song["explicit"]:
-#
-#  - Run the same energy check across the first 10 songs in SONGS
-#    (they have real bpm and explicit values):
-#      for s in SONGS[:10]:
-#          # your if/elif/else logic here
-#
 #  - Count how many songs fall into each energy category
 #    (use three counter variables) and print a summary
-#    at the end.
+#    at the end:
+#      high_count = 0
+#      mid_count  = 0
+#      slow_count = 0
+#
+#  - Run the same check on the first 10 songs in SONGS.
+#    (access each song's BPM with s["bpm"] and title with s["title"])
+#
+#  - Use `and` to combine two conditions. For example,
+#    only classify a song if its BPM is between 60 and 200:
+#      if bpm >= 60 and bpm <= 200:
