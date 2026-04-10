@@ -20,6 +20,11 @@
   --font-mono: 'Fira Code', monospace;
 }
 
+/* ── Hide Slidev goto dialog ────────────────────────────── */
+#slidev-goto-dialog {
+  display: none !important;
+}
+
 /* ── Base slide ─────────────────────────────────────────── */
 .slidev-layout {
   background: var(--c-bg);
