@@ -1,6 +1,6 @@
 ---
 theme: default
-title: Python & the Music World
+title: Getting Started with Python
 info: A hands-on Python coding workshop for beginners
 highlighter: shiki
 lineNumbers: true
@@ -78,7 +78,7 @@ const highlighted = wm.split('\n').map(_hlLine).join('\n')
 <div class="ic">
   <div class="ic-left">
     <p class="ic-label">Python · Music · Code</p>
-    <h1>Python &amp;<br>the Music World</h1>
+    <h1>Getting Started<br>with Python</h1>
     <p class="ic-sub">A 2-hour coding workshop</p>
   </div>
   <div class="ic-right" aria-hidden="true">
@@ -147,6 +147,8 @@ A terminal window runs three checks automatically:
 
 If anything shows `[FAIL]` — the script tells you exactly what to fix. Ask a volunteer!
 
+<FileHint file="exercise_00_setup_check.py" />
+
 ---
 
 # Running an exercise
@@ -168,6 +170,8 @@ Everything is set up correctly — you're ready to go!
 ```
 
 Open each exercise file in the `exercises` folder, read the example, then complete the **YOUR TASK** section.
+
+<FileHint file="exercise_00_setup_check.py" />
 
 ---
 layout: center
@@ -191,6 +195,8 @@ A variable is a **labelled box** that stores a piece of information.
 
 > Text goes inside quote marks: `"like this"`<br/>Numbers don't need quotes: `2019`, `3.22`
 
+<FileHint file="exercise_01_variables_and_strings.py" />
+
 ---
 
 # Variables — code
@@ -207,6 +213,8 @@ print(year)         # 2019`
 </script>
 
 <CodeBlock :code="code" lang="python" filename="variables.py" />
+
+<FileHint file="exercise_01_variables_and_strings.py" />
 
 ---
 
@@ -225,6 +233,8 @@ print(f"Now Playing: {song_title} by {artist} ({year})")
 
 <CodeBlock :code="code" lang="python" filename="fstrings.py" />
 
+<FileHint file="exercise_01_variables_and_strings.py" />
+
 ---
 
 # Your Task — Exercise 1
@@ -241,6 +251,8 @@ Now Playing: <title> by <artist> | Released: <year> | Duration: <duration> mins
 ```
 
 <div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
+
+<FileHint file="exercise_01_variables_and_strings.py" />
 
 <ExerciseTimer />
 
@@ -270,6 +282,8 @@ A list stores **multiple items in order** — each item has an index starting at
   <div class="d-index-box"><code>len(playlist)</code><span class="d-index-label"><strong>how many</strong> items</span></div>
 </div>
 
+<FileHint file="exercise_02_lists.py" />
+
 ---
 
 # Lists — code
@@ -289,6 +303,8 @@ playlist.insert(0, "Flowers")    # insert at position 0 (the start)`
 
 <CodeBlock :code="code" lang="python" filename="lists.py" />
 
+<FileHint file="exercise_02_lists.py" />
+
 ---
 
 # Your Task — Exercise 2
@@ -301,6 +317,8 @@ playlist.insert(0, "Flowers")    # insert at position 0 (the start)`
 6. Print the total number of songs using `len()`
 
 <div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
+
+<FileHint file="exercise_02_lists.py" />
 
 <ExerciseTimer />
 
@@ -320,6 +338,8 @@ Instead of writing the same line for every song — let the loop do it.
 
 <LoopViz />
 
+<FileHint file="exercise_03_loops.py" />
+
 ---
 
 # Loops — code
@@ -333,6 +353,8 @@ for song in playlist:
 
 <CodeBlock :code="code" lang="python" filename="loops.py" />
 
+<FileHint file="exercise_03_loops.py" />
+
 ---
 
 # range() — repeat a fixed number of times
@@ -341,6 +363,29 @@ for song in playlist:
 
 <RangeViz />
 
+<FileHint file="exercise_03_loops.py" />
+
+---
+
+# range() — the code
+
+<script setup>
+const codeRange = `chorus = "We will, we will rock you!"
+
+for i in range(4):
+    print(chorus)
+
+# Output:
+# We will, we will rock you!
+# We will, we will rock you!
+# We will, we will rock you!
+# We will, we will rock you!`
+</script>
+
+<CodeBlock :code="codeRange" lang="python" filename="range.py" />
+
+<FileHint file="exercise_03_loops.py" />
+
 ---
 
 # enumerate() — loop with a counter
@@ -348,6 +393,29 @@ for song in playlist:
 Instead of just the item, you also get its **index** — great for numbered lists.
 
 <EnumerateViz />
+
+<FileHint file="exercise_03_loops.py" />
+
+---
+
+# enumerate() — the code
+
+<script setup>
+const codeEnum = `playlist = ["Blinding Lights", "Levitating", "Stay", "Heat Waves"]
+
+for i, song in enumerate(playlist, start=1):
+    print(f"{i}. {song}")
+
+# Output:
+# 1. Blinding Lights
+# 2. Levitating
+# 3. Stay
+# 4. Heat Waves`
+</script>
+
+<CodeBlock :code="codeEnum" lang="python" filename="enumerate.py" />
+
+<FileHint file="exercise_03_loops.py" />
 
 ---
 
@@ -358,6 +426,8 @@ Instead of just the item, you also get its **index** — great for numbered list
 3. Loop through and print every title in **UPPERCASE** using `.upper()`
 
 <div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
+
+<FileHint file="exercise_03_loops.py" />
 
 <ExerciseTimer />
 
@@ -377,6 +447,8 @@ Your code takes a **different path** depending on whether something is true.
 
 <CondViz />
 
+<FileHint file="exercise_04_conditionals.py" />
+
 ---
 
 # Conditionals — code
@@ -393,6 +465,8 @@ else:
 </script>
 
 <CodeBlock :code="code" lang="python" filename="conditionals.py" />
+
+<FileHint file="exercise_04_conditionals.py" />
 
 ---
 
@@ -412,6 +486,8 @@ for i, title in enumerate(titles):
 
 <CodeBlock :code="code" lang="python" filename="conditionals_loop.py" />
 
+<FileHint file="exercise_04_conditionals.py" />
+
 ---
 
 # Your Task — Exercise 4
@@ -424,6 +500,8 @@ for i, title in enumerate(titles):
 3. Add a skip condition: if BPM > 180, print `"Skipping <title> — too fast!"`
 
 <div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
+
+<FileHint file="exercise_04_conditionals.py" />
 
 <ExerciseTimer />
 
@@ -450,6 +528,8 @@ Group related data under named **keys** — like a labelled form.
 
 > Access any value with `album["key"]`
 
+<FileHint file="exercise_05_dictionaries.py" />
+
 ---
 
 # Dictionaries — code
@@ -475,6 +555,8 @@ for track_num, track_title in album["tracks"].items():
 
 <CodeBlock :code="code" lang="python" filename="dictionaries.py" />
 
+<FileHint file="exercise_05_dictionaries.py" />
+
 ---
 
 # Your Task — Exercise 5
@@ -487,6 +569,8 @@ for track_num, track_title in album["tracks"].items():
 4. Add a new track to the dictionary after you've created it
 
 <div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
+
+<FileHint file="exercise_05_dictionaries.py" />
 
 <ExerciseTimer />
 
@@ -527,6 +611,8 @@ Define code **once**, call it as many times as you like — with different input
   </div>
 </div>
 
+<FileHint file="exercise_06_functions.py" />
+
 ---
 
 # Why use functions?
@@ -554,6 +640,8 @@ With a function, define the format **once**:
 
 <CodeBlock :code="codeB" lang="python" filename="now_playing()" />
 
+<FileHint file="exercise_06_functions.py" />
+
 ---
 
 # Functions that return a value
@@ -574,6 +662,8 @@ print(classify_bpm(68))    # Slow`
 
 <CodeBlock :code="code" lang="python" filename="classify_bpm()" />
 
+<FileHint file="exercise_06_functions.py" />
+
 ---
 
 # Your Task — Exercise 6
@@ -587,6 +677,8 @@ Longest title: Someone Like You (16 characters)
 ```
 
 <div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
+
+<FileHint file="exercise_06_functions.py" />
 
 <ExerciseTimer />
 
@@ -615,6 +707,8 @@ So far, data disappears when the program stops. A file keeps it around.
 
 > `"w"` write · `"r"` read · `"a"` append
 
+<FileHint file="exercise_07_file_io.py" />
+
 ---
 
 # Writing to a file
@@ -635,6 +729,8 @@ print("Playlist saved!")`
 
 <CodeBlock :code="code" lang="python" filename="write_playlist.py" />
 
+<FileHint file="exercise_07_file_io.py" />
+
 ---
 
 # Reading a file back
@@ -650,6 +746,8 @@ for i, song in enumerate(lines, start=1):
 
 <CodeBlock :code="code" lang="python" filename="read_playlist.py" />
 
+<FileHint file="exercise_07_file_io.py" />
+
 ---
 
 # Your Task — Exercise 7
@@ -661,6 +759,8 @@ for i, song in enumerate(lines, start=1):
    Remember to use `.strip()` so the `\n` doesn't show up.
 
 <div class="et-help">✋ Stuck? Raise your hand and a volunteer will come to you!<br>⏳ Need more time? Don't worry, we can extend the timer — we are in no rush.</div>
+
+<FileHint file="exercise_07_file_io.py" />
 
 <ExerciseTimer />
 
