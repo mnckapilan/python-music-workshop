@@ -1,20 +1,23 @@
 /* ============================================================
-   Python Music Workshop — Modern Architecture palette
-   #f2e3bc cream · #414535 dark olive · #618985 teal
-   #96bbbb light teal · #c19875 caramel
+   Python Music Workshop — Atom One Light palette
+   bg #FAFAFA · surface #F0F0F1 · text #383A42
+   blue #4078F2 · cyan #0184BC · green #50A14F
+   muted #696C77 · border #D3D3D4
    ============================================================ */
 
 :root {
-  --bg:          #f2e3bc;
-  --surface:     #ede5c8;
-  --text:        #414535;
-  --muted:       #618985;
-  --accent:      #618985;
-  --light-teal:  #96bbbb;
-  --caramel:     #c19875;
-  --border:      #96bbbb;
-  --code-bg:     #414535;
-  --code-fg:     #f2e3bc;
+  --bg:       #FAFAFA;
+  --surface:  #F0F0F1;
+  --hl:       #E5E5E6;
+  --text:     #383A42;
+  --muted:    #696C77;
+  --subtle:   #A0A1A7;
+  --blue:     #4078F2;
+  --cyan:     #0184BC;
+  --green:    #50A14F;
+  --purple:   #A626A4;
+  --orange:   #986801;
+  --border:   #D3D3D4;
 
   --font-head: 'Bricolage Grotesque', sans-serif;
   --font-body: 'Figtree', sans-serif;
@@ -53,13 +56,6 @@
   margin-bottom: 0.6rem;
 }
 
-.slidev-layout h3 {
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--text);
-}
-
 /* ── Cover ──────────────────────────────────────────────── */
 .slidev-layout.cover {
   background: var(--bg);
@@ -70,33 +66,19 @@
   position: relative;
 }
 
-.slidev-layout.cover::before {
-  content: '♩';
-  position: absolute;
-  top: 2.5rem;
-  right: 3rem;
-  font-size: 8rem;
-  color: var(--accent);
-  opacity: 0.10;
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-}
-
 .slidev-layout.cover h1 {
   font-size: 3.4rem;
   font-weight: 800;
   line-height: 1.05;
   max-width: 14ch;
-  color: var(--text);
 }
 
 .slidev-layout.cover h1::after {
   content: '';
   display: block;
   width: 3rem;
-  height: 3px;
-  background: var(--caramel);
+  height: 4px;
+  background: var(--blue);
   margin-top: 1rem;
   border-radius: 2px;
 }
@@ -109,17 +91,17 @@
 
 /* ── Section break slides ───────────────────────────────── */
 .slidev-layout.exercise-header {
-  background: var(--code-bg);
+  background: var(--text);
   color: var(--bg);
 }
 
 .slidev-layout.exercise-header h1 {
   color: var(--bg);
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  opacity: 0.55;
+  opacity: 0.5;
   margin-bottom: 0.4rem;
 }
 
@@ -139,24 +121,22 @@
   transform: translateX(-50%);
   width: 2rem;
   height: 3px;
-  background: var(--caramel);
+  background: var(--blue);
   border-radius: 2px;
 }
 
 /* ── Code blocks ────────────────────────────────────────── */
 .slidev-code,
 .slidev-layout pre {
-  background: var(--code-bg) !important;
-  color: var(--code-fg);
-  border-radius: 8px;
-  border: none;
+  background: var(--surface) !important;
+  border: 1px solid var(--border);
+  border-radius: 6px;
   font-family: var(--font-mono);
   font-size: 0.9rem;
   line-height: 1.7;
   overflow: hidden;
 }
 
-/* Inline code */
 .slidev-layout code:not([class]) {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -164,12 +144,12 @@
   padding: 0.1em 0.4em;
   font-family: var(--font-mono);
   font-size: 0.88em;
-  color: var(--accent);
+  color: var(--cyan);
 }
 
 /* ── Blockquotes ────────────────────────────────────────── */
 .slidev-layout blockquote {
-  background: color-mix(in srgb, var(--light-teal) 15%, var(--bg));
+  background: var(--hl);
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 0.6rem 1.1rem;
@@ -188,13 +168,13 @@
 }
 
 .slidev-layout th {
-  background: var(--accent);
+  background: var(--text);
   color: var(--bg);
   font-family: var(--font-head);
   font-weight: 700;
   text-align: left;
   padding: 0.5rem 1rem;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--text);
 }
 
 .slidev-layout td {
@@ -203,9 +183,7 @@
   vertical-align: top;
 }
 
-.slidev-layout tr:nth-child(even) td {
-  background: var(--surface);
-}
+.slidev-layout tr:nth-child(even) td { background: var(--surface); }
 
 /* ── Lists ──────────────────────────────────────────────── */
 .slidev-layout ul,
@@ -217,16 +195,16 @@
 }
 
 .slidev-layout li { line-height: 1.5; }
-.slidev-layout li::marker { color: var(--caramel); }
+.slidev-layout li::marker { color: var(--blue); }
 
 /* ── Strong / em ────────────────────────────────────────── */
-.slidev-layout strong { font-weight: 700; color: var(--text); }
-.slidev-layout em { color: var(--accent); font-style: normal; font-weight: 600; }
+.slidev-layout strong { font-weight: 700; }
+.slidev-layout em { color: var(--blue); font-style: normal; font-weight: 600; }
 
 /* ── Shared diagram primitives ──────────────────────────── */
 .d-box {
   padding: 0.28rem 0.7rem;
-  border: 1.5px solid var(--border);
+  border: 1px solid var(--border);
   background: var(--surface);
   border-radius: 4px;
   font-family: var(--font-mono);
@@ -237,17 +215,17 @@
 }
 
 .d-box.d-key {
-  background: color-mix(in srgb, var(--light-teal) 25%, var(--bg));
-  border-color: var(--accent);
-  color: var(--accent);
+  background: #e8effe;
+  border-color: #b8ccfb;
+  color: var(--blue);
   font-weight: 600;
 }
 
 .d-box.d-val { color: var(--muted); }
 
 .d-box.d-dark {
-  background: var(--code-bg);
-  border-color: var(--code-bg);
+  background: var(--text);
+  border-color: var(--text);
   color: var(--bg);
   font-family: var(--font-head);
   font-weight: 700;
@@ -256,15 +234,15 @@
 }
 
 .d-arr {
-  color: var(--caramel);
-  font-size: 1.05rem;
+  color: var(--blue);
+  font-size: 1.1rem;
   font-weight: 700;
   flex-shrink: 0;
 }
 
 .d-caption {
   font-size: 0.73rem;
-  color: var(--muted);
+  color: var(--subtle);
   font-style: italic;
   margin-top: 0.4rem;
 }
@@ -283,13 +261,13 @@
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--blue);
   padding: 0.1rem 0 0.2rem;
 }
 
 .d-cell-val {
   padding: 0.38rem 0.5rem;
-  border: 1.5px solid var(--border);
+  border: 1px solid var(--border);
   border-right: none;
   background: var(--surface);
   font-family: var(--font-mono);
@@ -300,11 +278,11 @@
   color: var(--text);
 }
 
-.d-cell:last-child .d-cell-val { border-right: 1.5px solid var(--border); }
+.d-cell:last-child .d-cell-val { border-right: 1px solid var(--border); }
 
 /* Loop diagram */
 .d-loop {
-  border: 1.5px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: 6px;
   overflow: hidden;
   margin: 0.6rem 0;
@@ -326,7 +304,7 @@
 
 .d-loop-out {
   margin-left: auto;
-  color: var(--accent);
+  color: var(--green);
   font-size: 0.76rem;
   white-space: nowrap;
 }
@@ -334,27 +312,25 @@
 /* Conditionals diagram */
 .d-cond { margin: 0.6rem 0; font-family: var(--font-mono); font-size: 0.82rem; }
 .d-cond-input { margin-bottom: 0.55rem; }
-
 .d-cond-branch { display: flex; flex-direction: column; gap: 0.35rem; padding-left: 0.4rem; }
 .d-cond-row { display: flex; align-items: center; gap: 0.5rem; }
-
 .d-cond-stem { color: var(--border); font-size: 1rem; width: 0.9rem; flex-shrink: 0; }
 .d-cond-check { color: var(--muted); }
 
 .d-cond-result {
   padding: 0.18rem 0.55rem;
-  background: color-mix(in srgb, var(--light-teal) 20%, var(--bg));
-  border: 1px solid var(--accent);
+  background: #e8effe;
+  border: 1px solid #b8ccfb;
   border-radius: 3px;
   font-size: 0.78rem;
-  color: var(--accent);
+  color: var(--blue);
 }
 
 /* Dictionary diagram */
 .d-dict {
   display: grid;
   grid-template-columns: auto 1fr;
-  border: 1.5px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: 6px;
   overflow: hidden;
   font-family: var(--font-mono);
@@ -364,11 +340,11 @@
 
 .d-dict-k {
   padding: 0.32rem 0.8rem;
-  background: color-mix(in srgb, var(--light-teal) 20%, var(--bg));
-  border-right: 1.5px solid var(--accent);
+  background: #e8effe;
+  border-right: 1px solid #b8ccfb;
   border-bottom: 1px solid var(--border);
   font-weight: 600;
-  color: var(--accent);
+  color: var(--blue);
 }
 
 .d-dict-v {
@@ -386,7 +362,6 @@
 
 /* File I/O diagram */
 .d-fileio { display: flex; align-items: center; gap: 1.2rem; margin: 0.6rem 0; }
-
 .d-fileio-mid { display: flex; flex-direction: column; gap: 0.3rem; align-items: center; }
 
 .d-fileio-row {
@@ -398,4 +373,4 @@
   font-family: var(--font-body);
 }
 
-.d-fileio-line { height: 2px; width: 4.5rem; background: var(--caramel); border-radius: 1px; }
+.d-fileio-line { height: 2px; width: 4.5rem; background: var(--blue); border-radius: 1px; }
