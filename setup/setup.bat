@@ -183,10 +183,10 @@ if %ERR_VSCODE_PATH% == 1 (
 if %ERR_SMOKE% == 1 (
     set /a ISSUE_NUM+=1
     echo   ISSUE %ISSUE_NUM%: The music data file failed to load.
-    echo   FIX %ISSUE_NUM%:   Make sure you are running setup.bat from inside the
-    echo              python-music-workshop folder, not from Downloads or the Desktop.
-    echo              Right-click setup.bat and choose "Run as administrator" if the
-    echo              problem persists.
+    echo   FIX %ISSUE_NUM%:   Make sure the full workshop folder was unzipped before
+    echo              running this script. Right-click the downloaded .zip and
+    echo              choose "Extract All", then run setup.bat from inside
+    echo              the extracted folder.
     echo.
 )
 

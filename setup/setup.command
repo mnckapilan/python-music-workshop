@@ -90,7 +90,7 @@ if [ "$PYTHON_OK" = true ]; then
         echo "  [FAIL] Music data failed to load"
         echo "         Error: $SMOKE_OUTPUT"
         ISSUES+=("The music data file failed to load.")
-        FIXES+=("Make sure you double-clicked setup.command from inside the python-music-workshop folder, not from Downloads or the Desktop.")
+        FIXES+=("The workshop folder may still be quarantined by macOS. Ask a volunteer to run: xattr -rd com.apple.quarantine /path/to/python-music-workshop-main")
         ((FAIL++)) || true
     fi
 fi
