@@ -32,7 +32,7 @@
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.125rem;
   line-height: 1.65;
 }
 
@@ -40,7 +40,7 @@
 .slidev-layout h1 {
   font-family: var(--font-head);
   font-weight: 800;
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   line-height: 1.15;
   color: var(--text);
   letter-spacing: -0.02em;
@@ -50,7 +50,7 @@
 .slidev-layout h2 {
   font-family: var(--font-head);
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: var(--muted);
   letter-spacing: -0.01em;
   margin-bottom: 0.6rem;
@@ -97,17 +97,17 @@
 
 .slidev-layout.exercise-header h1 {
   color: var(--bg);
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   opacity: 0.5;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .slidev-layout.exercise-header h2 {
   color: var(--bg);
-  font-size: 2.8rem;
+  font-size: 3.5rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   opacity: 1;
@@ -132,8 +132,8 @@
   border: 1px solid var(--border);
   border-radius: 6px;
   font-family: var(--font-mono);
-  font-size: 0.9rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.75;
   overflow: hidden;
 }
 
@@ -143,7 +143,7 @@
   border-radius: 4px;
   padding: 0.1em 0.4em;
   font-family: var(--font-mono);
-  font-size: 0.88em;
+  font-size: 0.9em;
   color: var(--cyan);
 }
 
@@ -152,9 +152,9 @@
   background: var(--hl);
   border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 0.6rem 1.1rem;
+  padding: 0.7rem 1.2rem;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin: 1rem 0 0;
 }
 
@@ -164,7 +164,7 @@
 .slidev-layout table {
   border-collapse: collapse;
   width: 100%;
-  font-size: 0.92rem;
+  font-size: 1rem;
 }
 
 .slidev-layout th {
@@ -173,12 +173,12 @@
   font-family: var(--font-head);
   font-weight: 700;
   text-align: left;
-  padding: 0.5rem 1rem;
+  padding: 0.55rem 1rem;
   border: 1px solid var(--text);
 }
 
 .slidev-layout td {
-  padding: 0.45rem 1rem;
+  padding: 0.5rem 1rem;
   border: 1px solid var(--border);
   vertical-align: top;
 }
@@ -191,10 +191,10 @@
   padding-left: 1.4rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.65rem;
 }
 
-.slidev-layout li { line-height: 1.5; }
+.slidev-layout li { line-height: 1.55; }
 .slidev-layout li::marker { color: var(--blue); }
 
 /* ── Strong / em ────────────────────────────────────────── */
@@ -203,12 +203,12 @@
 
 /* ── Shared diagram primitives ──────────────────────────── */
 .d-box {
-  padding: 0.28rem 0.7rem;
+  padding: 0.32rem 0.8rem;
   border: 1px solid var(--border);
   background: var(--surface);
   border-radius: 4px;
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   white-space: nowrap;
   line-height: 1.5;
   color: var(--text);
@@ -229,8 +229,8 @@
   color: var(--bg);
   font-family: var(--font-head);
   font-weight: 700;
-  font-size: 0.9rem;
-  padding: 0.4rem 1.1rem;
+  font-size: 1rem;
+  padding: 0.5rem 1.3rem;
 }
 
 .d-arr {
@@ -241,7 +241,7 @@
 }
 
 .d-caption {
-  font-size: 0.73rem;
+  font-size: 0.78rem;
   color: var(--subtle);
   font-style: italic;
   margin-top: 0.4rem;
@@ -250,28 +250,28 @@
 .d-row { display: flex; align-items: center; gap: 0.6rem; }
 
 /* Variables diagram */
-.d-vars { display: flex; flex-direction: column; gap: 0.45rem; margin: 0.6rem 0; }
+.d-vars { display: flex; flex-direction: column; gap: 0.55rem; margin: 0.8rem 0; }
 
 /* Lists diagram */
-.d-list { display: flex; gap: 0; margin: 0.6rem 0; }
+.d-list { display: flex; gap: 0; margin: 0.8rem 0; }
 
-.d-cell { display: flex; flex-direction: column; align-items: center; min-width: 7.5rem; }
+.d-cell { display: flex; flex-direction: column; align-items: center; min-width: 9rem; }
 
 .d-cell-idx {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--blue);
   padding: 0.1rem 0 0.2rem;
 }
 
 .d-cell-val {
-  padding: 0.38rem 0.5rem;
+  padding: 0.45rem 0.6rem;
   border: 1px solid var(--border);
   border-right: none;
   background: var(--surface);
   font-family: var(--font-mono);
-  font-size: 0.76rem;
+  font-size: 0.85rem;
   text-align: center;
   width: 100%;
   box-sizing: border-box;
@@ -285,16 +285,16 @@
   border: 1px solid var(--border);
   border-radius: 6px;
   overflow: hidden;
-  margin: 0.6rem 0;
+  margin: 0.8rem 0;
 }
 
 .d-loop-row {
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  padding: 0.32rem 0.8rem;
+  padding: 0.45rem 0.9rem;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   border-top: 1px solid var(--border);
   color: var(--text);
 }
@@ -305,24 +305,24 @@
 .d-loop-out {
   margin-left: auto;
   color: var(--green);
-  font-size: 0.76rem;
+  font-size: 0.85rem;
   white-space: nowrap;
 }
 
 /* Conditionals diagram */
-.d-cond { margin: 0.6rem 0; font-family: var(--font-mono); font-size: 0.82rem; }
-.d-cond-input { margin-bottom: 0.55rem; }
-.d-cond-branch { display: flex; flex-direction: column; gap: 0.35rem; padding-left: 0.4rem; }
+.d-cond { margin: 0.8rem 0; font-family: var(--font-mono); font-size: 0.9rem; }
+.d-cond-input { margin-bottom: 0.65rem; }
+.d-cond-branch { display: flex; flex-direction: column; gap: 0.45rem; padding-left: 0.4rem; }
 .d-cond-row { display: flex; align-items: center; gap: 0.5rem; }
 .d-cond-stem { color: var(--border); font-size: 1rem; width: 0.9rem; flex-shrink: 0; }
 .d-cond-check { color: var(--muted); }
 
 .d-cond-result {
-  padding: 0.18rem 0.55rem;
+  padding: 0.22rem 0.65rem;
   background: #e8effe;
   border: 1px solid #b8ccfb;
   border-radius: 3px;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   color: var(--blue);
 }
 
@@ -334,12 +334,12 @@
   border-radius: 6px;
   overflow: hidden;
   font-family: var(--font-mono);
-  font-size: 0.81rem;
-  margin: 0.6rem 0;
+  font-size: 0.9rem;
+  margin: 0.8rem 0;
 }
 
 .d-dict-k {
-  padding: 0.32rem 0.8rem;
+  padding: 0.4rem 1rem;
   background: #e8effe;
   border-right: 1px solid #b8ccfb;
   border-bottom: 1px solid var(--border);
@@ -348,7 +348,7 @@
 }
 
 .d-dict-v {
-  padding: 0.32rem 0.85rem;
+  padding: 0.4rem 1rem;
   border-bottom: 1px solid var(--border);
   color: var(--muted);
 }
@@ -357,20 +357,39 @@
 .d-dict-v:last-of-type { border-bottom: none; }
 
 /* Function diagram */
-.d-fn-wrap { display: flex; align-items: center; gap: 0.8rem; margin: 0.6rem 0; flex-wrap: wrap; }
-.d-fn-group { display: flex; flex-direction: column; gap: 0.35rem; }
+.d-fn-wrap { display: flex; align-items: center; gap: 1.5rem; margin: 1.5rem 0; flex-wrap: wrap; }
+.d-fn-group { display: flex; flex-direction: column; gap: 0.5rem; }
 
 /* File I/O diagram */
-.d-fileio { display: flex; align-items: center; gap: 1.2rem; margin: 0.6rem 0; }
-.d-fileio-mid { display: flex; flex-direction: column; gap: 0.3rem; align-items: center; }
+.d-fileio { display: flex; align-items: center; gap: 2rem; margin: 1.5rem 0; }
+.d-fileio-mid { display: flex; flex-direction: column; gap: 0.4rem; align-items: center; }
 
 .d-fileio-row {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.75rem;
+  gap: 0.5rem;
+  font-size: 0.9rem;
   color: var(--muted);
   font-family: var(--font-body);
 }
 
-.d-fileio-line { height: 2px; width: 4.5rem; background: var(--blue); border-radius: 1px; }
+.d-fileio-line { height: 3px; width: 6rem; background: var(--blue); border-radius: 1px; }
+
+/* ── Congratulations concepts ────────────────────────────── */
+.concepts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.5rem;
+}
+
+.concepts span {
+  padding: 0.4rem 0.95rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}

@@ -136,7 +136,11 @@ print(f"Now Playing: {song_title} by {artist} ({year})")
 
 # Your Task — Exercise 1
 
-1. Create variables for your favourite song: `my_song_title`, `my_artist`, `my_year`, `my_duration`
+1. Create variables for your favourite song:
+   - `my_song_title`
+   - `my_artist`
+   - `my_year`
+   - `my_duration`
 2. Use an f-string to print:
 
 ```
@@ -369,8 +373,9 @@ for track_num, track_title in album["tracks"].items():
 
 # Your Task — Exercise 5
 
-1. Create `my_album` with keys: `title`, `artist`, `year`, `genre`, `tracks`
-   - `tracks` should be a dict mapping track numbers → song titles
+1. Create `my_album` with keys:
+   - `title`, `artist`, `year`, `genre`
+   - `tracks` — a dict mapping track numbers → song titles
 2. Print the album title and artist on one line using an f-string
 3. Loop through the tracks and print a numbered listing
 4. Add a new track to the dictionary after you've created it
@@ -532,7 +537,15 @@ layout: center
 
 **You now know the core building blocks of Python:**
 
-variables · lists · loops · conditionals · dictionaries · functions · file I/O
+<div class="concepts">
+  <span>variables</span>
+  <span>lists</span>
+  <span>loops</span>
+  <span>conditionals</span>
+  <span>dictionaries</span>
+  <span>functions</span>
+  <span>file I/O</span>
+</div>
 
 ---
 layout: center
