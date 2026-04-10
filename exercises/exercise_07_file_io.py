@@ -20,10 +20,13 @@
 # --- EXAMPLE — run this and see what it prints --------------
 
 import os
-from music_data import SONGS
 
-# Build a playlist from real songs and save it to a file
-playlist = [f"{s['title']} – {s['artist']}" for s in SONGS[:4]]
+playlist = [
+    "Blinding Lights – The Weeknd",
+    "Levitating – Dua Lipa",
+    "Stay – The Kid LAROI",
+    "Heat Waves – Glass Animals",
+]
 
 with open("example_playlist.txt", "w") as f:
     for song in playlist:
@@ -41,7 +44,7 @@ for i, song in enumerate(lines, start=1):
 
 # Append a new song
 with open("example_playlist.txt", "a") as f:
-    f.write(f"{SONGS[4]['title']} – {SONGS[4]['artist']}\n")
+    f.write("Bad Habit – Ed Sheeran\n")
 
 print("\nAfter adding a song:")
 with open("example_playlist.txt", "r") as f:
@@ -55,9 +58,7 @@ os.remove("example_playlist.txt")
 #  YOUR TASK
 # ------------------------------------------------------------
 #  1. Create a list of at least 5 songs in "Title – Artist"
-#     format. Use your own favourites, or pull from SONGS:
-#       my_playlist = [f"{s['title']} – {s['artist']}" for s in SONGS[:5]]
-#     Write them to a file called my_playlist.txt.
+#     format. Write them to a file called my_playlist.txt.
 #
 #  2. Read the file back and print a numbered track listing.
 #
@@ -67,8 +68,7 @@ os.remove("example_playlist.txt")
 # Start your code here 👇
 
 my_playlist = [
-    # add your songs here as "Title – Artist" strings,
-    # or use: [f"{s['title']} – {s['artist']}" for s in SONGS[:5]]
+    # add your songs here as "Title – Artist" strings
 ]
 
 # Step 1 — write to file:
@@ -79,6 +79,18 @@ my_playlist = [
 
 # Step 3 — append a new song, then re-read:
 
+
+# ------------------------------------------------------------
+#  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
+# ------------------------------------------------------------
+from music_data import SONGS   # 9,000+ real songs, ready to use
+#
+#  Build your playlist from real songs instead of typing them:
+#    my_playlist = [f"{s['title']} – {s['artist']}" for s in SONGS[:5]]
+#
+#  Or add a real song in your append step:
+#    with open("my_playlist.txt", "a") as f:
+#        f.write(f"{SONGS[10]['title']} – {SONGS[10]['artist']}\n")
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE

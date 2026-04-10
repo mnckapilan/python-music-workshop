@@ -45,27 +45,11 @@ winner = most_played(songs, plays)
 print(f"Most played: {winner}")
 
 # ------------------------------------------------------------
-#  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
-# ------------------------------------------------------------
-from music_data import SONGS   # 9,000+ real songs, ready to use
-#
-#  Each song has a real bpm and play_count — try passing one
-#  to now_playing():
-#    now_playing(SONGS[0]["title"], SONGS[0]["artist"], SONGS[0]["bpm"])
-#
-#  Or build lists to pass to most_played():
-#    titles = [s["title"] for s in SONGS[:10]]
-#    plays  = [s["play_count"] for s in SONGS[:10]]
-#    print(most_played(titles, plays))
-
-# ------------------------------------------------------------
 #  YOUR TASK
 # ------------------------------------------------------------
 #  1. Write a function called describe_song(title, artist, year)
 #     that prints a one-line description of a song.
-#     Call it at least three times with different songs —
-#     your own, or from SONGS:
-#       describe_song(SONGS[0]["title"], SONGS[0]["artist"], SONGS[0]["year"])
+#     Call it at least three times with different songs.
 #
 #  2. Write a function called count_by_artist(playlist, artist)
 #     that takes a list of song dictionaries (each with
@@ -84,14 +68,32 @@ def count_by_artist(playlist, artist):
     pass   # replace with your code
 
 
-# Sample playlist — 10 real songs with title and artist
+# Sample playlist to test count_by_artist with:
 sample_playlist = [
-    {"title": s["title"], "artist": s["artist"]}
-    for s in SONGS[:10]
+    {"title": "Blinding Lights",  "artist": "The Weeknd"},
+    {"title": "Save Your Tears",  "artist": "The Weeknd"},
+    {"title": "Levitating",       "artist": "Dua Lipa"},
+    {"title": "Heat Waves",       "artist": "Glass Animals"},
+    {"title": "Stay",             "artist": "The Kid LAROI"},
 ]
 
 # Call your functions here:
 
+
+# ------------------------------------------------------------
+#  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
+# ------------------------------------------------------------
+from music_data import SONGS   # 9,000+ real songs, ready to use
+#
+#  Try passing a real song to your describe_song() function:
+#    describe_song(SONGS[0]["title"], SONGS[0]["artist"], SONGS[0]["year"])
+#
+#  Or pass a real song to now_playing():
+#    now_playing(SONGS[0]["title"], SONGS[0]["artist"], SONGS[0]["bpm"])
+#
+#  Build a real playlist and pass it to count_by_artist():
+#    real_playlist = [{"title": s["title"], "artist": s["artist"]} for s in SONGS[:10]]
+#    print(count_by_artist(real_playlist, "Taylor Swift"))
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE

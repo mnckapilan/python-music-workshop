@@ -26,25 +26,10 @@ print(year)
 print(f"Now Playing: {song_title} by {artist} ({year})")
 
 # ------------------------------------------------------------
-#  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
-# ------------------------------------------------------------
-from music_data import SONGS   # 9,000+ real songs, ready to use
-#
-#  Try these to browse what's available:
-#    print(SONGS[0])                  # see one song's full details
-#    print(SONGS[0]["title"])         # just the title
-#    print(SONGS[0]["artist"])        # just the artist
-#    print(SONGS[0]["year"])          # release year
-#    print(SONGS[0]["duration"])      # length in minutes
-#
-#  Change the number to pick a different song (e.g. SONGS[5], SONGS[100]).
-
-# ------------------------------------------------------------
 #  YOUR TASK
 # ------------------------------------------------------------
 #  1. Replace the values below with details of YOUR favourite
-#     song — type them in directly, or grab one from SONGS:
-#       my_song = SONGS[0]   # then use my_song["title"] etc.
+#     song — type them in directly.
 #  2. Add a variable called `duration` for the song length
 #     in minutes (e.g. 3.45).
 #  3. Use an f-string to print:
@@ -59,6 +44,22 @@ my_duration   = 0.00
 
 # Print your f-string below:
 
+
+# ------------------------------------------------------------
+#  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
+# ------------------------------------------------------------
+from music_data import SONGS   # 9,000+ real songs, ready to use
+#
+#  Try these to browse what's available:
+#    print(SONGS[0])                  # see one song's full details
+#    print(SONGS[0]["title"])         # just the title
+#    print(SONGS[0]["artist"])        # just the artist
+#    print(SONGS[0]["year"])          # release year
+#    print(SONGS[0]["duration"])      # length in minutes
+#
+#  Change the number to pick a different song (e.g. SONGS[5], SONGS[100]).
+#  Or grab a song to use in your task above:
+#    my_song = SONGS[0]   # then use my_song["title"], my_song["artist"] etc.
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE

@@ -45,21 +45,6 @@ album["label"] = "Warner Records"
 print(album["label"])
 
 # ------------------------------------------------------------
-#  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
-# ------------------------------------------------------------
-from music_data import SONGS   # 9,000+ real songs, ready to use
-#
-#  Each song is already a dictionary — print one to see all its keys:
-#    print(SONGS[0])
-#
-#  Access individual fields:
-#    print(SONGS[0]["title"])    # title
-#    print(SONGS[0]["album"])    # album name
-#    print(SONGS[0]["artist"])   # artist
-#    print(SONGS[0]["year"])     # release year
-#    print(SONGS[0]["genre"])    # genre
-
-# ------------------------------------------------------------
 #  YOUR TASK
 # ------------------------------------------------------------
 #  1. Create a dictionary called `my_album` for your favourite
@@ -97,6 +82,21 @@ my_album = {
 
 # Add a new track:
 
+
+# ------------------------------------------------------------
+#  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
+# ------------------------------------------------------------
+from music_data import SONGS   # 9,000+ real songs, ready to use
+#
+#  Each song is already a dictionary — print one to see all its keys:
+#    print(SONGS[0])
+#
+#  Access individual fields:
+#    print(SONGS[0]["title"])    # title
+#    print(SONGS[0]["album"])    # album name
+#    print(SONGS[0]["artist"])   # artist
+#    print(SONGS[0]["year"])     # release year
+#    print(SONGS[0]["genre"])    # genre
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE

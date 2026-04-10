@@ -34,23 +34,9 @@ for i, song in enumerate(playlist, start=1):
     print(f"{i}. {song}")
 
 # ------------------------------------------------------------
-#  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
-# ------------------------------------------------------------
-from music_data import SONGS   # 9,000+ real songs, ready to use
-#
-#  Try looping over real data:
-#    for s in SONGS[:10]:
-#        print(s["title"], "–", s["artist"])
-#
-#  Or use real titles as your playlist:
-#    real_playlist = [s["title"] for s in SONGS[:5]]
-
-# ------------------------------------------------------------
 #  YOUR TASK
 # ------------------------------------------------------------
-#  1. Create a list of at least 5 songs.
-#     Type your own, or pull real titles from SONGS:
-#       my_playlist = [s["title"] for s in SONGS[:5]]
+#  1. Create a list of at least 5 songs. Type your own titles.
 #     Loop through and print each one with its track number
 #     (1, 2, 3...) using enumerate().
 #
@@ -75,6 +61,18 @@ my_lyric = "YOUR LYRIC HERE"
 
 # Task 3 — UPPERCASE titles
 
+
+# ------------------------------------------------------------
+#  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
+# ------------------------------------------------------------
+from music_data import SONGS   # 9,000+ real songs, ready to use
+#
+#  Try looping over real data:
+#    for s in SONGS[:10]:
+#        print(s["title"], "–", s["artist"])
+#
+#  Or use real titles as your playlist:
+#    real_playlist = [s["title"] for s in SONGS[:5]]
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE

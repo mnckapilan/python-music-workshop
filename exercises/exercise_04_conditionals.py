@@ -41,28 +41,11 @@ for song in songs:
         print(f"Pop hit: {song['title']}")
 
 # ------------------------------------------------------------
-#  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
-# ------------------------------------------------------------
-from music_data import SONGS   # 9,000+ real songs, ready to use
-#
-#  Each song has real BPM, genre, and explicit values:
-#    print(SONGS[0]["title"])     # title
-#    print(SONGS[0]["bpm"])       # beats per minute (60–145)
-#    print(SONGS[0]["genre"])     # e.g. "Pop", "Hip-Hop/Rap"
-#    print(SONGS[0]["explicit"])  # True or False
-#
-#  See the first 10 BPMs:
-#    for s in SONGS[:10]:
-#        print(s["title"], s["bpm"])
-
-# ------------------------------------------------------------
 #  YOUR TASK
 # ------------------------------------------------------------
 #  1. Create a list of at least 5 songs. Each song should be
 #     a dictionary with 'title' and 'bpm' keys.
-#     Make up your own BPM values (typical range: 60–200), or
-#     use real ones from SONGS:
-#       my_songs = [{"title": s["title"], "bpm": s["bpm"]} for s in SONGS[:5]]
+#     Make up your own BPM values (typical range: 60–200).
 #
 #  2. Loop through the list and print whether each song is:
 #       High energy  → BPM > 130
@@ -83,6 +66,24 @@ my_songs = [
 for song in my_songs:
     pass   # replace 'pass' with your if/elif/else logic
 
+
+# ------------------------------------------------------------
+#  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
+# ------------------------------------------------------------
+from music_data import SONGS   # 9,000+ real songs, ready to use
+#
+#  Each song has real BPM, genre, and explicit values:
+#    print(SONGS[0]["title"])     # title
+#    print(SONGS[0]["bpm"])       # beats per minute
+#    print(SONGS[0]["genre"])     # e.g. "Pop", "Hip-Hop/Rap"
+#    print(SONGS[0]["explicit"])  # True or False
+#
+#  See the first 10 BPMs:
+#    for s in SONGS[:10]:
+#        print(s["title"], s["bpm"])
+#
+#  Use real songs in your task above:
+#    my_songs = [{"title": s["title"], "bpm": s["bpm"]} for s in SONGS[:5]]
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
