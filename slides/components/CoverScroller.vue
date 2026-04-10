@@ -1,10 +1,9 @@
 <script setup>
-import { ref, computed, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 // ── Live clock ────────────────────────────────────────────────────────────────
 const now = ref(new Date())
-const timer = setInterval(() => { now.value = new Date() }, 50)
-onUnmounted(() => clearInterval(timer))
+const clockTimer = setInterval(() => { now.value = new Date() }, 50)
 
 function formatTime(d) {
   const p = n => String(n).padStart(2, '0')
@@ -26,7 +25,7 @@ function esc(s) {
 const KW = new Set([
   'def','for','in','if','elif','else','return','with','as',
   'True','False','None','and','or','not','import','from',
-  'while','class','print','open',
+  'while','class','print','open','assert',
 ])
 
 function hlLine(line) {
@@ -53,7 +52,7 @@ function hlLine(line) {
   return out
 }
 
-// ── Code body (reactive so the clock line re-renders) ─────────────────────────
+// ── Code (reactive for the clock lines) ──────────────────────────────────────
 const highlighted = computed(() => {
   const code = `print("Good morning, Walthamstow!")
 
@@ -80,16 +79,46 @@ workshop = {
 
 print(f"Welcome to {workshop['title']}!")
 print(f"Today's session is {workshop['duration']} long.")
-print("No experience needed — let's go!")`
+print("No experience needed — let's go!")
+
+import coffee
+import curiosity
+import patience
+
+assert fear_of_coding == False, "You've got this!"
+
+fun_fact = "Python is named after Monty Python, not the snake"
+print(fun_fact)`
 
   return code.split('\n').map(hlLine).join('\n')
+})
+
+// ── rAF scroll — pixel-perfect, immune to re-renders ─────────────────────────
+const trackRef = ref(null)
+let raf = null
+let offset = 0
+const SPEED = 0.4 // px per frame (~24px/s at 60fps)
+
+function tick() {
+  const el = trackRef.value
+  if (el) {
+    const half = el.scrollHeight / 2
+    offset = (offset + SPEED) % half
+    el.style.transform = `translateY(-${offset}px)`
+  }
+  raf = requestAnimationFrame(tick)
+}
+
+onMounted(() => { raf = requestAnimationFrame(tick) })
+onUnmounted(() => {
+  cancelAnimationFrame(raf)
+  clearInterval(clockTimer)
 })
 </script>
 
 <template>
-  <!-- Two identical copies; CSS scrolls to -50% then loops back invisibly -->
   <div class="cs-outer" aria-hidden="true">
-    <div class="cs-track">
+    <div class="cs-track" ref="trackRef">
       <pre class="cs-pre" v-html="highlighted"></pre>
       <pre class="cs-pre" v-html="highlighted"></pre>
     </div>
@@ -109,7 +138,6 @@ print("No experience needed — let's go!")`
 .cs-track {
   display: flex;
   flex-direction: column;
-  animation: cs-scroll 42s linear infinite;
   will-change: transform;
 }
 
@@ -120,7 +148,7 @@ print("No experience needed — let's go!")`
   line-height: 1.85 !important;
   color: #F0F0F5 !important;
   opacity: 0.22;
-  white-space: pre !important;
+  white-space: pre-wrap !important;
   display: block !important;
   margin: 0 !important;
   background: none !important;
@@ -130,10 +158,5 @@ print("No experience needed — let's go!")`
   pointer-events: none;
   user-select: none;
   overflow: visible !important;
-}
-
-@keyframes cs-scroll {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-50%); }
 }
 </style>
