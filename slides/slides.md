@@ -4,6 +4,8 @@ title: Python & the Music World
 info: A hands-on Python coding workshop for beginners
 highlighter: shiki
 lineNumbers: true
+layout: cover
+class: intro-cover
 shiki:
   theme: 'github-light'
 fonts:
@@ -14,9 +16,49 @@ fonts:
   provider: 'google'
 ---
 
-# Python &<br>the Music World
+<script setup>
+const wm = `song_title = "Blinding Lights"
+artist     = "The Weeknd"
+year       = 2019
 
-A Coding Workshop
+playlist = [
+    "Blinding Lights",
+    "Levitating",
+    "Heat Waves",
+    "As It Was",
+]
+
+for song in playlist:
+    print(f"Now playing: {song}")
+
+def classify_bpm(bpm):
+    if bpm > 130:
+        return "High energy"
+    elif bpm > 90:
+        return "Mid-tempo"
+    return "Slow"
+
+album = {
+    "title":  "Future Nostalgia",
+    "artist": "Dua Lipa",
+    "year":   2020,
+}
+
+with open("my_playlist.txt", "w") as f:
+    for song in playlist:
+        f.write(song + "\\n")`
+</script>
+
+<div class="ic">
+  <div class="ic-left">
+    <p class="ic-label">Python · Music · Code</p>
+    <h1>Python &amp;<br>the Music World</h1>
+    <p class="ic-sub">A 2-hour coding workshop</p>
+  </div>
+  <div class="ic-right" aria-hidden="true">
+    <pre class="ic-code">{{ wm }}</pre>
+  </div>
+</div>
 
 ---
 
