@@ -7,13 +7,12 @@
 #  Files let us save information so it's still there next
 #  time — just like an app saving your playlist to disk.
 #
-#  FILE MODES:
-#   "w"  write   — creates file (overwrites if it exists)
-#   "a"  append  — adds to the END of an existing file
-#   "r"  read    — reads an existing file
-#
 #  Always use `with open(...) as f:` — it closes the file
-#  safely when you're done.
+#  automatically when you're done.
+#
+#  FILE MODES:
+#   "w"  write — creates the file (overwrites if it exists)
+#   "r"  read  — reads an existing file
 #
 # ============================================================
 
@@ -21,37 +20,34 @@
 
 import os
 
+# --- WRITING ---
+# Each song needs "\n" at the end to go on its own line
+# (just like pressing Enter in a text editor).
+
 playlist = [
     "Blinding Lights – The Weeknd",
     "Levitating – Dua Lipa",
-    "Stay – The Kid LAROI",
     "Heat Waves – Glass Animals",
 ]
 
 with open("example_playlist.txt", "w") as f:
     for song in playlist:
-        f.write(song + "\n")   # \n = new line
+        f.write(song + "\n")
 
 print("Playlist saved!")
 
-# Read it back in
-with open("example_playlist.txt", "r") as f:
-    lines = f.readlines()   # returns a list, one string per line
+# --- READING ---
+# readlines() gives you a list — one string per line.
+# Each string still has "\n" at the end, so .strip() removes it.
 
-print(f"\nLoaded {len(lines)} songs:")
+with open("example_playlist.txt", "r") as f:
+    lines = f.readlines()
+
+print(f"Loaded {len(lines)} songs:")
 for i, song in enumerate(lines, start=1):
-    print(f"{i}. {song.strip()}")   # .strip() removes the \n
+    print(f"{i}. {song.strip()}")
 
-# Append a new song
-with open("example_playlist.txt", "a") as f:
-    f.write("Bad Habit – Ed Sheeran\n")
-
-print("\nAfter adding a song:")
-with open("example_playlist.txt", "r") as f:
-    for i, line in enumerate(f.readlines(), start=1):
-        print(f"{i}. {line.strip()}")
-
-# Clean up the example file
+# Clean up
 os.remove("example_playlist.txt")
 
 # ------------------------------------------------------------
@@ -60,10 +56,8 @@ os.remove("example_playlist.txt")
 #  1. Create a list of at least 5 songs in "Title – Artist"
 #     format. Write them to a file called my_playlist.txt.
 #
-#  2. Read the file back and print a numbered track listing.
-#
-#  3. Use append mode ("a") to add one more song, then
-#     re-read and print the updated list.
+#  2. Read my_playlist.txt back and print a numbered listing.
+#     Remember to use .strip() so the "\n" doesn't show up.
 
 # Start your code here 👇
 
@@ -77,9 +71,6 @@ my_playlist = [
 # Step 2 — read back and print:
 
 
-# Step 3 — append a new song, then re-read:
-
-
 # ------------------------------------------------------------
 #  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
 # ------------------------------------------------------------
@@ -87,23 +78,20 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 #
 #  Build your playlist from real songs instead of typing them:
 #    my_playlist = [f"{s['title']} – {s['artist']}" for s in SONGS[:5]]
-#
-#  Or add a real song in your append step:
-#    with open("my_playlist.txt", "a") as f:
-#        f.write(f"{SONGS[10]['title']} – {SONGS[10]['artist']}\n")
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
 # ------------------------------------------------------------
-#  - Instead of "Title – Artist", store each song as
-#    "Title,Artist,Year"  (comma-separated).
-#    When reading back, split each line:
-#      parts = line.strip().split(",")
-#    and print each field on its own.
+#  - Open my_playlist.txt in APPEND mode ("a") to add one more
+#    song without overwriting the others, then re-read and print
+#    the updated list.
 #
-#  - Wrap your code into two reusable functions:
+#  - Wrap your code into two reusable functions (from exercise 6!):
 #      save_playlist(filename, playlist)
 #      load_playlist(filename)  → returns a list of strings
 #
-#  - Save all songs from SONGS to a file, then read it back
-#    and count how many songs are by the same artist.
+#  - Instead of "Title – Artist", store each song as
+#    "Title,Artist,Year" (comma-separated).
+#    When reading back, split each line:
+#      parts = line.strip().split(",")
+#    and print each field separately.
