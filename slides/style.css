@@ -499,6 +499,14 @@
 .d-fn-wrap { display: flex; align-items: center; gap: 1.5rem; margin: 1.5rem 0; flex-wrap: wrap; }
 .d-fn-group { display: flex; flex-direction: column; gap: 0.5rem; }
 
+/* Side-by-side code comparison */
+.fn-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
 /* Function input→output diagram */
 .fn-calls {
   display: flex;

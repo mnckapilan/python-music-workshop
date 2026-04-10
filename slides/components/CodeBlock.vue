@@ -5,6 +5,7 @@ const props = defineProps({
   code: { type: String, required: true },
   lang: { type: String, default: "python" },
   filename: { type: String, default: "" },
+  variant: { type: String, default: "default" }, // "default" | "danger" | "success"
 });
 
 // ── Shared highlighter singleton ──────────────────────────────────────────────
@@ -79,7 +80,7 @@ const displayName = computed(
 </script>
 
 <template>
-  <div class="ce">
+  <div class="ce" :class="`ce-${variant}`">
     <!-- ── Title bar ──────────────────────────────────────────────────────── -->
     <div class="ce-bar">
       <span class="ce-filename">{{ displayName }}</span>
@@ -223,6 +224,25 @@ const displayName = computed(
   white-space: pre;
   user-select: text;
 }
+
+/* ── Variants ────────────────────────────────────────────────────────────── */
+.ce-danger {
+  border-color: #f5a5a5;
+}
+.ce-danger .ce-bar {
+  background: #fff0f0;
+  border-bottom-color: #f5a5a5;
+}
+.ce-danger .ce-filename { color: #c0392b; }
+
+.ce-success {
+  border-color: #9ecf9d;
+}
+.ce-success .ce-bar {
+  background: #f0fff4;
+  border-bottom-color: #9ecf9d;
+}
+.ce-success .ce-filename { color: #276749; }
 
 /* ── Loading ─────────────────────────────────────────────────────────────── */
 .ce-loading {

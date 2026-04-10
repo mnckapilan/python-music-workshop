@@ -627,8 +627,6 @@ Define code **once**, call it as many times as you like — with different input
 
 # Why use functions?
 
-Without a function, you repeat yourself:
-
 <script setup>
 const codeA = `print("▶  Blinding Lights — The Weeknd")
 print("▶  Levitating — Dua Lipa")
@@ -644,11 +642,10 @@ now_playing("Heat Waves",      "Glass Animals")
 # Change the format? Edit one line.`
 </script>
 
-<CodeBlock :code="codeA" lang="python" filename="without a function" />
-
-With a function, define the format **once**:
-
-<CodeBlock :code="codeB" lang="python" filename="now_playing()" />
+<div class="fn-compare">
+  <CodeBlock :code="codeA" lang="python" filename="✗  without a function" variant="danger" />
+  <CodeBlock :code="codeB" lang="python" filename="✓  now_playing()" variant="success" />
+</div>
 
 <FileHint file="exercise_06_functions.py" />
 
