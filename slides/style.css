@@ -1,0 +1,246 @@
+/* ============================================================
+   Python Music Workshop — Slidev Custom Styles
+   Palette: warm paper · charcoal text · amber accent · navy breaks
+   Fonts: Bricolage Grotesque (headings) · Figtree (body) · Fira Code (mono)
+   ============================================================ */
+
+:root {
+  --c-bg:           oklch(0.985 0.008 80);
+  --c-surface:      oklch(0.965 0.014 80);
+  --c-text:         oklch(0.15  0.010 250);
+  --c-text-muted:   oklch(0.42  0.015 250);
+  --c-accent:       oklch(0.65  0.155 55);
+  --c-accent-light: oklch(0.93  0.040 78);
+  --c-border:       oklch(0.87  0.016 80);
+  --c-navy:         oklch(0.20  0.035 260);
+  --c-navy-text:    oklch(0.96  0.006 80);
+
+  --font-head: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Figtree', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+/* ── Base slide ─────────────────────────────────────────── */
+.slidev-layout {
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* ── Headings ───────────────────────────────────────────── */
+.slidev-layout h1 {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  color: var(--c-text);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.2rem;
+}
+
+.slidev-layout h2 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--c-text-muted);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.6rem;
+}
+
+.slidev-layout h3 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--c-text);
+}
+
+/* ── Cover layout ───────────────────────────────────────── */
+.slidev-layout.cover {
+  background: var(--c-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 5rem;
+  position: relative;
+}
+
+.slidev-layout.cover::before {
+  content: '♩';
+  position: absolute;
+  top: 2.5rem;
+  right: 3rem;
+  font-size: 8rem;
+  color: var(--c-accent);
+  opacity: 0.12;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.slidev-layout.cover h1 {
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1.05;
+  max-width: 14ch;
+  color: var(--c-text);
+}
+
+.slidev-layout.cover p {
+  color: var(--c-text-muted);
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+/* amber rule under cover h1 */
+.slidev-layout.cover h1::after {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 3px;
+  background: var(--c-accent);
+  margin-top: 1rem;
+  border-radius: 2px;
+}
+
+/* ── Section / chapter-break slides ────────────────────── */
+.slidev-layout.exercise-header {
+  background: var(--c-navy);
+  color: var(--c-navy-text);
+}
+
+.slidev-layout.exercise-header h1 {
+  color: var(--c-navy-text);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 0.4rem;
+}
+
+.slidev-layout.exercise-header h2 {
+  color: var(--c-navy-text);
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  opacity: 1;
+}
+
+/* amber accent dot on section headers */
+.slidev-layout.exercise-header::after {
+  content: '';
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2rem;
+  height: 3px;
+  background: var(--c-accent);
+  border-radius: 2px;
+}
+
+/* ── Code blocks ────────────────────────────────────────── */
+.slidev-code,
+.slidev-layout pre {
+  background: var(--c-surface) !important;
+  border: 1px solid var(--c-border);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+code:not([class]) {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  color: var(--c-accent);
+}
+
+/* ── Blockquotes / tips ─────────────────────────────────── */
+.slidev-layout blockquote {
+  background: var(--c-accent-light);
+  border: 1px solid var(--c-border);
+  border-radius: 6px;
+  padding: 0.6rem 1.1rem;
+  color: var(--c-text-muted);
+  font-size: 0.9rem;
+  margin: 1rem 0 0;
+}
+
+.slidev-layout blockquote p {
+  margin: 0;
+}
+
+/* ── Tables ─────────────────────────────────────────────── */
+.slidev-layout table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.92rem;
+}
+
+.slidev-layout th {
+  background: var(--c-accent-light);
+  font-family: var(--font-head);
+  font-weight: 700;
+  text-align: left;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--c-border);
+}
+
+.slidev-layout td {
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--c-border);
+  vertical-align: top;
+}
+
+.slidev-layout tr:nth-child(even) td {
+  background: oklch(0.975 0.010 80);
+}
+
+/* ── Lists ──────────────────────────────────────────────── */
+.slidev-layout ul,
+.slidev-layout ol {
+  padding-left: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.slidev-layout li {
+  line-height: 1.5;
+}
+
+.slidev-layout li::marker {
+  color: var(--c-accent);
+}
+
+/* ── Mermaid diagrams ───────────────────────────────────── */
+.mermaid svg {
+  max-width: 100%;
+  max-height: 280px;
+}
+
+/* ── Slide number ───────────────────────────────────────── */
+.slidev-page-number {
+  color: var(--c-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+/* ── Strong / em ────────────────────────────────────────── */
+.slidev-layout strong {
+  font-weight: 700;
+  color: var(--c-text);
+}
+
+.slidev-layout em {
+  color: var(--c-accent);
+  font-style: normal;
+  font-weight: 600;
+}

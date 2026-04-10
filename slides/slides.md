@@ -1,12 +1,29 @@
 ---
 theme: default
-title: 🎵 Python & the Music World
+title: Python & the Music World
 info: A hands-on Python coding workshop for beginners
 highlighter: shiki
 lineNumbers: true
+fonts:
+  sans: 'Figtree'
+  serif: 'Bricolage Grotesque'
+  mono: 'Fira Code'
+  weights: '400,500,600,700,800'
+  provider: 'google'
+mermaid:
+  theme: base
+  themeVariables:
+    primaryColor: '#EDD9A3'
+    primaryTextColor: '#1A1A2E'
+    primaryBorderColor: '#C4942D'
+    lineColor: '#C4942D'
+    secondaryColor: '#F5EDD6'
+    tertiaryColor: '#FBF6EC'
+    edgeLabelBackground: '#FBF6EC'
+    fontFamily: 'Figtree, sans-serif'
 ---
 
-# 🎵 Python & the Music World
+# Python &<br>the Music World
 
 A Coding Workshop
 
@@ -27,6 +44,7 @@ A Coding Workshop
 
 ---
 layout: center
+class: exercise-header
 ---
 
 # Exercise 0
@@ -73,6 +91,7 @@ Open each exercise file in the `exercises` folder, read the example, then comple
 
 ---
 layout: center
+class: exercise-header
 ---
 
 # Exercise 1
@@ -136,6 +155,7 @@ Now Playing: <title> by <artist> | Released: <year> | Duration: <duration> mins
 
 ---
 layout: center
+class: exercise-header
 ---
 
 # Exercise 2
@@ -187,6 +207,7 @@ playlist.insert(0, "Flowers")    # insert at position 0 (the start)
 
 ---
 layout: center
+class: exercise-header
 ---
 
 # Exercise 3
@@ -243,6 +264,7 @@ for i, song in enumerate(playlist, start=1):
 
 ---
 layout: center
+class: exercise-header
 ---
 
 # Exercise 4
@@ -307,6 +329,7 @@ for i, title in enumerate(titles):
 
 ---
 layout: center
+class: exercise-header
 ---
 
 # Exercise 5
@@ -365,6 +388,7 @@ for track_num, track_title in album["tracks"].items():
 
 ---
 layout: center
+class: exercise-header
 ---
 
 # Exercise 6
@@ -441,6 +465,7 @@ Longest title: Someone Like You (16 characters)
 
 ---
 layout: center
+class: exercise-header
 ---
 
 # Exercise 7
@@ -454,7 +479,7 @@ So far, data disappears when the program stops. A file keeps it around.
 
 ```mermaid
 graph LR
-  A["🐍 Python Program"] -->|"open 'w' · f.write()"| B["📄 my_playlist.txt"]
+  A["Python Program"] -->|"open 'w' · f.write()"| B["my_playlist.txt"]
   B -->|"open 'r' · f.readlines()"| A
 ```
 
@@ -515,7 +540,7 @@ variables · lists · loops · conditionals · dictionaries · functions · file
 layout: center
 ---
 
-# 🎵 Want to explore 9,000+ real songs?
+# Want to explore 9,000+ real songs?
 
 Open the Data Explorer from the `setup` folder:
 
