@@ -1,15 +1,18 @@
 name: Test setup scripts
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'setup/**'
       - 'exercises/**'
+      - '.gitattributes'
       - '.github/workflows/test-setup.yml'
   pull_request:
     paths:
       - 'setup/**'
       - 'exercises/**'
+      - '.gitattributes'
 
 jobs:
   # ── Mac (arm64) ───────────────────────────────────────────────
