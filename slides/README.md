@@ -71,6 +71,24 @@ node screenshot-step.js
 
 Output goes to `screenshots/`. The folder is gitignored.
 
+## Preview
+
+**Cover slide** — dark theme with live Python code panel
+
+![Cover slide](assets/readme-cover.png)
+
+**Interactive code block** — click any line number to highlight it; non-highlighted lines dim so attention stays focused
+
+![Interactive code block with line highlight](assets/readme-interactive.png)
+
+**Code block with window chrome** — filename tab and macOS traffic-light buttons for a familiar editor feel; Shiki syntax highlighting
+
+![Code block with window chrome](assets/readme-codechrome.png)
+
+**Task slide with countdown timer** — a floating timer widget (play/reset, ambient music label) appears on every exercise slide so the presenter doesn't need a separate timer
+
+![Task slide with countdown timer](assets/readme-timer.png)
+
 ## Playwright quirk on macOS
 
 If you're running scripts from a non-interactive shell (e.g. a script or CI), nvm may not be on the PATH. Use the direct binary path:
