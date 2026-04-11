@@ -12,36 +12,27 @@ on:
       - 'exercises/**'
 
 jobs:
-  # ── Mac (arm64 + x86_64) ─────────────────────────────────────
+  # ── Mac (arm64) ───────────────────────────────────────────────
   test-mac:
-    name: Mac (${{ matrix.runner }})
-    runs-on: ${{ matrix.runner }}
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - runner: macos-latest   # arm64
-            runtime_dir: python-runtime/mac-arm64
-          - runner: macos-13       # x86_64
-            runtime_dir: python-runtime/mac-x86
+    name: Mac (arm64)
+    runs-on: macos-latest
 
     steps:
       - uses: actions/checkout@v4
 
       - name: Run setup script
-        # Pipe /dev/null to satisfy the "Press Enter to close" read at the end
-        run: bash setup/setup.command < /dev/null
+        run: bash setup/setup.command
 
       - name: Verify Python runtime was installed
         run: |
-          if [ ! -f "${{ matrix.runtime_dir }}/bin/python3" ]; then
-            echo "ERROR: Python runtime not found at ${{ matrix.runtime_dir }}/bin/python3"
+          if [ ! -f "python-runtime/mac-arm64/bin/python3" ]; then
+            echo "ERROR: Python runtime not found"
             exit 1
           fi
-          echo "Runtime OK: $("${{ matrix.runtime_dir }}/bin/python3" --version)"
+          echo "Runtime OK: $(python-runtime/mac-arm64/bin/python3 --version)"
 
       - name: Verify smoke test passes
-        run: ${{ matrix.runtime_dir }}/bin/python3 exercises/music_data.py
+        run: python-runtime/mac-arm64/bin/python3 exercises/music_data.py
 
   # ── Windows ──────────────────────────────────────────────────
   test-windows:
@@ -53,14 +44,13 @@ jobs:
 
       - name: Run setup script
         shell: cmd
-        # "echo." sends an empty line to satisfy the "pause" at the end
-        run: echo. | setup\setup.bat
+        run: setup\setup.bat
 
       - name: Verify Python runtime was installed
         shell: cmd
         run: |
           if not exist "python-runtime\windows\python.exe" (
-            echo ERROR: Python runtime not found at python-runtime\windows\python.exe
+            echo ERROR: Python runtime not found
             exit /b 1
           )
           for /f "tokens=*" %%v in ('python-runtime\windows\python.exe --version') do echo Runtime OK: %%v

@@ -150,5 +150,8 @@ else
 fi
 
 echo ""
-echo "Press Enter to close this window..."
-read -r
+# Skip interactive pause in CI environments
+if [ -z "$CI" ]; then
+    echo "Press Enter to close this window..."
+    read -r
+fi

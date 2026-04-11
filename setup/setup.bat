@@ -151,4 +151,6 @@ echo ==================================================
 
 :end
 echo.
+if defined CI goto done
 pause
+:done
