@@ -29,27 +29,7 @@ if exist "%PYTHON_CMD%" goto python_ok
 echo   Runtime not found -- downloading now (~35 MB)...
 echo.
 
-powershell -NoProfile -ExecutionPolicy Bypass -Command ^
-    "$ErrorActionPreference = 'Stop'; try { ^
-        $api = Invoke-RestMethod 'https://api.github.com/repos/astral-sh/python-build-standalone/releases/latest'; ^
-        $asset = $api.assets | Where-Object { $_.name -like '*x86_64-pc-windows-msvc-install_only.zip' } | Select-Object -First 1; ^
-        if (-not $asset) { throw 'Asset not found in release' }; ^
-        $url = $asset.browser_download_url; ^
-        $tmp = Join-Path $env:TEMP 'python-runtime-workshop.zip'; ^
-        $extract = Join-Path $env:TEMP 'python-extract-workshop'; ^
-        Write-Host '  Downloading...'; ^
-        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; ^
-        Invoke-WebRequest $url -OutFile $tmp -UseBasicParsing; ^
-        Write-Host '  Extracting...'; ^
-        if (Test-Path $extract) { Remove-Item $extract -Recurse -Force }; ^
-        Expand-Archive $tmp -DestinationPath $extract; ^
-        $inner = Get-ChildItem $extract | Select-Object -First 1 -ExpandProperty FullName; ^
-        if (-not (Test-Path 'python-runtime')) { New-Item -ItemType Directory -Path 'python-runtime' | Out-Null }; ^
-        Move-Item $inner 'python-runtime\windows'; ^
-        Remove-Item $tmp; ^
-        Remove-Item $extract -Recurse; ^
-        Write-Host '' ^
-    } catch { Write-Host ('  Download failed: ' + $_); exit 1 }"
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0download-python-windows.ps1"
 
 if %errorlevel% neq 0 (
     echo.
