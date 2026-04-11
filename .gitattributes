@@ -1,0 +1,10 @@
+# Default: normalise line endings to LF in the repo
+* text=auto
+
+# Batch files must have CRLF on Windows checkout or cmd.exe ^ continuation breaks
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Shell scripts always LF
+*.sh text eol=lf
+*.command text eol=lf
