@@ -11,13 +11,13 @@ $dest = Join-Path $workshopRoot 'python-runtime\windows'
 try {
     $api = Invoke-RestMethod 'https://api.github.com/repos/astral-sh/python-build-standalone/releases/latest'
     $asset = $api.assets |
-        Where-Object { $_.name -like '*x86_64-pc-windows-msvc-install_only.zip' } |
+        Where-Object { $_.name -like '*x86_64-pc-windows-msvc-install_only.tar.gz' } |
         Select-Object -First 1
 
     if (-not $asset) { throw 'Asset not found in release' }
 
     $url = $asset.browser_download_url
-    $tmp = Join-Path $env:TEMP 'python-runtime-workshop.zip'
+    $tmp = Join-Path $env:TEMP 'python-runtime-workshop.tar.gz'
     $extract = Join-Path $env:TEMP 'python-extract-workshop'
 
     Write-Host '  Downloading...'
@@ -26,7 +26,8 @@ try {
 
     Write-Host '  Extracting...'
     if (Test-Path $extract) { Remove-Item $extract -Recurse -Force }
-    Expand-Archive $tmp -DestinationPath $extract
+    New-Item -ItemType Directory -Path $extract | Out-Null
+    tar -xzf $tmp -C $extract
 
     $inner = Get-ChildItem $extract | Select-Object -First 1 -ExpandProperty FullName
 
@@ -35,8 +36,8 @@ try {
 
     Move-Item $inner $dest
 
-    Remove-Item $tmp
-    Remove-Item $extract -Recurse
+    Remove-Item $tmp -Force
+    Remove-Item $extract -Recurse -Force
 } catch {
     Write-Host "  Download failed: $_"
     exit 1
