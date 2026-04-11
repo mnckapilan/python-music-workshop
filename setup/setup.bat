@@ -65,17 +65,17 @@ if %PYTHON_OK% == 0 goto skip_smoke
 
 echo Running smoke test...
 %PYTHON_CMD% exercises\music_data.py > "%TEMP%\smoke.tmp" 2>&1
-if %errorlevel% == 0 (
-    set /p SMOKE_LINE=<"%TEMP%\smoke.tmp"
-    del "%TEMP%\smoke.tmp" >nul 2>&1
-    echo   [ OK ] %SMOKE_LINE%
-    set /a PASS+=1
-) else (
+if %errorlevel% neq 0 (
     del "%TEMP%\smoke.tmp" >nul 2>&1
     echo   [FAIL] Music data failed to load
     set /a FAIL+=1
     set ERR_SMOKE=1
+    goto skip_smoke
 )
+set /p SMOKE_LINE=<"%TEMP%\smoke.tmp"
+del "%TEMP%\smoke.tmp" >nul 2>&1
+echo   [ OK ] %SMOKE_LINE%
+set /a PASS+=1
 
 :skip_smoke
 
