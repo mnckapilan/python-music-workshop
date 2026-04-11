@@ -25,6 +25,8 @@ jobs:
 
       - name: Run setup script
         run: bash setup/setup.command
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Verify Python runtime was installed
         run: |
@@ -48,6 +50,8 @@ jobs:
       - name: Run setup script
         shell: cmd
         run: setup\setup.bat
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Verify Python runtime was installed
         shell: cmd

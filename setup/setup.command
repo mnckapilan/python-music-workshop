@@ -44,7 +44,11 @@ if [ ! -f "$PYTHON_CMD" ]; then
         FIXES+=("Ask a volunteer for a USB stick with the complete workshop folder.")
         ((FAIL++)) || true
     else
-        API=$(curl -sf "https://api.github.com/repos/astral-sh/python-build-standalone/releases/latest")
+        if [ -n "$GITHUB_TOKEN" ]; then
+            API=$(curl -sf -H "Authorization: Bearer $GITHUB_TOKEN" "https://api.github.com/repos/astral-sh/python-build-standalone/releases/latest")
+        else
+            API=$(curl -sf "https://api.github.com/repos/astral-sh/python-build-standalone/releases/latest")
+        fi
         URL=$(echo "$API" \
             | grep -o '"browser_download_url": "[^"]*'"$PBS_PATTERN"'[^"]*"' \
             | head -1 \

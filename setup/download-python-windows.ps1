@@ -9,7 +9,9 @@ $workshopRoot = Split-Path $PSScriptRoot -Parent
 $dest = Join-Path $workshopRoot 'python-runtime\windows'
 
 try {
-    $api = Invoke-RestMethod 'https://api.github.com/repos/astral-sh/python-build-standalone/releases/latest'
+    $headers = @{}
+    if ($env:GITHUB_TOKEN) { $headers['Authorization'] = "Bearer $env:GITHUB_TOKEN" }
+    $api = Invoke-RestMethod 'https://api.github.com/repos/astral-sh/python-build-standalone/releases/latest' -Headers $headers
     $asset = $api.assets |
         Where-Object { $_.name -like '*x86_64-pc-windows-msvc-install_only.tar.gz' } |
         Select-Object -First 1

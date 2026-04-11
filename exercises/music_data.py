@@ -23,7 +23,7 @@ import json
 from pathlib import Path
 
 _data_file = Path(__file__).parent.parent / "data" / "songs.json"
-SONGS: list[dict] = json.loads(_data_file.read_text())
+SONGS: list[dict] = json.loads(_data_file.read_text(encoding='utf-8'))
 
 if __name__ == "__main__":
     print(f"Loaded {len(SONGS)} songs.")
