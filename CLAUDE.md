@@ -8,15 +8,7 @@ A Python coding workshop for beginners. Seven self-contained exercises teach cor
 
 ## Running Exercises
 
-Python is bundled in `python-runtime/` (auto-downloaded by setup scripts). Use the wrapper scripts at the project root:
-
-```bash
-# Mac
-./python3 exercises/exercise_01_variables_and_strings.py
-
-# Windows
-python3.bat exercises/exercise_01_variables_and_strings.py
-```
+Students use **saarai.dev** (a hosted online IDE — source at github.com/mnckapilan/saarai). They download the workshop from **tinyurl.com/python-walthamstow-workshop**, open the folder with File → Open Folder in Saarai, and click Run on each exercise file.
 
 No test suite, no linter, no build step. Exercises run standalone.
 
@@ -40,9 +32,9 @@ Each exercise follows the same pattern:
 
 ## Key Notes
 
-- Exercise 07 writes/reads `my_playlist.txt` (gitignored) and cleans up with `os.remove()`
+- Exercise 07 writes/reads `my_playlist.txt` (gitignored)
 - Exercises are designed to be assigned individually — concepts build progressively but each file is self-contained
-- Full workshop instructions are in `instructions/python_music_workshop.md`
 - Volunteer setup notes are in `setup/VOLUNTEER_GUIDE.md`
-- Setup scripts (`setup/setup.command`, `setup/setup.bat`) auto-download the Python runtime if `python-runtime/` is absent
-- `python-runtime/` and `dist/` are gitignored — don't commit them
+- Music data is in `data/songs.json` (bundled, no internet needed for exercises)
+- Data Explorer (hosted GitHub page) is at tinyurl.com/7tdxxp57
+- Slides are in a separate repo: github.com/mnckapilan/python-workshop-slides

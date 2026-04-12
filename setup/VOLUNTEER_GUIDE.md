@@ -1,89 +1,56 @@
 # Volunteer Guide — Python Music Workshop
 
-Quick reference for setup day. Students download a zip, run a setup script, and install VS Code — your job is to unblock anything that fails.
-
-**Python is bundled** — students do not need Python installed on their machine. No Python troubleshooting needed.
+Quick reference for the session. Students download a zip from GitHub, open the folder in Saarai, and run exercises from there.
 
 ---
 
 ## Before the session
 
-1. Download the zip from **tinyurl.com/python-walthamstow-workshop** and test the full setup flow on one laptop of each type (Mac + Windows)
-2. Have this guide open on your phone or a spare laptop
+1. Test the full flow yourself: download the zip, unzip it, open it in **saarai.dev**, run `exercise_00_setup_check.py`
+2. Have the GitHub download link ready to share; Data Explorer is at **tinyurl.com/7tdxxp57**
+3. Have this guide open on your phone or a spare laptop
 
 ---
 
 ## Distributing the files
 
-Share the link **tinyurl.com/python-walthamstow-workshop**, or put the zip on a USB stick. Students unzip it themselves — remind them to **Extract All** on Windows, not just double-click and run from inside the zip.
+Share **tinyurl.com/python-walthamstow-workshop**. Students click the green **Code** button → **Download ZIP**, then unzip it.
 
-The extracted folder will be called **`python-music-workshop-main`**.
+Remind Windows students to **right-click → Extract All** rather than opening files from inside the zip.
 
----
-
-## Mac setup
-
-### Normal flow
-
-1. Student opens **Terminal** (Cmd+Space → *Terminal*)
-2. Types `bash ` (with a space), drags **`setup/setup.command`** from Finder into Terminal, presses Enter
-3. Script downloads the Python runtime if needed (~30 MB, one-time), then runs checks
-
-### Mac issue: "cannot be opened because it is from an unidentified developer"
-
-The setup script is run via `bash` directly, so Gatekeeper shouldn't block it. If you see this error on the runtime download, the script should clear quarantine automatically with `xattr`. If it still fails, run manually:
-
-```bash
-xattr -rd com.apple.quarantine ~/Desktop/python-music-workshop-main
-```
-
-Adjust the path if they unzipped somewhere else. Then re-run the setup.
-
-### Mac issue: smoke test fails (`[FAIL] Music data failed to load`)
-
-Usually a quarantine issue on the data file. Run the `xattr` command above, then re-run setup.
+The extracted folder will be called something like **`python-music-workshop-main`**.
 
 ---
 
-## Windows setup
+## Common issues
 
-### Normal flow
+### Windows: files opened from inside the zip
 
-1. Student opens the `setup` folder in File Explorer
-2. Clicks the **address bar** at the top → types `cmd` → presses Enter
-3. Types `setup.bat` and presses Enter
+**Symptom:** file not found errors, or the folder structure looks wrong in Saarai.
 
-### Windows issue: SmartScreen blocks setup.bat
-
-Click **More info → Run anyway**. If the student doesn't have admin rights:
-
-```powershell
-Unblock-File -Path "C:\path\to\python-music-workshop-main\setup\setup.bat"
-```
-
-Or: right-click `setup.bat` → Properties → tick **Unblock** at the bottom → OK.
-
-### Windows issue: smoke test fails (`[FAIL] Music data failed to load`)
-
-Most likely the student ran `setup.bat` from inside the zip without extracting first. Make sure they right-clicked the zip → **Extract All** before running anything.
-
-### Windows issue: Python runtime download fails
-
-If the machine has no internet, copy the `python-runtime/` folder from a machine that has already run setup (or from a pre-prepared USB). Place it inside the workshop folder so the path is `python-music-workshop-main/python-runtime/windows/`.
+**Fix:** make sure the student right-clicked the zip → **Extract All** before opening anything. Files must be fully unzipped first.
 
 ---
 
-## VS Code
+### Saarai won't open the folder / browser asks for permission
 
-VS Code is not checked by the setup script — it's a separate step students handle themselves (Step 3 in the slides). If a student doesn't have it: **code.visualstudio.com** → download and install.
+**Mac:** the browser will ask for permission to access the local file system — click **Allow**.
 
-If VS Code can't find `python3`, it may need to be pointed at the bundled runtime. The `python3` wrapper script (Mac) and `python3.bat` (Windows) in the project root handle this automatically when running from the VS Code terminal.
+**Windows:** same — click **Allow** or **Yes** when prompted.
 
 ---
 
-## Port conflict (Data Explorer)
+### "File not found" errors when running exercises
 
-If a student gets `Port 8000 is already in use` when opening the explorer, they have another explorer window open. Close it (press Enter in that terminal or close the window), then try again.
+The student likely opened a subfolder instead of the root workshop folder.
+
+**Fix:** in Saarai, go to **File → Open Folder** and select the top-level `python-music-workshop-main` folder (not the `exercises` folder inside it).
+
+---
+
+### Run button does nothing / exercise won't run
+
+Make sure the student has clicked a `.py` file in the left panel to open it in the editor before hitting Run.
 
 ---
 
@@ -91,9 +58,7 @@ If a student gets `Port 8000 is already in use` when opening the explorer, they 
 
 | Symptom | Most likely cause | Fix |
 |---------|-------------------|-----|
-| Mac: Gatekeeper blocks runtime | Quarantine on downloaded zip | `xattr -rd com.apple.quarantine <folder>` |
-| Mac: smoke test fails | Quarantine on data file | Same `xattr` command |
-| Windows: blue SmartScreen screen | Internet zone flag on .bat | More info → Run anyway |
-| Windows: smoke test fails | Ran from inside zip, not extracted | Extract All, then re-run |
-| Windows: runtime download fails | No internet / proxy | Copy `python-runtime/` folder from USB |
-| Either: port 8000 in use | Explorer already open | Close the existing explorer window |
+| File not found errors | Opened wrong folder in Saarai | File → Open Folder → select the root workshop folder |
+| Songs won't load | Opened from inside zip | Extract All first, then re-open in Saarai |
+| Mac: browser asks for file access | Normal permission prompt | Click Allow |
+| Run button does nothing | No file open in editor | Click a `.py` file to open it first |

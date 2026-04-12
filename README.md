@@ -27,78 +27,44 @@ Each exercise file contains:
 
 ## Getting the Workshop
 
-Download the zip from **tinyurl.com/python-walthamstow-workshop** (green Code button → Download ZIP), unzip it, and move the folder somewhere easy to find (e.g. the Desktop).
+Download the zip from **tinyurl.com/python-walthamstow-workshop** (green **Code** button → **Download ZIP**), unzip it, and move the folder somewhere easy to find (e.g. the Desktop).
 
 ---
 
 ## Student Setup
 
-Python is **bundled** with the workshop — students do not need to install it. The setup script downloads it automatically on first run if it isn't there yet.
+1. Go to **saarai.dev**
+2. Click **File → Open Folder** and select the workshop folder
+3. Open `exercises/exercise_00_setup_check.py` and click **Run**
 
-### Mac
+You should see: `Everything is set up correctly — you're ready to go!`
 
-1. Open **Terminal** (Cmd+Space → type *Terminal* → Enter)
-2. Type `bash ` (with a space), then drag **`setup/setup.command`** from the Finder into the Terminal window
-3. Press Enter
-
-### Windows
-
-1. Open the `setup` folder in File Explorer
-2. Click the **address bar** at the top → type `cmd` → press Enter
-3. Type `setup.bat` and press Enter — if SmartScreen appears, click **More info → Run anyway**
-
-The script prints a clear pass/fail for each check. If the Python runtime isn't present it downloads it automatically (~30 MB).
-
-### What the script checks
-
-| Check | Detail |
-|-------|--------|
-| Python runtime | Bundled in `python-runtime/` — auto-downloaded if missing |
-| Music data | `exercises/music_data.py` loads without errors |
+Full setup instructions are in `exercises/exercise_00_setup.md`.
 
 ---
 
 ## Running Exercises
 
-From the VS Code terminal (`` Ctrl+` ``), open the workshop folder and run:
-
-```bash
-python3 exercises/exercise_01_variables_and_strings.py
-```
-
-On Windows use `python3.bat` instead of `python3`, or just `python3` if VS Code picks up the `.bat` wrapper automatically.
-
-No packages to install — the workshop uses Python's standard library only.
+Open any exercise file in the left panel and click **Run**. No packages to install — the workshop uses Python's standard library only.
 
 ---
 
 ## Music Library & Data Explorer
 
-Exercises 4–7 include an optional `EXPLORE` section that uses a real library of 9,000+ songs (artists include Sabrina Carpenter, Central Cee, RAYE, Olivia Dean, Bad Bunny, Taylor Swift, and many more). The data is bundled in `data/songs.json` — no internet connection needed.
+Exercises 4–7 include an optional `EXPLORE` section that uses a real library of 9,000+ songs (artists include Sabrina Carpenter, Central Cee, RAYE, Olivia Dean, Bad Bunny, Taylor Swift, and many more). The data is bundled in `data/songs.json`.
 
-To browse the library with a searchable web UI, run the launcher from the `setup` folder the same way as the setup script:
-
-| Platform | File |
-|----------|------|
-| Mac | drag `setup/explore.command` into Terminal and press Enter |
-| Windows | open cmd in `setup` folder → type `explore.bat` |
-
-This opens a local webpage where students can search by song, artist, or genre, and see the Python code needed to access any entry. Press Enter in the terminal window (or close it) to stop the server.
+A hosted Data Explorer at **tinyurl.com/7tdxxp57** lets students search by song, artist, or genre, and see the Python code to access any entry.
 
 ---
 
 ## Workshop Instructions
 
-Full classroom instructions are in `instructions/python_music_workshop.md`.
-
-Volunteer setup notes are in `setup/VOLUNTEER_GUIDE.md`.
+Volunteer notes are in `setup/VOLUNTEER_GUIDE.md`.
 
 ---
 
 ## Tips for Volunteers & TAs
 
-- Run the setup script on each student laptop before the session — the output tells you exactly what is missing.
-- Python is bundled — no Python installation troubleshooting needed.
 - Each exercise is self-contained — students don't need to complete them in order, but concepts build progressively.
 - The example code at the top of each file runs without modification — a good way to start each exercise is to run it first, then read through it.
 - Exercise 7 (File I/O) creates `my_playlist.txt` in the working directory — this is gitignored.
