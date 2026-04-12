@@ -54,13 +54,13 @@ my_playlist = [
 from music_data import SONGS   # 9,000+ real songs, ready to use
 #
 #  Browse the library:
-#    print(SONGS[0]["title"])                        # one title
-#    for s in SONGS[:10]:
-#        print(s["title"], "–", s["artist"])        # first 10 songs
+# print(SONGS[0]["title"])                        # one title
+# for s in SONGS[:10]:
+#     print(s["title"], "–", s["artist"])        # first 10 songs
 #
 #  Build a playlist straight from the library:
-#    real_playlist = [s["title"] for s in SONGS[:5]]
-#    print(real_playlist)
+# real_playlist = [s["title"] for s in SONGS[:5]]
+# print(real_playlist)
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE

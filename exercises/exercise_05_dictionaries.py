@@ -89,14 +89,14 @@ my_album = {
 from music_data import SONGS   # 9,000+ real songs, ready to use
 #
 #  Each song is already a dictionary — print one to see all its keys:
-#    print(SONGS[0])
+# print(SONGS[0])
 #
 #  Access individual fields:
-#    print(SONGS[0]["title"])    # title
-#    print(SONGS[0]["album"])    # album name
-#    print(SONGS[0]["artist"])   # artist
-#    print(SONGS[0]["year"])     # release year
-#    print(SONGS[0]["genre"])    # genre
+# print(SONGS[0]["title"])    # title
+# print(SONGS[0]["album"])    # album name
+# print(SONGS[0]["artist"])   # artist
+# print(SONGS[0]["year"])     # release year
+# print(SONGS[0]["genre"])    # genre
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
@@ -106,5 +106,5 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 #    all of them, printing each album's title and track count.
 #  - Pick any song from SONGS and print all its key–value pairs
 #    using a for loop:
-#      for key, value in SONGS[0].items():
-#          print(f"{key}: {value}")
+# for key, value in SONGS[0].items():
+#     print(f"{key}: {value}")

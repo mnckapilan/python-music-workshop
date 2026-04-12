@@ -77,7 +77,7 @@ my_playlist = [
 from music_data import SONGS   # 9,000+ real songs, ready to use
 #
 #  Build your playlist from real songs instead of typing them:
-#    my_playlist = [f"{s['title']} – {s['artist']}" for s in SONGS[:5]]
+# my_playlist = [f"{s['title']} – {s['artist']}" for s in SONGS[:5]]
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
@@ -93,5 +93,5 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 #  - Instead of "Title – Artist", store each song as
 #    "Title,Artist,Year" (comma-separated).
 #    When reading back, split each line:
-#      parts = line.strip().split(",")
+#     parts = line.strip().split(",")
 #    and print each field separately.

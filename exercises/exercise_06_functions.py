@@ -100,14 +100,14 @@ sample_songs = [
 from music_data import SONGS   # 9,000+ real songs, ready to use
 #
 #  Pass a real song to describe_song():
-#    describe_song(SONGS[0]["title"], SONGS[0]["artist"], SONGS[0]["year"])
+# describe_song(SONGS[0]["title"], SONGS[0]["artist"], SONGS[0]["year"])
 #
 #  Pass a real song to now_playing():
-#    now_playing(SONGS[0]["title"], SONGS[0]["artist"])
+# now_playing(SONGS[0]["title"], SONGS[0]["artist"])
 #
 #  Find the longest title in the first 100 real songs:
-#    real_titles = [s["title"] for s in SONGS[:100]]
-#    print(longest_title(real_titles))
+# real_titles = [s["title"] for s in SONGS[:100]]
+# print(longest_title(real_titles))
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
@@ -121,12 +121,12 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 #    and "artist" keys) and RETURNS how many songs match.
 #    Test it on sample_playlist below:
 #
-#    sample_playlist = [
-#        {"title": "Blinding Lights", "artist": "The Weeknd"},
-#        {"title": "Save Your Tears", "artist": "The Weeknd"},
-#        {"title": "Levitating",      "artist": "Dua Lipa"},
-#    ]
-#    print(count_by_artist(sample_playlist, "The Weeknd"))  # 2
+# sample_playlist = [
+#     {"title": "Blinding Lights", "artist": "The Weeknd"},
+#     {"title": "Save Your Tears", "artist": "The Weeknd"},
+#     {"title": "Levitating",      "artist": "Dua Lipa"},
+# ]
+# print(count_by_artist(sample_playlist, "The Weeknd"))  # 2
 #
 #  - Write a function called search(songs, keyword) that returns
 #    a list of titles containing the keyword (case-insensitive).

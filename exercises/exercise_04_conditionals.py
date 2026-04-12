@@ -76,10 +76,10 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 #  Come back to this section after you've done that exercise!
 #
 #  Run your energy check on real songs:
-#    for s in SONGS[:10]:
-#        title = s["title"]
-#        bpm   = s["bpm"]
-#        # your if/elif/else logic here
+# for s in SONGS[:10]:
+#     title = s["title"]
+#     bpm   = s["bpm"]
+#     # your if/elif/else logic here
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
@@ -87,13 +87,13 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 #  - Count how many songs fall into each energy category
 #    (use three counter variables) and print a summary
 #    at the end:
-#      high_count = 0
-#      mid_count  = 0
-#      slow_count = 0
+# high_count = 0
+# mid_count  = 0
+# slow_count = 0
 #
 #  - Run the same check on the first 10 songs in SONGS.
 #    (access each song's BPM with s["bpm"] and title with s["title"])
 #
 #  - Use `and` to combine two conditions. For example,
 #    only classify a song if its BPM is between 60 and 200:
-#      if bpm >= 60 and bpm <= 200:
+# if bpm >= 60 and bpm <= 200:
