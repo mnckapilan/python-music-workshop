@@ -53,8 +53,10 @@ Over the next **2 hours** you'll learn the core building blocks of Python — us
 <div class="slide-footer-note"><strong>Finished early?</strong> Scroll to the <strong>Extension Challenge</strong> at the bottom of your exercise file — or open the <strong>Data Explorer</strong> to browse 9,000+ real songs.</div>
 
 ---
+
 layout: center
 class: exercise-header
+
 ---
 
 # Exercise 0
@@ -140,7 +142,7 @@ If you see this, you're all good:
 3. Find your workshop folder → select it → click **Open**
 4. You'll see the `exercises` folder appear in the left panel
 
-> **Mac:** if VS Code asks *"Do you trust the authors?"* → click **Yes, I trust the authors**
+> **Mac:** if VS Code asks _"Do you trust the authors?"_ → click **Yes, I trust the authors**
 
 <FileHint file="exercise_00_setup_check.py" />
 
@@ -148,7 +150,7 @@ If you see this, you're all good:
 
 # Step 4 — Run your first exercise
 
-Open the terminal *inside* VS Code:
+Open the terminal _inside_ VS Code:
 
 Press `` Ctrl+` `` — the **backtick** key, top-left of the keyboard next to `1`
 
@@ -169,8 +171,10 @@ Everything is set up correctly — you're ready to go!
 <FileHint file="exercise_00_setup_check.py" />
 
 ---
+
 layout: center
 class: exercise-header
+
 ---
 
 # Exercise 1
@@ -244,8 +248,10 @@ Now Playing: <title> by <artist> | Released: <year> | Duration: <duration> mins
 <ExerciseTimer />
 
 ---
+
 layout: center
 class: exercise-header
+
 ---
 
 # Exercise 2
@@ -311,8 +317,10 @@ playlist.insert(0, "Flowers")    # insert at position 0 (the start)`
 <ExerciseTimer />
 
 ---
+
 layout: center
 class: exercise-header
+
 ---
 
 # Exercise 3
@@ -421,8 +429,10 @@ for i, song in enumerate(playlist, start=1):
 <ExerciseTimer />
 
 ---
+
 layout: center
 class: exercise-header
+
 ---
 
 # Exercise 4
@@ -506,8 +516,10 @@ For each song the loop picks up its BPM, then the `if` decides which branch runs
 <ExerciseTimer />
 
 ---
+
 layout: center
 class: exercise-header
+
 ---
 
 # Exercise 5
@@ -576,8 +588,10 @@ for track_num, track_title in album["tracks"].items():
 <ExerciseTimer />
 
 ---
+
 layout: center
 class: exercise-header
+
 ---
 
 # Exercise 6
@@ -682,8 +696,10 @@ Longest title: Someone Like You (16 characters)
 <ExerciseTimer />
 
 ---
+
 layout: center
 class: exercise-header
+
 ---
 
 # Exercise 7
@@ -765,8 +781,8 @@ for i, song in enumerate(lines, start=1):
 <ExerciseTimer />
 
 ---
-layout: center
----
+
+## layout: center
 
 # You've made it through all 7 exercises!
 
@@ -783,8 +799,8 @@ layout: center
 </div>
 
 ---
-layout: center
----
+
+## layout: center
 
 # Want to explore 9,000+ real songs?
 
