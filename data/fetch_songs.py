@@ -170,7 +170,7 @@ def normalise(raw: dict) -> dict:
     track_exp      = raw.get("trackExplicitness", "notExplicit")
     collection_exp = raw.get("collectionExplicitness", "notExplicit")
     explicit = track_exp in ("explicit", "cleaned") or collection_exp == "explicit"
-    duration = round(raw.get("trackTimeMillis", 0) / 60000, 2)
+    duration = round(raw.get("trackTimeMillis", 0) / 1000)
     year     = int(raw.get("releaseDate", "2020")[:4])
     return {
         "title":      raw["trackName"],

@@ -14,10 +14,12 @@ This guide walks you through everything before you write your first line of Pyth
 ### Unzip it
 
 **Mac**
+
 1. Double-click the `.zip` file
 2. A folder appears next to it — that's your workshop folder
 
 **Windows**
+
 1. Right-click the `.zip` file
 2. Choose **Extract All…**, then click **Extract**
 3. A folder appears — that's your workshop folder
@@ -59,8 +61,8 @@ There's a webpage where you can browse 9,000+ real songs and see the Python code
 
 ## Quick reference
 
-| What | How |
-|------|-----|
-| Open the workshop | saarai.dev → File → Open Folder |
-| Run an exercise | Open the file in the left panel → click Run |
-| Browse songs | tinyurl.com/7tdxxp57 |
+| What              | How                                         |
+| ----------------- | ------------------------------------------- |
+| Open the workshop | saarai.dev → File → Open Folder             |
+| Run an exercise   | Open the file in the left panel → click Run |
+| Browse songs      | tinyurl.com/7tdxxp57                        |

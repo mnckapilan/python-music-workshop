@@ -14,7 +14,7 @@
 song_title = "Blinding Lights"
 artist     = "The Weeknd"
 year       = 2019
-duration   = 3.22   # minutes
+duration   = 202   # seconds
 
 print(song_title)
 print(artist)
@@ -31,16 +31,16 @@ print(f"Now Playing: {song_title} by {artist} ({year})")
 #  1. Replace the values below with details of YOUR favourite
 #     song — type them in directly.
 #  2. Add a variable called `duration` for the song length
-#     in minutes (e.g. 3.45).
+#     in seconds (e.g. 214).
 #  3. Use an f-string to print:
-#     Now Playing: <title> by <artist> | Released: <year> | Duration: <duration> mins
+#     Now Playing: <title> by <artist> | Released: <year> | Duration: <duration>s
 
 # Start your code here 👇
 
 my_song_title = "YOUR SONG HERE"
 my_artist     = "YOUR ARTIST HERE"
 my_year       = 0000
-my_duration   = 0.00
+my_duration   = 0
 
 # Print your f-string below:
 
