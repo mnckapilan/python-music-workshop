@@ -67,14 +67,14 @@ my_lyric = "YOUR LYRIC HERE"
 # ------------------------------------------------------------
 #  Browse the full library visually: tinyurl.com/7tdxxp57
 #
-from music_data import SONGS   # 9,000+ real songs, ready to use
+from music_data import song_library   # 9,000+ real songs, ready to use
 #
 #  Try looping over real data:
-# for s in SONGS[:10]:
+# for s in song_library[:10]:
 #     print(s["title"], "–", s["artist"])
 #
 #  Or use real titles as your playlist:
-# real_playlist = [s["title"] for s in SONGS[:5]]
+# real_playlist = [s["title"] for s in song_library[:5]]
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
@@ -83,5 +83,5 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 #    titles combined (add up len(song) for each song).
 #  - Loop through the playlist BACKWARDS: my_playlist[::-1]
 #  - Print only songs whose title is longer than 10 characters.
-#  - Loop over all songs in SONGS and print only the ones
+#  - Loop over all songs in song_library and print only the ones
 #    with a title longer than 15 characters.

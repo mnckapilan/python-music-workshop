@@ -50,12 +50,12 @@ my_duration   = 0
 # ------------------------------------------------------------
 #  Browse the full library visually: tinyurl.com/7tdxxp57
 #
-from music_data import SONGS   # 9,000+ real songs, ready to use
+from music_data import song_library   # 9,000+ real songs, ready to use
 #
 #  Print a song to see everything stored about it:
-# print(SONGS[0])     # first song
-# print(SONGS[5])     # change the number to pick a different one
-# print(SONGS[100])
+# print(song_library[0])     # first song
+# print(song_library[5])     # change the number to pick a different one
+# print(song_library[100])
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
@@ -64,6 +64,6 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 #    and print a second line:  Genre: <genre>
 #  - Try printing the artist name in ALL CAPS:
 # print(my_artist.upper())
-#  - Loop through the first 10 songs in SONGS and print each one:
-# for s in SONGS[:10]:
+#  - Loop through the first 10 songs in song_library and print each one:
+# for s in song_library[:10]:
 #     print(s)   # you'll learn how to pick out individual fields in Exercise 5

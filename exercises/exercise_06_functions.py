@@ -100,16 +100,16 @@ sample_songs = [
 # ------------------------------------------------------------
 #  Browse the full library visually: tinyurl.com/7tdxxp57
 #
-from music_data import SONGS   # 9,000+ real songs, ready to use
+from music_data import song_library   # 9,000+ real songs, ready to use
 #
 #  Pass a real song to describe_song():
-# describe_song(SONGS[0]["title"], SONGS[0]["artist"], SONGS[0]["year"])
+# describe_song(song_library[0]["title"], song_library[0]["artist"], song_library[0]["year"])
 #
 #  Pass a real song to now_playing():
-# now_playing(SONGS[0]["title"], SONGS[0]["artist"])
+# now_playing(song_library[0]["title"], song_library[0]["artist"])
 #
 #  Find the longest title in the first 100 real songs:
-# real_titles = [s["title"] for s in SONGS[:100]]
+# real_titles = [s["title"] for s in song_library[:100]]
 # print(longest_title(real_titles))
 
 # ------------------------------------------------------------

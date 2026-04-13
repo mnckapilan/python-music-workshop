@@ -53,15 +53,15 @@ my_playlist = [
 # ------------------------------------------------------------
 #  Browse the full library visually: tinyurl.com/7tdxxp57
 #
-from music_data import SONGS   # 9,000+ real songs, ready to use
+from music_data import song_library   # 9,000+ real songs, ready to use
 #
 #  Browse the library:
-# print(SONGS[0]["title"])                        # one title
-# for s in SONGS[:10]:
+# print(song_library[0]["title"])                        # one title
+# for s in song_library[:10]:
 #     print(s["title"], "–", s["artist"])        # first 10 songs
 #
 #  Build a playlist straight from the library:
-# real_playlist = [s["title"] for s in SONGS[:5]]
+# real_playlist = [s["title"] for s in song_library[:5]]
 # print(real_playlist)
 
 # ------------------------------------------------------------
@@ -71,5 +71,5 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 #    Hint: use len() on each string inside a loop.
 #  - Sort the playlist alphabetically: my_playlist.sort()
 #  - Reverse the playlist: my_playlist.reverse()
-#  - Try using all songs from SONGS as your playlist and
+#  - Try using all songs from song_library as your playlist and
 #    find the longest title across the whole library.

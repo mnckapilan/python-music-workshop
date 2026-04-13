@@ -74,13 +74,13 @@ for i, title in enumerate(my_titles):
 # ------------------------------------------------------------
 #  Browse the full library visually: tinyurl.com/7tdxxp57
 #
-from music_data import SONGS   # 9,000+ real songs, ready to use
+from music_data import song_library   # 9,000+ real songs, ready to use
 #
-#  SONGS uses a format called dictionaries — covered in Exercise 5.
+#  song_library uses a format called dictionaries — covered in Exercise 5.
 #  Come back to this section after you've done that exercise!
 #
 #  Run your energy check on real songs:
-# for s in SONGS[:10]:
+# for s in song_library[:10]:
 #     title = s["title"]
 #     bpm   = s["bpm"]
 #     # your if/elif/else logic here
@@ -95,7 +95,7 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 # mid_count  = 0
 # slow_count = 0
 #
-#  - Run the same check on the first 10 songs in SONGS.
+#  - Run the same check on the first 10 songs in song_library.
 #    (access each song's BPM with s["bpm"] and title with s["title"])
 #
 #  - Use `and` to combine two conditions. For example,

@@ -10,16 +10,16 @@
 #
 # ============================================================
 
-from music_data import SONGS   # 9,000+ real songs
+from music_data import song_library   # 9,000+ real songs
 
 # Each song is a dictionary with these fields:
 #   title, artist, album, year, genre, bpm,
 #   duration (whole seconds, e.g. 214), explicit, play_count
 #
 # Uncomment to remind yourself what one looks like:
-# print(SONGS[0])
+# print(song_library[0])
 
-MIN_SONGS = 20   # only rank artists who have at least this many songs
+MIN_song_library = 20   # only rank artists who have at least this many songs
 
 
 # ------------------------------------------------------------
@@ -33,7 +33,7 @@ MIN_SONGS = 20   # only rank artists who have at least this many songs
 #  list of integers — one duration (in seconds) per song.
 #
 #  HOW TO APPROACH IT
-#  Loop over SONGS. For each song you need to:
+#  Loop over song_library. For each song you need to:
 #    1. Check whether this artist already has a list in the dict.
 #       If not, create an empty one first:
 #
@@ -57,7 +57,7 @@ artist_songs = {}
 #    - each VALUE is their average song duration in seconds
 #                 (rounded to a whole number)
 #
-#  Only include artists with at least MIN_SONGS songs —
+#  Only include artists with at least MIN_song_library songs —
 #  a sample of 2 or 3 songs isn't a fair picture of an artist.
 #
 #  HOW TO APPROACH IT
@@ -69,7 +69,7 @@ artist_songs = {}
 #
 #  FILTERING — skip artists with too few songs:
 #
-#    if len(durations) < MIN_SONGS:
+#    if len(durations) < MIN_song_library:
 #        continue          # skip to the next artist
 #
 #  AVERAGING — Python has built-in functions for this:
@@ -168,7 +168,7 @@ def format_seconds(seconds):
 #     duration across all their songs. Hint: sum(artist_songs[a])
 #     gives the total. You could use format_seconds() here too.
 #
-#  C) SONGS OVER 5 MINUTES
+#  C) song_library OVER 5 MINUTES
 #     Which artists have the most songs longer than 300 seconds?
 #     For each artist, count how many of their songs exceed 300s,
 #     then print the top 5.
