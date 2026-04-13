@@ -86,6 +86,8 @@ my_album = {
 # ------------------------------------------------------------
 #  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
 # ------------------------------------------------------------
+#  Browse the full library visually: tinyurl.com/7tdxxp57
+#
 from music_data import SONGS   # 9,000+ real songs, ready to use
 #
 #  Each song is already a dictionary — print one to see all its keys:

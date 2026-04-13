@@ -51,6 +51,8 @@ my_playlist = [
 # ------------------------------------------------------------
 #  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
 # ------------------------------------------------------------
+#  Browse the full library visually: tinyurl.com/7tdxxp57
+#
 from music_data import SONGS   # 9,000+ real songs, ready to use
 #
 #  Browse the library:
