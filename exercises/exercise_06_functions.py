@@ -114,7 +114,9 @@ from music_data import song_library   # 9,000+ real songs, ready to use
 describe_song(song_library[0]["title"], song_library[0]["artist"], song_library[0]["year"])
 
 #  Find the longest title in the first 100 real songs:
-real_titles = [s["title"] for s in song_library[:100]]
+real_titles = []
+for s in song_library[:100]:
+    real_titles.append(s["title"])
 longest_title(real_titles)
 
 # ------------------------------------------------------------

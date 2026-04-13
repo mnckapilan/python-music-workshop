@@ -79,7 +79,9 @@ from music_data import song_library   # 9,000+ real songs, ready to use
 #     print(s["title"], "–", s["artist"])        # first 10 songs
 #
 #  Build a playlist straight from the library:
-# real_playlist = [s["title"] for s in song_library[:5]]
+# real_playlist = []
+# for s in song_library[:5]:
+#     real_playlist.append(s["title"])
 # print(real_playlist)
 
 # ------------------------------------------------------------
