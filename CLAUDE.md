@@ -34,7 +34,6 @@ Each exercise follows the same pattern:
 
 - Exercise 07 writes/reads `my_playlist.txt` (gitignored)
 - Exercises are designed to be assigned individually — concepts build progressively but each file is self-contained
-- Volunteer setup notes are in `setup/VOLUNTEER_GUIDE.md`
 - Music data is in `data/songs.json` (bundled, no internet needed for exercises)
 - Data Explorer (hosted GitHub page) is at tinyurl.com/7tdxxp57
 - Slides are in a separate repo: github.com/mnckapilan/python-workshop-slides
