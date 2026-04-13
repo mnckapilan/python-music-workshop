@@ -37,13 +37,13 @@ print(f"Now Playing: {song_title} by {artist} | Released: {year} | Duration: {du
 
 # Start your code here 👇
 
-my_song_title = "YOUR SONG HERE"
-my_artist     = "YOUR ARTIST HERE"
-my_year       = 0000
-my_duration   = 0
+my_song_title = "Heat Waves"
+my_artist     = "Glass Animals"
+my_year       = 2020
+my_duration   = 234
 
 # Print your f-string below:
-
+print(f"Now Playing: {my_song_title} by {my_artist} | Released: {my_year} | Duration: {my_duration}s")
 
 # ------------------------------------------------------------
 #  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
@@ -62,8 +62,12 @@ from music_data import song_library   # 9,000+ real songs, ready to use
 # ------------------------------------------------------------
 #  - Add a variable called `genre` (e.g. "Pop", "Grime", "R&B")
 #    and print a second line:  Genre: <genre>
+my_genre = "Indie Pop"
+print(f"Genre: {my_genre}")
+
 #  - Try printing the artist name in ALL CAPS:
-# print(my_artist.upper())
+print(my_artist.upper())
+
 #  - Loop through the first 10 songs in song_library and print each one:
-# for s in song_library[:10]:
-#     print(s)   # you'll learn how to pick out individual fields in Exercise 5
+for s in song_library[:10]:
+    print(s)   # you'll learn how to pick out individual fields in Exercise 5

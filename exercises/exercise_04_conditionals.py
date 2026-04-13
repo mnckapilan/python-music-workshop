@@ -61,13 +61,19 @@ for i, title in enumerate(titles):
 
 # Start your code here 👇
 
-my_titles = ["Song One", "Song Two"]   # add more...
-my_bpms   = [120,        85]           # matching BPMs
+my_titles = ["Heat Waves", "Blinding Lights", "Levitating", "Someone Like You", "Ultralight Beam", "Superhero"]
+my_bpms   = [89,           171,               103,          67,                 87,                186]
 
 for i, title in enumerate(my_titles):
     bpm = my_bpms[i]
-    pass   # replace 'pass' with your if/elif/else logic
-
+    if bpm > 180:
+        print(f"Skipping {title} — too fast!")
+    elif bpm > 130:
+        print(f"{title} — High energy")
+    elif bpm >= 90:
+        print(f"{title} — Mid-tempo")
+    else:
+        print(f"{title} — Slow")
 
 # ------------------------------------------------------------
 #  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
@@ -78,26 +84,45 @@ from music_data import song_library   # 9,000+ real songs, ready to use
 #
 #  song_library uses a format called dictionaries — covered in Exercise 5.
 #  Come back to this section after you've done that exercise!
-#
-#  Run your energy check on real songs:
-# for s in song_library[:10]:
-#     title = s["title"]
-#     bpm   = s["bpm"]
-#     # your if/elif/else logic here
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
 # ------------------------------------------------------------
-#  - Count how many songs fall into each energy category
-#    (use three counter variables) and print a summary
-#    at the end:
-# high_count = 0
-# mid_count  = 0
-# slow_count = 0
-#
-#  - Run the same check on the first 10 songs in song_library.
-#    (access each song's BPM with s["bpm"] and title with s["title"])
-#
-#  - Use `and` to combine two conditions. For example,
-#    only classify a song if its BPM is between 60 and 200:
-# if bpm >= 60 and bpm <= 200:
+#  - Count how many songs fall into each energy category:
+high_count = 0
+mid_count  = 0
+slow_count = 0
+
+for i, title in enumerate(my_titles):
+    bpm = my_bpms[i]
+    if bpm > 180:
+        pass   # skipped — not counted
+    elif bpm > 130:
+        high_count += 1
+    elif bpm >= 90:
+        mid_count += 1
+    else:
+        slow_count += 1
+
+print(f"High energy: {high_count} | Mid-tempo: {mid_count} | Slow: {slow_count}")
+
+#  - Run the same check on the first 10 songs in song_library:
+print("---")
+for s in song_library[:10]:
+    title = s["title"]
+    bpm   = s["bpm"]
+    if bpm > 180:
+        print(f"Skipping {title} — too fast!")
+    elif bpm > 130:
+        print(f"{title} — High energy")
+    elif bpm >= 90:
+        print(f"{title} — Mid-tempo")
+    else:
+        print(f"{title} — Slow")
+
+#  - Use `and` to combine two conditions:
+#    only classify if BPM is between 60 and 200:
+for s in song_library[:10]:
+    bpm = s["bpm"]
+    if bpm >= 60 and bpm <= 200:
+        print(f"{s['title']}: valid BPM ({bpm})")

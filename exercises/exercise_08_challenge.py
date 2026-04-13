@@ -48,6 +48,11 @@ MIN_song_library = 20   # only rank artists who have at least this many songs
 
 artist_songs = {}
 
+for song in song_library:
+    if song["artist"] not in artist_songs:
+        artist_songs[song["artist"]] = []
+    artist_songs[song["artist"]].append(song["duration"])
+
 
 # ------------------------------------------------------------
 #  TASK 2 — Compute each artist's average song duration
@@ -82,6 +87,14 @@ artist_songs = {}
 
 artist_avg = {}
 
+for artist, durations in artist_songs.items():
+    if len(durations) < MIN_song_library:
+        continue
+    total   = sum(durations)
+    count   = len(durations)
+    average = round(total / count)
+    artist_avg[artist] = average
+
 
 # ------------------------------------------------------------
 #  TASK 3 — Sort, slice, and print
@@ -114,6 +127,24 @@ artist_avg = {}
 #        print(f"{rank}. {artist} — {avg}s ({count} songs)")
 
 # Your code here 👇
+
+def get_avg(pair):
+    return pair[1]
+
+ranked  = sorted(artist_avg.items(), key=get_avg)
+shortest = ranked[:5]
+longest  = ranked[-5:]
+
+print("Shortest average songs:")
+for rank, (artist, avg) in enumerate(shortest, start=1):
+    count = len(artist_songs[artist])
+    print(f"{rank}. {artist:<20} {avg}s ({count} songs)")
+
+print()
+print("Longest average songs:")
+for rank, (artist, avg) in enumerate(longest, start=1):
+    count = len(artist_songs[artist])
+    print(f"{rank}. {artist:<20} {avg}s ({count} songs)")
 
 
 # ============================================================
@@ -161,14 +192,53 @@ artist_avg = {}
 #       print(f"{rank}. {artist} — {format_seconds(avg)} ...")
 
 def format_seconds(seconds):
-    pass   # replace with your code
+    mins = seconds // 60
+    secs = seconds % 60
+    return f"{mins}m {secs:02d}s"
+
+# Re-print with pretty durations:
+print()
+print("Shortest average songs (formatted):")
+for rank, (artist, avg) in enumerate(shortest, start=1):
+    count = len(artist_songs[artist])
+    print(f"{rank}. {artist:<20} {format_seconds(avg)} ({count} songs)")
+
+print()
+print("Longest average songs (formatted):")
+for rank, (artist, avg) in enumerate(longest, start=1):
+    count = len(artist_songs[artist])
+    print(f"{rank}. {artist:<20} {format_seconds(avg)} ({count} songs)")
 
 #  B) MOST MUSIC OVERALL
-#     Add a third section: the 5 artists with the highest TOTAL
-#     duration across all their songs. Hint: sum(artist_songs[a])
-#     gives the total. You could use format_seconds() here too.
-#
-#  C) song_library OVER 5 MINUTES
-#     Which artists have the most songs longer than 300 seconds?
-#     For each artist, count how many of their songs exceed 300s,
-#     then print the top 5.
+artist_total = {}
+for artist, durations in artist_songs.items():
+    if len(durations) >= MIN_song_library:
+        artist_total[artist] = sum(durations)
+
+def get_total(pair):
+    return pair[1]
+
+total_ranked = sorted(artist_total.items(), key=get_total, reverse=True)
+
+print()
+print("Most music overall (top 5 by total duration):")
+for rank, (artist, total) in enumerate(total_ranked[:5], start=1):
+    count = len(artist_songs[artist])
+    print(f"{rank}. {artist:<20} {format_seconds(total)} ({count} songs)")
+
+#  C) SONGS OVER 5 MINUTES
+long_song_count = {}
+for artist, durations in artist_songs.items():
+    count = sum(1 for d in durations if d > 300)
+    if count > 0:
+        long_song_count[artist] = count
+
+def get_count(pair):
+    return pair[1]
+
+long_ranked = sorted(long_song_count.items(), key=get_count, reverse=True)
+
+print()
+print("Most songs over 5 minutes (top 5):")
+for rank, (artist, count) in enumerate(long_ranked[:5], start=1):
+    print(f"{rank}. {artist:<20} {count} songs over 5 min")

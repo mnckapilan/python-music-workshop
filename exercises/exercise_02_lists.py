@@ -43,10 +43,28 @@ print(playlist)
 # Start your code here 👇
 
 my_playlist = [
-    # add your songs here
+    "Heat Waves",
+    "Blinding Lights",
+    "Levitating",
+    "As It Was",
+    "Stay",
+    "Bad Habit",
 ]
 
+# Task 2 — print the entire playlist
+print(my_playlist)
 
+# Task 3 — print only the THIRD song (index 2)
+print(my_playlist[2])
+
+# Task 4 — add a new song to the end
+my_playlist.append("Flowers")
+
+# Task 5 — remove one song
+my_playlist.remove("Stay")
+
+# Task 6 — print total number of songs
+print(len(my_playlist))
 
 # ------------------------------------------------------------
 #  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
@@ -68,8 +86,23 @@ from music_data import song_library   # 9,000+ real songs, ready to use
 #  🎸 EXTENSION CHALLENGE
 # ------------------------------------------------------------
 #  - Find the song with the longest title.
-#    Hint: use len() on each string inside a loop.
-#  - Sort the playlist alphabetically: my_playlist.sort()
-#  - Reverse the playlist: my_playlist.reverse()
-#  - Try using all songs from song_library as your playlist and
-#    find the longest title across the whole library.
+longest = my_playlist[0]
+for song in my_playlist:
+    if len(song) > len(longest):
+        longest = song
+print(f"Longest title in my playlist: {longest}")
+
+#  - Sort the playlist alphabetically:
+my_playlist.sort()
+print(my_playlist)
+
+#  - Reverse the playlist:
+my_playlist.reverse()
+print(my_playlist)
+
+#  - Find the longest title across the whole library:
+longest_in_library = song_library[0]["title"]
+for s in song_library:
+    if len(s["title"]) > len(longest_in_library):
+        longest_in_library = s["title"]
+print(f"Longest title in library: {longest_in_library} ({len(longest_in_library)} characters)")

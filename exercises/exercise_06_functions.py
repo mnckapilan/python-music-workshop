@@ -75,12 +75,16 @@ for i, title in enumerate(titles):
 
 # Task 1
 def describe_song(title, artist, year):
-    pass   # replace with your code
+    print(f"{title} by {artist} ({year})")
 
 
 # Task 2
 def longest_title(songs):
-    pass   # replace with your code
+    longest = songs[0]
+    for song in songs:
+        if len(song) > len(longest):
+            longest = song
+    print(f"Longest title: {longest} ({len(longest)} characters)")
 
 
 sample_songs = [
@@ -93,7 +97,11 @@ sample_songs = [
 ]
 
 # Call your functions here:
+describe_song("Heat Waves", "Glass Animals", 2020)
+describe_song("Blinding Lights", "The Weeknd", 2019)
+describe_song("As It Was", "Harry Styles", 2022)
 
+longest_title(sample_songs)
 
 # ------------------------------------------------------------
 #  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
@@ -101,36 +109,46 @@ sample_songs = [
 #  Browse the full library visually: tinyurl.com/7tdxxp57
 #
 from music_data import song_library   # 9,000+ real songs, ready to use
-#
+
 #  Pass a real song to describe_song():
-# describe_song(song_library[0]["title"], song_library[0]["artist"], song_library[0]["year"])
-#
-#  Pass a real song to now_playing():
-# now_playing(song_library[0]["title"], song_library[0]["artist"])
-#
+describe_song(song_library[0]["title"], song_library[0]["artist"], song_library[0]["year"])
+
 #  Find the longest title in the first 100 real songs:
-# real_titles = [s["title"] for s in song_library[:100]]
-# print(longest_title(real_titles))
+real_titles = [s["title"] for s in song_library[:100]]
+longest_title(real_titles)
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
 # ------------------------------------------------------------
-#  - Add classify_bpm() to your now_playing() function so it
-#    prints the energy label too. You already have classify_bpm —
-#    just call it inside now_playing().
-#
-#  - Write a function called count_by_artist(songs, artist)
-#    that takes a list of song dictionaries (each with "title"
-#    and "artist" keys) and RETURNS how many songs match.
-#    Test it on sample_playlist below:
-#
-# sample_playlist = [
-#     {"title": "Blinding Lights", "artist": "The Weeknd"},
-#     {"title": "Save Your Tears", "artist": "The Weeknd"},
-#     {"title": "Levitating",      "artist": "Dua Lipa"},
-# ]
-# print(count_by_artist(sample_playlist, "The Weeknd"))  # 2
-#
-#  - Write a function called search(songs, keyword) that returns
-#    a list of titles containing the keyword (case-insensitive).
-#    Hint: use keyword.lower() and title.lower()
+#  - Add classify_bpm() to now_playing() so it prints the energy label too:
+def now_playing_with_bpm(title, artist, bpm):
+    label = classify_bpm(bpm)
+    print(f"▶  {title} — {artist} [{label}]")
+
+now_playing_with_bpm("Heat Waves", "Glass Animals", 89)
+now_playing_with_bpm("Blinding Lights", "The Weeknd", 171)
+
+#  - Write a function called count_by_artist:
+def count_by_artist(songs, artist):
+    count = 0
+    for song in songs:
+        if song["artist"] == artist:
+            count += 1
+    return count
+
+sample_playlist = [
+    {"title": "Blinding Lights", "artist": "The Weeknd"},
+    {"title": "Save Your Tears", "artist": "The Weeknd"},
+    {"title": "Levitating",      "artist": "Dua Lipa"},
+]
+print(count_by_artist(sample_playlist, "The Weeknd"))  # 2
+
+#  - Write a function called search that returns titles matching a keyword:
+def search(songs, keyword):
+    results = []
+    for song in songs:
+        if keyword.lower() in song["title"].lower():
+            results.append(song["title"])
+    return results
+
+print(search(song_library, "love"))

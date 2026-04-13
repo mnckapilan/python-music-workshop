@@ -16,4 +16,4 @@
 #    • Click on the line and press Cmd+/ (Mac) or Ctrl+/ (Windows)
 #  Then click Run. If you see the message, you're all set!
 
-# print("Everything is set up correctly — you're ready to go!")
+print("Everything is set up correctly — you're ready to go!")

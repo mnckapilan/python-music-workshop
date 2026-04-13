@@ -62,14 +62,31 @@ os.remove("example_playlist.txt")
 # Start your code here 👇
 
 my_playlist = [
-    # add your songs here as "Title – Artist" strings
+    "Heat Waves – Glass Animals",
+    "Blinding Lights – The Weeknd",
+    "Levitating – Dua Lipa",
+    "As It Was – Harry Styles",
+    "Bad Habit – Steve Lacy",
+    "Flowers – Miley Cyrus",
 ]
 
 # Step 1 — write to file:
+with open("my_playlist.txt", "w") as f:
+    for song in my_playlist:
+        f.write(song + "\n")
 
+print("Playlist saved!")
 
 # Step 2 — read back and print:
+with open("my_playlist.txt", "r") as f:
+    lines = f.readlines()
 
+print(f"Loaded {len(lines)} songs:")
+for i, song in enumerate(lines, start=1):
+    print(f"{i}. {song.strip()}")
+
+# Clean up
+os.remove("my_playlist.txt")
 
 # ------------------------------------------------------------
 #  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
@@ -77,20 +94,32 @@ my_playlist = [
 #  Browse the full library visually: tinyurl.com/7tdxxp57
 #
 from music_data import song_library   # 9,000+ real songs, ready to use
-#
-#  Build your playlist from real songs instead of typing them:
-# my_playlist = [f"{s['title']} – {s['artist']}" for s in song_library[:5]]
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
 # ------------------------------------------------------------
-#  - Wrap your code into two reusable functions (from exercise 6!):
-#      save_playlist(filename, playlist)
-#      load_playlist(filename)  → returns a list of strings
-#
-#  - Instead of "Title – Artist", store each song as
-#    "Title,Artist,Year" (comma-separated) using real song_library data:
-# real_playlist = [f"{s['title']},{s['artist']},{s['year']}" for s in song_library[:10]]
-#    When reading back, split each line and print each field separately:
-#     parts = line.strip().split(",")
-#     print(f"Title: {parts[0]}, Artist: {parts[1]}, Year: {parts[2]}")
+#  - Wrap your code into two reusable functions:
+def save_playlist(filename, playlist):
+    with open(filename, "w") as f:
+        for song in playlist:
+            f.write(song + "\n")
+
+def load_playlist(filename):
+    with open(filename, "r") as f:
+        return [line.strip() for line in f.readlines()]
+
+save_playlist("my_playlist.txt", my_playlist)
+loaded = load_playlist("my_playlist.txt")
+print(loaded)
+os.remove("my_playlist.txt")
+
+#  - Store each song as "Title,Artist,Year" using real song data:
+real_playlist = [f"{s['title']},{s['artist']},{s['year']}" for s in song_library[:10]]
+save_playlist("real_playlist.txt", real_playlist)
+
+with open("real_playlist.txt", "r") as f:
+    for line in f.readlines():
+        parts = line.strip().split(",")
+        print(f"Title: {parts[0]}, Artist: {parts[1]}, Year: {parts[2]}")
+
+os.remove("real_playlist.txt")

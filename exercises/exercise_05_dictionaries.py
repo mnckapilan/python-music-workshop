@@ -64,24 +64,29 @@ print(album["label"])
 # Start your code here 👇
 
 my_album = {
-    "title":  "YOUR ALBUM TITLE",
-    "artist": "YOUR ARTIST",
-    "year":   0000,
-    "genre":  "YOUR GENRE",
+    "title":  "Dreamland",
+    "artist": "Glass Animals",
+    "year":   2020,
+    "genre":  "Indie Pop",
     "tracks": {
-        1: "First Song",
-        # add more tracks...
+        1: "Dreamland",
+        2: "Heat Waves",
+        3: "Tangerine",
+        4: "Your Love (Déjà Vu)",
+        5: "Melon and the Coconut",
     }
 }
 
 # Print title and artist:
-
+print(f"{my_album['title']} by {my_album['artist']}")
 
 # Print track listing:
-
+for track_num, track_title in my_album["tracks"].items():
+    print(f"Track {track_num}: {track_title}")
 
 # Add a new track:
-
+my_album["tracks"][6] = "Tokyo Drifting"
+print(f"Added track 6: {my_album['tracks'][6]}")
 
 # ------------------------------------------------------------
 #  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
@@ -92,29 +97,22 @@ from music_data import song_library   # 9,000+ real songs, ready to use
 #
 #  Each song is already a dictionary — print one to see all its keys:
 # print(song_library[0])
-#
-#  Access individual fields:
-# print(song_library[0]["title"])    # title
-# print(song_library[0]["album"])    # album name
-# print(song_library[0]["artist"])   # artist
-# print(song_library[0]["year"])     # release year
-# print(song_library[0]["genre"])    # genre
 
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
 # ------------------------------------------------------------
-#  - Pick any song from song_library and print all its key–value pairs
-#    using a for loop:
-# for key, value in song_library[0].items():
-#     print(f"{key}: {value}")
-#
-#  - Loop through the first 20 songs in song_library and print each
-#    one's title and genre on one line using an f-string.
-#
-#  - Find all songs in song_library from a specific year (e.g. 2020)
-#    and print how many there are:
-# count = 0
-# for s in song_library:
-#     if s["year"] == 2020:
-#         count += 1
-# print(f"Songs from 2020: {count}")
+#  - Pick any song from song_library and print all its key–value pairs:
+for key, value in song_library[0].items():
+    print(f"{key}: {value}")
+
+#  - Loop through the first 20 songs and print title and genre:
+print("---")
+for s in song_library[:20]:
+    print(f"{s['title']} — {s['genre']}")
+
+#  - Find all songs from a specific year (e.g. 2020):
+count = 0
+for s in song_library:
+    if s["year"] == 2020:
+        count += 1
+print(f"Songs from 2020: {count}")

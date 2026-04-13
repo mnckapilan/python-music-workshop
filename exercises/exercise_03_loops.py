@@ -49,18 +49,30 @@ for i, song in enumerate(playlist, start=1):
 # Start your code here 👇
 
 my_playlist = [
-    # add your songs here
+    "Heat Waves",
+    "Blinding Lights",
+    "Levitating",
+    "As It Was",
+    "Bad Habit",
+    "Flowers",
 ]
 
 # Task 1 — numbered track listing
+for i, song in enumerate(my_playlist, start=1):
+    print(f"{i}. {song}")
 
+print("---")
 
 # Task 2 — repeated chorus
-my_lyric = "YOUR LYRIC HERE"
+my_lyric = "It was always you, heat waves!"
+for i in range(4):
+    print(my_lyric)
 
+print("---")
 
 # Task 3 — UPPERCASE titles
-
+for song in my_playlist:
+    print(song.upper())
 
 # ------------------------------------------------------------
 #  🔍 EXPLORE THE REAL MUSIC LIBRARY (optional)
@@ -79,9 +91,22 @@ from music_data import song_library   # 9,000+ real songs, ready to use
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
 # ------------------------------------------------------------
-#  - Count the total number of characters across ALL song
-#    titles combined (add up len(song) for each song).
-#  - Loop through the playlist BACKWARDS: my_playlist[::-1]
-#  - Print only songs whose title is longer than 10 characters.
-#  - Loop over all songs in song_library and print only the ones
-#    with a title longer than 15 characters.
+#  - Count the total number of characters across ALL song titles combined:
+total_chars = 0
+for song in my_playlist:
+    total_chars += len(song)
+print(f"Total characters in all titles: {total_chars}")
+
+#  - Loop through the playlist BACKWARDS:
+for song in my_playlist[::-1]:
+    print(song)
+
+#  - Print only songs whose title is longer than 10 characters:
+for song in my_playlist:
+    if len(song) > 10:
+        print(song)
+
+#  - Loop over all songs in song_library and print only those with title > 15 chars:
+for s in song_library:
+    if len(s["title"]) > 15:
+        print(s["title"])
