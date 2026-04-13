@@ -14,7 +14,7 @@ from music_data import SONGS   # 9,000+ real songs
 
 # Each song is a dictionary with these fields:
 #   title, artist, album, year, genre, bpm,
-#   duration (whole seconds, e.g. 214), explicit
+#   duration (whole seconds, e.g. 214), explicit, play_count
 #
 # Uncomment to remind yourself what one looks like:
 # print(SONGS[0])

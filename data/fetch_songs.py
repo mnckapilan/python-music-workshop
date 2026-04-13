@@ -26,7 +26,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-# 65 artists — prioritising current UK/English-world student relatability
+# 70 artists — prioritising current UK/English-world student relatability
 ARTISTS = [
     # Current / recent — artists students are streaming right now
     "Sabrina Carpenter",
