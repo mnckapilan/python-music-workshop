@@ -53,6 +53,8 @@ for i, title in enumerate(titles):
 #       High energy  → BPM > 130
 #       Mid-tempo    → BPM 90–130
 #       Slow         → BPM < 90
+#     (These thresholds are different from the example above —
+#      three categories give a more precise classification.)
 #
 #  3. Add a 'skip' condition: if BPM > 180, print
 #     "Skipping <title> — too fast!" instead of the category.

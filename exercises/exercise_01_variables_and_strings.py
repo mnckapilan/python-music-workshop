@@ -23,7 +23,7 @@ print(year)
 # f-strings let you slot variables straight into text.
 # Put an f before the quote, then use {} around variable names.
 
-print(f"Now Playing: {song_title} by {artist} ({year})")
+print(f"Now Playing: {song_title} by {artist} | Released: {year} | Duration: {duration}s")
 
 # ------------------------------------------------------------
 #  YOUR TASK

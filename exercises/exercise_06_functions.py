@@ -89,6 +89,7 @@ sample_songs = [
     "Heat Waves",
     "Stay",
     "Bad Habit",
+    "Someone Like You",
 ]
 
 # Call your functions here:

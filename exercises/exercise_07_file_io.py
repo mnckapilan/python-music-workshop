@@ -84,10 +84,6 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
 # ------------------------------------------------------------
-#  - Open my_playlist.txt in APPEND mode ("a") to add one more
-#    song without overwriting the others, then re-read and print
-#    the updated list.
-#
 #  - Wrap your code into two reusable functions (from exercise 6!):
 #      save_playlist(filename, playlist)
 #      load_playlist(filename)  → returns a list of strings
