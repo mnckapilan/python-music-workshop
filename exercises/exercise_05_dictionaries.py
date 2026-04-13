@@ -103,10 +103,18 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 # ------------------------------------------------------------
 #  🎸 EXTENSION CHALLENGE
 # ------------------------------------------------------------
-#  - Print the total number of tracks using len().
-#  - Create a list of 2–3 album dictionaries and loop through
-#    all of them, printing each album's title and track count.
 #  - Pick any song from SONGS and print all its key–value pairs
 #    using a for loop:
 # for key, value in SONGS[0].items():
 #     print(f"{key}: {value}")
+#
+#  - Loop through the first 20 songs in SONGS and print each
+#    one's title and genre on one line using an f-string.
+#
+#  - Find all songs in SONGS from a specific year (e.g. 2020)
+#    and print how many there are:
+# count = 0
+# for s in SONGS:
+#     if s["year"] == 2020:
+#         count += 1
+# print(f"Songs from 2020: {count}")

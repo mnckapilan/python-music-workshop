@@ -89,7 +89,8 @@ from music_data import SONGS   # 9,000+ real songs, ready to use
 #      load_playlist(filename)  → returns a list of strings
 #
 #  - Instead of "Title – Artist", store each song as
-#    "Title,Artist,Year" (comma-separated).
-#    When reading back, split each line:
+#    "Title,Artist,Year" (comma-separated) using real SONGS data:
+# real_playlist = [f"{s['title']},{s['artist']},{s['year']}" for s in SONGS[:10]]
+#    When reading back, split each line and print each field separately:
 #     parts = line.strip().split(",")
-#    and print each field separately.
+#     print(f"Title: {parts[0]}, Artist: {parts[1]}, Year: {parts[2]}")
