@@ -138,13 +138,13 @@ longest  = ranked[-5:]
 print("Shortest average songs:")
 for rank, (artist, avg) in enumerate(shortest, start=1):
     count = len(artist_songs[artist])
-    print(f"{rank}. {artist:<20} {avg}s ({count} songs)")
+    print(f"{rank}. {artist} — {avg}s ({count} songs)")
 
 print()
 print("Longest average songs:")
 for rank, (artist, avg) in enumerate(longest, start=1):
     count = len(artist_songs[artist])
-    print(f"{rank}. {artist:<20} {avg}s ({count} songs)")
+    print(f"{rank}. {artist} — {avg}s ({count} songs)")
 
 
 # ============================================================
@@ -201,19 +201,22 @@ print()
 print("Shortest average songs (formatted):")
 for rank, (artist, avg) in enumerate(shortest, start=1):
     count = len(artist_songs[artist])
-    print(f"{rank}. {artist:<20} {format_seconds(avg)} ({count} songs)")
+    print(f"{rank}. {artist} — {format_seconds(avg)} ({count} songs)")
 
 print()
 print("Longest average songs (formatted):")
 for rank, (artist, avg) in enumerate(longest, start=1):
     count = len(artist_songs[artist])
-    print(f"{rank}. {artist:<20} {format_seconds(avg)} ({count} songs)")
+    print(f"{rank}. {artist} — {format_seconds(avg)} ({count} songs)")
 
 #  B) MOST MUSIC OVERALL
 artist_total = {}
 for artist, durations in artist_songs.items():
     if len(durations) >= MIN_song_library:
-        artist_total[artist] = sum(durations)
+        total = 0
+        for d in durations:
+            total += d
+        artist_total[artist] = total
 
 def get_total(pair):
     return pair[1]
@@ -224,12 +227,15 @@ print()
 print("Most music overall (top 5 by total duration):")
 for rank, (artist, total) in enumerate(total_ranked[:5], start=1):
     count = len(artist_songs[artist])
-    print(f"{rank}. {artist:<20} {format_seconds(total)} ({count} songs)")
+    print(f"{rank}. {artist} — {format_seconds(total)} ({count} songs)")
 
 #  C) SONGS OVER 5 MINUTES
 long_song_count = {}
 for artist, durations in artist_songs.items():
-    count = sum(1 for d in durations if d > 300)
+    count = 0
+    for d in durations:
+        if d > 300:
+            count += 1
     if count > 0:
         long_song_count[artist] = count
 
@@ -241,4 +247,4 @@ long_ranked = sorted(long_song_count.items(), key=get_count, reverse=True)
 print()
 print("Most songs over 5 minutes (top 5):")
 for rank, (artist, count) in enumerate(long_ranked[:5], start=1):
-    print(f"{rank}. {artist:<20} {count} songs over 5 min")
+    print(f"{rank}. {artist} — {count} songs over 5 min")

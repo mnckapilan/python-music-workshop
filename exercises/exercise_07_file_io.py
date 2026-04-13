@@ -106,7 +106,11 @@ def save_playlist(filename, playlist):
 
 def load_playlist(filename):
     with open(filename, "r") as f:
-        return [line.strip() for line in f.readlines()]
+        lines = f.readlines()
+    result = []
+    for line in lines:
+        result.append(line.strip())
+    return result
 
 save_playlist("my_playlist.txt", my_playlist)
 loaded = load_playlist("my_playlist.txt")
@@ -114,7 +118,9 @@ print(loaded)
 os.remove("my_playlist.txt")
 
 #  - Store each song as "Title,Artist,Year" using real song data:
-real_playlist = [f"{s['title']},{s['artist']},{s['year']}" for s in song_library[:10]]
+real_playlist = []
+for s in song_library[:10]:
+    real_playlist.append(f"{s['title']},{s['artist']},{s['year']}")
 save_playlist("real_playlist.txt", real_playlist)
 
 with open("real_playlist.txt", "r") as f:
